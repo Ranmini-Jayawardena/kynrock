@@ -6,7 +6,7 @@
           <div class="col-4 pe-4 footer_col">
             <a href="">
               <div class="footer_logo">
-                <img src="images/logo.png" alt="" class="w-100">
+                <img src="{{asset('public/frontend/images/logo.png')}}" alt="" class="w-100">
               </div>
             </a>
 
@@ -126,15 +126,15 @@
     <!-- ================================= -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js" ></script> 
-    <script src="js/bootstrap.min.js" ></script>
+    <script src="{{asset('public/frontend/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('public/frontend/js/popper.min.js')}}" ></script> 
+    <script src="{{asset('public/frontend/js/bootstrap.min.js')}}" ></script>
 
-    <script src="js/scroll_top.js"></script>
+    <script src="{{asset('public/frontend/js/scroll_top.js')}}"></script>
 
     <!-- owl carousel -->
-    <script src="owl/owl.carousel.min.js"></script>
-    <script src="owl/owl_js.js"></script>
+    <script src="{{asset('public/frontend/owl/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('public/frontend/owl/owl_js.js')}}"></script>
     <!-- owl carousel -->
 
     <script>
@@ -172,11 +172,11 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
     
     <!-- loading effect -->
-    <script src="js/aos.js"></script>
+    <script src="{{asset('public/frontend/js/aos.js')}}"></script>
 
     <!-- date picker -->
     <script src='https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js'></script>
-    <script src="date_picker/date_picker.js"></script>
+    <script src="{{asset('public/frontend/date_picker/date_picker.js')}}"></script>
     <!-- date picker -->
     
     <script>
@@ -226,7 +226,7 @@
     </script>
 
     <!-- gallery -->
-    <script src="gallery/fancybox.min.js"></script>
+    <script src="{{asset('public/frontend/gallery/fancybox.min.js')}}"></script>
     <!-- gallery -->
 
   </body>

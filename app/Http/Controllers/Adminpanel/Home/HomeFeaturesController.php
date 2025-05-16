@@ -116,7 +116,7 @@ class HomeFeaturesController extends Controller
         $data =  HomeFeatures::find($request->id);
         $data->heading = $request->heading;
         if(isset($imagePath)) {
-            $data->image = $imagePath;
+            $data->image_name = $imagePath;
         }
         $data->order = $request->order;
         $data->status = $request->status;
