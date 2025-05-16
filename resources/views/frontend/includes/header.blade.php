@@ -57,8 +57,8 @@
     <!-- Fancybox CSS -->
 
     <!-- date picker -->
-    <link rel='stylesheet' href='{{asset('date_picker/bootstrap-datepicker.min.css')}}'>
-    <link src="{{asset('date_picker/date_picker.css')}}"></link>
+    <link rel='stylesheet' href='{{asset('public/frontend/date_picker/bootstrap-datepicker.min.css')}}'>
+    <link src="{{asset('public/frontend/date_picker/date_picker.css')}}"></link>
     <!-- date picker -->
 
     <!--scroll bar style-->
@@ -108,7 +108,7 @@
           
             <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12">
               <a href="index.html">
-                <img src="images/logo_header.png" alt="" class="header_logo">
+                <img src="{{asset('public/frontend/images/logo_header.png')}}" alt="logo_header" class="header_logo">
               </a>
             </div>
 

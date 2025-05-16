@@ -91,34 +91,7 @@
             </div>
             <!-- end fullscreen button -->
 
-            <!-- multiple lang dropdown : find all flags in the flags page -->
-            <?php /* <div class="relative inline-block text-left">
-                <li class="nav-item dropdown" style="list-style: none; margin-top: 15px;">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 6px 8px; border: 1px solid #bfbfbf; background-color: #f8f8f8; font-size: 12px;">
-                        {{ Config::get('languages')[App::getLocale()] }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="padding: 10px;">
-                        @foreach (Config::get('languages') as $lang => $language)
-                        @if ($lang != App::getLocale())
-                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a><br>
-                        @endif
-                        @endforeach
-                    </div>
-                </li>
-            </div> */ ?>
-<!--            @foreach (Config::get('languages') as $lang => $language)
-                        @if ($lang != App::getLocale())
-            <div class="relative inline-block text-left">
-                <li class="nav-item" style="list-style: none; margin-top: 15px;">
-                    <a class="nav-link dropdown-toggle" href="{{ route('lang.switch', $lang) }}" id="navbarDropdownMenuLink"   style="padding: 6px 8px; border: 1px solid #bfbfbf; background-color: #f8f8f8; font-size: 12px;">
-                        {{$language}}
-                    </a>
-
-                </li>
-            </div>
-             @endif
-                        @endforeach-->
-				<!-- end multiple lang -->
+           
 
 
 

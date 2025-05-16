@@ -114,7 +114,7 @@ class MainSliderController extends Controller
 
         $data =  MainSlider::find($request->id);
         if(isset($imagePath)) {
-            $data->image = $imagePath;
+            $data->image_name = $imagePath;
         }
         $data->order = $request->order;
         $data->status = $request->status;

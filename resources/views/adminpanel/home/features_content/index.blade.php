@@ -76,7 +76,7 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image"
-                                                name="image" style="overflow: hidden;" required>
+                                                name="image" style="overflow: hidden;" >
                                         </label>
                                     </section>
                                     <section class="col col-2">

@@ -135,7 +135,7 @@
             $(function() {
                 $('#home-features-form').parsley();
 
-                $('#image').on('change', function() {
+                $('#image_name').on('change', function() {
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         $('#preview-image-before-upload').attr('src', e.target.result);

@@ -31,4 +31,9 @@ class RoomTypes extends Model
     {
         return $this->hasMany(RoomTypesImages::class, 'roomtypes_id');// Reference the correct model
     }
+    public function roomAmenities()
+{
+    return $this->hasMany(RoomAmentiesData::class, 'room_id');
+}
+
 }

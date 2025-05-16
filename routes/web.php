@@ -11,22 +11,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\HomeController;
 
 Route::get('/admin', function () {
     return view('auth.login');
     // return view('welcome');
 });
 
-// Route::get('/', function () {
-//     return view('userpanel.recruiter.recruiterform');
-//     //return view('welcome');
-// });
+Route::get('/', function () {
+    return view('frontend.home');
+    //return view('welcome');
+});
 
 
 
 
 
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 require __DIR__ . '/auth.php';
