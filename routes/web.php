@@ -27,10 +27,6 @@ Route::get('/admin', function () {
 
 
 
-Route::get('/', [RecruiterFormController::class, 'index'])->name('candidate-form');
-Route::post('new-cadidate', [RecruiterFormController::class, 'store'])->name('new-candidate');
-
-
-Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
 require __DIR__ . '/auth.php';
