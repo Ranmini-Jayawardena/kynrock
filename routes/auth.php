@@ -63,6 +63,7 @@ use App\Http\Controllers\Adminpanel\Experience\ExperienceContentController;
 use App\Http\Controllers\Adminpanel\Home\DiningContentController;
 use App\Http\Controllers\Adminpanel\Home\FeaturesContentController;
 use App\Http\Controllers\Adminpanel\Home\HomeFeaturesController;
+use App\Http\Controllers\Adminpanel\Home\LocationContentController;
 use App\Http\Controllers\Adminpanel\Home\RoomContentController;
 use App\Http\Controllers\Adminpanel\Home\TestimonialContentController;
 use App\Http\Controllers\Adminpanel\Home\VenueContentContoller;
@@ -194,6 +195,9 @@ Route::group(['middleware' => ['auth']], function () {
     //venue-content
     Route::get('venue-content-edit', [VenueContentContoller::class, 'index'])->name('venue-content-edit');
     Route::put('save-venue-content', [VenueContentContoller::class, 'update'])->name('save-venue-content');
+
+    Route::get('location-content-edit', [LocationContentController::class, 'index'])->name('location-content-edit');
+    Route::put('save-location-content', [LocationContentController::class, 'update'])->name('save-location-content');
 
     //testimonial-content
     Route::get('testimonial-content', [TestimonialContentController::class, 'index'])->name('testimonial-content');

@@ -130,14 +130,17 @@
                 <div class="des_div">
                     <div class="read-more mb-3" style="--line-clamp: 3">
                         <input id="read-more-checkbox" type="checkbox" class="read-more__checkbox" aria-hidden="true">
-                        <p class="read-more__text mb-2">{!! $welcomeContent->description !!}
+                        <div class="read-more__text mb-2">{!! $welcomeContent->description !!}
 
-                        </p>
+                        </div>
                         <input id="read-more-checkbox" type="checkbox" class="read-more__checkbox shadow-none"
                             aria-hidden="true">
                         <label for="read-more-checkbox" class="read-more__label" data-read-more="Read more"
                             data-read-less="See less" aria-hidden="true"></label>
                     </div>
+
+
+
 
                     <a href="about_us.html">
                         <button class="arrow_btn">
@@ -297,7 +300,7 @@
 <!-- Features sec start -->
 
 <div class="container-fluid img_bg feat_sec" data-speed="0.9"
-    style="background-image: url(storage/app/{{$featureContent->image}}); position: relative; z-index: -1;">
+    style="background-image: url(storage/app/{{ $featureContent->image }}); position: relative; z-index: -1;">
 </div>
 
 <div class="container">
@@ -309,16 +312,16 @@
                     Features
                 </p>
                 <h2 class="text-light" data-aos="fade-down">
-                    {{$featureContent->heading}}
+                    {{ $featureContent->heading }}
                 </h2>
                 <div class="des_div">
                     <div class="read-more mb-3" style="--line-clamp: 3">
                         <input id="read-more-feature" type="checkbox" class="read-more__checkbox text-light"
                             aria-hidden="true">
-                        <p class="read-more__text mb-2 text-light">
-                            {{ strip_tags($featureContent->description) }}
+                        <div class="read-more__text mb-2 text-light">
+                            {!! $featureContent->description !!}
 
-                        </p>
+                        </div>
                         <input id="read-more-feature" type="checkbox" class="read-more__checkbox shadow-none"
                             aria-hidden="true">
                         <label for="read-more-feature" class="read-more__label text-light" data-read-more="Read more"
@@ -327,13 +330,14 @@
 
 
                     <div class="row px-3">
-                        @foreach($homeFeatures as $homeFeature)
-                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="icon_div d-flex align-items-center gap-2 mb-3">
-                                <img src="{{asset('storage/app/' . $homeFeature->image_name)}}" alt="home feature icon">
-                                <h4 class="mb-0 text-light">{{$homeFeature->heading}}</h4>
+                        @foreach ($homeFeatures as $homeFeature)
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="icon_div d-flex align-items-center gap-2 mb-3">
+                                    <img src="{{ asset('storage/app/' . $homeFeature->image_name) }}"
+                                        alt="home feature icon">
+                                    <h4 class="mb-0 text-light">{{ $homeFeature->heading }}</h4>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
 
                     </div>
@@ -356,20 +360,30 @@
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
             <div class="swiper mySwiper custom dining_slider">
                 <div class="swiper-wrapper">
-                    @if(!empty($diningContent->image1))
-                    <div class="swiper-slide img_bg" style="background-image: url({{asset('storage/app/' .$diningContent->image1)}});"></div>
+                    @if (!empty($diningContent->image1))
+                        <div class="swiper-slide img_bg"
+                            style="background-image: url({{ asset('storage/app/' . $diningContent->image1) }});">
+                        </div>
                     @endif
-                    @if(!empty($diningContent->image2))
-                    <div class="swiper-slide img_bg" style="background-image: url({{asset('storage/app/' .$diningContent->image2)}});"></div>
+                    @if (!empty($diningContent->image2))
+                        <div class="swiper-slide img_bg"
+                            style="background-image: url({{ asset('storage/app/' . $diningContent->image2) }});">
+                        </div>
                     @endif
-                    @if(!empty($diningContent->image3))
-                    <div class="swiper-slide img_bg" style="background-image: url({{asset('storage/app/' .$diningContent->image3)}});"></div>
+                    @if (!empty($diningContent->image3))
+                        <div class="swiper-slide img_bg"
+                            style="background-image: url({{ asset('storage/app/' . $diningContent->image3) }});">
+                        </div>
                     @endif
-                     @if(!empty($diningContent->image4))
-                    <div class="swiper-slide img_bg" style="background-image: url({{asset('storage/app/' .$diningContent->image4)}});"></div>
+                    @if (!empty($diningContent->image4))
+                        <div class="swiper-slide img_bg"
+                            style="background-image: url({{ asset('storage/app/' . $diningContent->image4) }});">
+                        </div>
                     @endif
-                    @if(!empty($diningContent->image5))
-                    <div class="swiper-slide img_bg" style="background-image: url({{asset('storage/app/' .$diningContent->image5)}});"></div>
+                    @if (!empty($diningContent->image5))
+                        <div class="swiper-slide img_bg"
+                            style="background-image: url({{ asset('storage/app/' . $diningContent->image5) }});">
+                        </div>
                     @endif
                 </div>
                 <div class="swiper-pagination pagination"></div>
@@ -382,7 +396,7 @@
                 Dining at Goodwood Airport Hotel
             </p>
             <h2 data-aos="fade-down">
-                {{$diningContent->heading}}
+                {{ $diningContent->heading }}
             </h2>
             <div class="des_div">
                 <p>
@@ -418,8 +432,9 @@
         </div>
 
         <div class="col-xxl-3 col-xl-3 d-none d-xl-block position-relative" data-speed="0.95">
-            <div class="dining_img img_bg" style="background-image: url({{asset('storage/app/' . $diningContent->image6)}});"></div>
-            <img src="images/circle.png" alt="" class="dining_circle">
+            <div class="dining_img img_bg"
+                style="background-image: url({{ asset('storage/app/' . $diningContent->image6) }});"></div>
+            <img src="{{ asset('public/frontend/images/circle.png') }}" alt="" class="dining_circle">
         </div>
     </div>
 </div>
@@ -435,7 +450,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12 img_bg"
-            style="background-image: url(images/wedding.jpg); border-radius: 10px;">
+            style="background-image: url({{ asset('storage/app/' . $venueContent->image) }}); border-radius: 10px;">
         </div>
 
         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 py-5 ps-4">
@@ -443,25 +458,15 @@
                 Venues
             </p>
             <h2 data-aos="fade-down">
-                Celebrate in Style
+                {{ $venueContent->heading }}
             </h2>
             <div class="des_div">
                 <div class="read-more mb-3" style="--line-clamp: 8">
                     <input id="read-more-venue" type="checkbox" class="read-more__checkbox" aria-hidden="true">
-                    <p class="read-more__text mb-2">At Goodwood Airport Hotel, we offer versatile event spaces that are
-                        perfect for both intimate gatherings and grand celebrations. Our conference and banquet hall,
-                        which seats up to 125 guests, is equipped with multimedia boards, sound systems, and all the
-                        necessary amenities to ensure your event runs smoothly.
-                        <br><br>
-                        We specialize in hosting a variety of events, including elegant weddings, professional
-                        conferences, meetings and vibrant outdoor gatherings. Our versatile venues are perfect for both
-                        formal and casual occasions, offering options to suit every need.
-                        <br><br>
-                        For outdoor celebrations, take advantage of our picturesque beer garden or the stunning poolside
-                        area. You will also appreciate the inclusion of a dedicated kids' pool, ensuring younger guests
-                        are entertained while you enjoy your event. Whether it’s an intimate meeting or a grand
-                        celebration, our dedicated team will ensure every detail is tailored to perfection.
-                    </p>
+                    <div class="read-more__text mb-2">
+                        {!! $venueContent->description !!}
+
+                    </div>
                     <input id="read-more-venue" type="checkbox" class="read-more__checkbox shadow-none"
                         aria-hidden="true">
                     <label for="read-more-venue" class="read-more__label" data-read-more="Read more"
@@ -519,14 +524,11 @@
                 Location
             </p>
             <h2 data-aos="fade-down">
-                Explore the Vibrant Surroundings
+                {{ $locationContent->heading }}
             </h2>
             <div class="des_div">
                 <p>
-                    At Goodwood Airport Hotel, your stay is more than just comfort;it's an opportunity to explore,
-                    discover, and immerse yourself in the rich history and stunning landscapes of Negombo. Whether
-                    you're seeking adventure, relaxation, or cultural exploration, the surrounding attractions offer
-                    unforgettable experiences just minutes away.
+                    {!! $locationContent->description !!}
                 </p>
 
                 <a href="location.html">
@@ -563,156 +565,45 @@
         <!-- slider -->
         <div class="row mt-5">
             <div class="owl-carousel owl-theme expe_owl">
+                @foreach ($locationList as $location)
+                    <div class="item expe_card"
+                        style="background-image: url({{ asset('storage/app/' . $location->home_image) }});">
+                        <div class="expe_box">
+                            <h4 class="fw-bold">{{ $location->location_name }}</h4>
+                            <p class="mt-2">
+                                {{ \Illuminate\Support\Str::words(strip_tags($location->description), 25, '...') }}</p>
 
-                <div class="item expe_card" style="background-image: url(images/exp_home_negombo1.jpg);">
-                    <div class="expe_box">
-                        <h4 class="fw-bold">The Serene Negombo Beach</h4>
-                        <p class="mt-2">Located just 15 minutes from Bandaranaike International Airport and a short
-                            drive from Goodwood Airport Hotel, Negombo Beach is a vibrant coastal expanse offering a
-                            blend...</p>
 
-                        <button class="arrow_btn">
 
-                            <span class="circle">
-                                <span class="icon arrow">
-                                    <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        viewBox="0 0 512.009 512.009"
-                                        style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
-                                        <g>
-                                            <path
-                                                d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
+                            <button class="arrow_btn">
+
+                                <span class="circle">
+                                    <span class="icon arrow">
+                                        <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 512.009 512.009"
+                                            style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
                               c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
                               s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
                               c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                            </path>
-                                        </g>
-                                    </svg>
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </span>
                                 </span>
-                            </span>
 
-                            <span class="arrow_btn_text">
-                                <p>explore more</p>
-                            </span>
-
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- ========================= -->
-
-                <div class="item expe_card" style="background-image: url(images/exp_home_fort1.jpg);">
-                    <div class="expe_box">
-                        <h4 class="fw-bold">The Negombo Dutch Fort</h4>
-                        <p class="mt-2">Just a short distance from Goodwood Airport Hotel, the Negombo Dutch Fort is
-                            a must-visit destination for history enthusiasts. Originally built by the Portuguese...</p>
-
-                        <button class="arrow_btn">
-
-                            <span class="circle">
-                                <span class="icon arrow">
-                                    <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        viewBox="0 0 512.009 512.009"
-                                        style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
-                                        <g>
-                                            <path
-                                                d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                              c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                              s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                              c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                            </path>
-                                        </g>
-                                    </svg>
+                                <span class="arrow_btn_text">
+                                    <p>explore more</p>
                                 </span>
-                            </span>
 
-                            <span class="arrow_btn_text">
-                                <p>explore more</p>
-                            </span>
+                            </button>
 
-                        </button>
+                        </div>
                     </div>
-                </div>
-
-                <!-- ========================= -->
-
-                <div class="item expe_card" style="background-image: url(images/exp_home_canal1.jpg);">
-                    <div class="expe_box">
-                        <h4 class="fw-bold">Hamilton Canal ( Dutch Canal)</h4>
-                        <p class="mt-2">Looking for a relaxing and unique experience during your stay at Goodwood
-                            Hotel? The Hamilton Canal, only a short distance away...
-                        </p>
-
-                        <button class="arrow_btn">
-
-                            <span class="circle">
-                                <span class="icon arrow">
-                                    <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        viewBox="0 0 512.009 512.009"
-                                        style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
-                                        <g>
-                                            <path
-                                                d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                              c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                              s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                              c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                            </path>
-                                        </g>
-                                    </svg>
-                                </span>
-                            </span>
-
-                            <span class="arrow_btn_text">
-                                <p>explore more</p>
-                            </span>
-
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- ========================= -->
-
-                <div class="item expe_card" style="background-image: url(images/exp_home_temple.jpg);">
-                    <div class="expe_box">
-                        <h4 class="fw-bold">Angurukaramulla Temple</h4>
-                        <p class="mt-2">Located just a short distance from our hotel, the Angurukaramulla Temple in
-                            Negombo offers you a unique opportunity to step into Sri Lanka's rich cultural and spiritual
-                            history...
-                        </p>
-
-                        <button class="arrow_btn">
-
-                            <span class="circle">
-                                <span class="icon arrow">
-                                    <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        viewBox="0 0 512.009 512.009"
-                                        style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
-                                        <g>
-                                            <path
-                                                d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                              c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                              s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                              c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                            </path>
-                                        </g>
-                                    </svg>
-                                </span>
-                            </span>
-
-                            <span class="arrow_btn_text">
-                                <p>explore more</p>
-                            </span>
-
-                        </button>
-                    </div>
-                </div>
-
-                <!-- ========================= -->
+                @endforeach
 
             </div>
         </div>
@@ -745,64 +636,51 @@
                     <div id="carouselExampleCaptions1" class="carousel slide" data-bs-ride="carousel"
                         data-speed="0.95" style="position: relative; z-index: 1;">
                         <div class="carousel-indicators" style="left: 0;">
-                            <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+                            @foreach ($testimonials as $index => $testimonial)
+                                @php
+                                    $isActive = $index === 0;
+                                @endphp
+                                @if ($isActive)
+                                    <button type="button" data-bs-target="#carouselExampleCaptions1"
+                                        data-bs-slide-to="{{ $index }}" class="active" aria-current="true"
+                                        aria-label="Slide {{ $index + 1 }}"></button>
+                                @else
+                                    <button type="button" data-bs-target="#carouselExampleCaptions1"
+                                        data-bs-slide-to="{{ $index }}"
+                                        aria-label="Slide {{ $index + 1 }}"></button>
+                                @endif
+                            @endforeach
                         </div>
 
                         <div class="carousel-inner">
-                            <div class="carousel-item active testi_slide">
-                                <div class="testi_caption">
-                                    <img src="public/frontend/images/testi_icon.png" alt="">
-                                    <p>Hotel is 5 minutes from the airport which made it incredibly handy for my late
-                                        night flight.
-                                        The staff have been very friendly and accommodating. The room is spacious and
-                                        was clean upon arrival. Need was comfy.
-                                        The restaurant staff, especially Sampath was very engaging and helpful to my
-                                        specific dietary needs. His English was superb, no communication barrier.
-                                        The reception even allowed me to check out at 1pm which I'm grateful for.</p>
+                            @foreach ($testimonials as $index => $testimonial)
+                                @php
+                                    $isActive = $index === 0;
+                                @endphp
+                                @if ($isActive)
+                                    <div class="carousel-item active testi_slide">
+                                        <div class="testi_caption">
+                                            <img src="public/frontend/images/testi_icon.png" alt="">
+                                            <p>{!! $testimonial->testimonial !!}</p>
 
-                                    <div class="d-flex justify-content-end mt-3">
-                                        <h4>Sohil</h4>
+                                            <div class="d-flex justify-content-end mt-3">
+                                                <h4>{{ $testimonial->name }}</h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                @else
+                                    <div class="carousel-item testi_slide">
+                                        <div class="testi_caption">
+                                            <img src="public/frontend/images/testi_icon.png" alt="">
+                                            <p>{!! $testimonial->testimonial !!}</p>
 
-                            <!-- ====================== -->
-
-                            <div class="carousel-item testi_slide">
-                                <div class="testi_caption">
-                                    <img src="public/frontend/images/testi_icon.png" alt="">
-                                    <p>I had an inconvenience as the rooms were over booked due to major flight delays.
-                                        The staff despite being under pressure were able to assure all guests a positive
-                                        experience. When I got the room I found it to be super comfy and clean. Very
-                                        close to the airport and overall a very good experience.</p>
-
-                                    <div class="d-flex justify-content-end mt-3">
-                                        <h4>Abdul Wasay</h4>
+                                            <div class="d-flex justify-content-end mt-3">
+                                                <h4>{{ $testimonial->name }}</h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <!-- ====================== -->
-
-                            <div class="carousel-item testi_slide">
-                                <div class="testi_caption">
-                                    <img src="public/frontend/images/testi_icon.png" alt="">
-                                    <p>We were greeted by friendly staff who were helpful and accommodating. Our flight
-                                        home was changed to early evening and we were able to stay and use the outdoor
-                                        pool area after checkout. Our large room was clean and comfortable and well
-                                        sound proofed. We had a very comfortable stay</p>
-
-                                    <div class="d-flex justify-content-end mt-3">
-                                        <h4>Gill T</h4>
-                                    </div>
-                                </div>
-                            </div>
-
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <!-- testi slider -->
