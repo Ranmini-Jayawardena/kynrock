@@ -76,7 +76,7 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image"
-                                                name="image" style="overflow: hidden;" >
+                                                name="image" style="overflow: hidden;">
                                         </label>
                                     </section>
                                     <section class="col col-2">
@@ -127,10 +127,17 @@
                         ['para', ['ul', 'ol', 'para']],
                         ['height', ['height']],
                         ['view', ['codeview']]
-                    ]
+                    ],
+                    callbacks: {
+                        onInit: function() {
+                            // Add text-light to editable area
+                            $('.note-editable').addClass('text-light');
+                        }
+                    }
                 });
-
             });
+
+
             // Image Preview Functionality
             function previewImage(input, previewId) {
                 const file = input.files[0];

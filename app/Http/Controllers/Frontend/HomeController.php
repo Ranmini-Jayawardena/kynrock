@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\DiningContent;
 use App\Models\FeaturesContent;
 use App\Models\HomeFeatures;
+use App\Models\LocationContent;
+use App\Models\LocationList;
 use App\Models\MainSlider;
-use App\Models\RoomAmenities;
-use App\Models\RoomAmentiesData;
 use App\Models\RoomContent;
 use App\Models\RoomTypes;
+use App\Models\TestimonialContent;
+use App\Models\VenueContent;
 use App\Models\WelcomeContent;
 use Carbon\Carbon;
 
@@ -31,6 +33,14 @@ class HomeController extends Controller
         $featureContent = FeaturesContent::first();
         $homeFeatures = HomeFeatures::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
         $diningContent = DiningContent::first();
+        $venueContent = VenueContent::first();
+        $locationContent = LocationContent::first();
+        $locationList = LocationList::where('status', 'Y')
+        ->where('is_delete', 0)
+        ->orderBy('order', 'ASC')
+        ->get();
+        $testimonials = TestimonialContent::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
+      
 
 
 
@@ -45,7 +55,10 @@ class HomeController extends Controller
             'featureContent',
             'homeFeatures',
             'diningContent',
-            // 'roomAmenities',
+            'venueContent',
+            'locationContent',
+            'locationList',
+            'testimonials',
 
         ));
     }

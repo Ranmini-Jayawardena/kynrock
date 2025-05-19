@@ -11,6 +11,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\Frontend\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 
@@ -19,8 +21,8 @@ Route::get('/admin', function () {
     // return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('frontend.home');
+Route::get('/about-us', function () {
+    return view('frontend.about_us');
     //return view('welcome');
 });
 
@@ -30,5 +32,6 @@ Route::get('/', function () {
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 
 require __DIR__ . '/auth.php';
