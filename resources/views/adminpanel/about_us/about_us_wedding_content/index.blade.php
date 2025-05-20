@@ -129,6 +129,20 @@
 
 
             });
+
+            $('#about-us-wedding-content-form').on('submit', function(e) {
+                // Get Summernote HTML content
+                var content = $('#description').summernote('code');
+
+                // Create a temporary DOM to manipulate it
+                var tempDiv = $('<div>').html(content);
+
+                // Add class to all <p> tags
+                tempDiv.find('p').addClass('text-light');
+
+                // Set the updated content back to Summernote
+                $('#description').summernote('code', tempDiv.html());
+            });
         </script>
     </x-slot>
 </x-app-layout>

@@ -155,7 +155,7 @@
                   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="stay.html">Stay</a>
@@ -170,7 +170,7 @@
                         <a class="nav-link" href="gallery.html">Gallery</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="about_us.html">About Us</a>
+                        <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="location.html">Location</a>

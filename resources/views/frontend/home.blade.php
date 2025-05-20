@@ -142,7 +142,7 @@
 
 
 
-                    <a href="about_us.html">
+                    <a href="{{ route('about-us') }}">
                         <button class="arrow_btn">
 
                             <span class="circle">
