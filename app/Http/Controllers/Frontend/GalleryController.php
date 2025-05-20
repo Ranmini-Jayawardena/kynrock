@@ -24,11 +24,6 @@ class AboutUsController extends Controller
         $belowContent = AboutUsBelowContent::first();
         
 
-
-
-
-        // dd($roomDetails);
-
         return view('frontend.about_us', compact(
             'topBanner',
             'aboutUsContent',

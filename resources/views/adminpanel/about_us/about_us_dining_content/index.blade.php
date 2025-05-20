@@ -176,7 +176,7 @@
                                             <img id="preview-image4" src="storage/app/{{ $data->image4 }}"
                                                 alt="preview image" style="max-height: 250px;">
                                             <button type="button" class="btn btn-danger btn-sm remove-image"
-                                                data-input="image4"style="display: flex; justify-content: center; align-items: center; margin: auto;"
+                                                data-input="image4"style="display: block; margin-top: 10px; width: 70px;"
                                                 data-preview="preview-image4"
                                                 data-hidden="remove-image4">Remove</button>
                                             <input type="hidden" name="remove_image4" id="remove-image4"
@@ -201,7 +201,7 @@
                                                 alt="preview image" style="max-height: 250px;">
                                             <button type="button" class="btn btn-danger btn-sm remove-image"
                                                 data-input="image5"
-                                                style="display: flex; justify-content: center; align-items: center; margin: auto;"
+                                                style="display: block; margin-top: 10px; width: 70px;"
                                                 data-preview="preview-image5"
                                                 data-hidden="remove-image5">Remove</button>
                                             <input type="hidden" name="remove_image5" id="remove-image5"

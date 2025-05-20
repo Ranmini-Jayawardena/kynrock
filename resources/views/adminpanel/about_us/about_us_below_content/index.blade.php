@@ -147,40 +147,47 @@
                 $('.alert').fadeOut('fast');
             }, 5000);
 
-            $(document).ready(function() {
+           $(document).ready(function() {
                 $('.summernote').summernote({
                     height: 200,
                     toolbar: [
                         ['style', ['style']],
                         ['font', ['bold', 'italic', 'underline', 'clear', 'strikethrough']],
-                        ['fontname', ['fontname']],
                         ['fontsize', ['fontsize']],
                         ['color', ['color']],
                         ['para', ['ul', 'ol', 'para']],
                         ['height', ['height']],
                         ['view', ['codeview']]
-                    ]
-                });
-
-                // Image Preview Functionality
-                function previewImage(input, previewId) {
-                    const file = input.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            document.getElementById(previewId).src = e.target.result;
-                        };
-                        reader.readAsDataURL(file);
+                    ],
+                    callbacks: {
+                        onInit: function() {
+                            // Add text-light to editable area
+                            $('.note-editable').addClass('text-light');
+                        }
                     }
-                }
+                });
+           
 
-                // Event listeners for each file input
-                document.getElementById('location_image').addEventListener('change', function() {
-                    previewImage(this, 'preview-location_image');
-                });
-                document.getElementById('booknow_image').addEventListener('change', function() {
-                    previewImage(this, 'preview-booknow_image');
-                });
+
+            // Image Preview Functionality
+            function previewImage(input, previewId) {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById(previewId).src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            // Event listeners for each file input
+            document.getElementById('location_image').addEventListener('change', function() {
+                previewImage(this, 'preview-location_image');
+            });
+            document.getElementById('booknow_image').addEventListener('change', function() {
+            previewImage(this, 'preview-booknow_image');
+            });
 
 
 

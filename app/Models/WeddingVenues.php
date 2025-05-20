@@ -15,7 +15,10 @@ class WeddingVenues extends Model
     protected $fillable = [
         'venue_name',
         'description',
-        'icon'
+        'icon',
+        'order',
+        'status',
+        'is_delete'
 
         
     ];
