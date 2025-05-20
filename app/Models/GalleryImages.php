@@ -24,4 +24,9 @@ class GalleryImages extends Model
     {
         return $this->belongsTo(GallerySubCategory::class, 'subcategory_id');
     }
+
+    public function subCategories()
+    {
+        return $this->belongsTo(GallerySubCategory::class, 'subcategory_id');
+    }
 }

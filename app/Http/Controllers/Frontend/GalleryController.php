@@ -7,31 +7,40 @@ use App\Models\AboutUsBelowContent;
 use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
+use App\Models\GalleryCategory;
+use App\Models\GalleryImages;
 use App\Models\TopBanner;
 use App\Models\WeddingVenues;
 
 
 
-class AboutUsController extends Controller
+class GalleryController extends Controller
 {
     public function index()
     {
-        $topBanner = TopBanner::where('id', 2)->first();
-        $aboutUsContent = AboutUsContent::first();
-        $diningContent = AboutUsDiningContent::first();
-        $weddingContent = AboutUsWeddingContent::first();
-        $weddingVenues = WeddingVenues::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
-        $belowContent = AboutUsBelowContent::first();
-        
+        $topBanner = TopBanner::where('id', 3)->first();
+        $categories = GalleryCategory::with([
+            'subCategories' => function ($query) {
+                $query->orderBy('order', 'asc');
+            },
+            'subCategories.images' => function ($query) {
+                $query->orderBy('order', 'asc');
+            }
+        ])
+            ->orderBy('id', 'asc')
+            ->where('is_delete', 0)
+            ->where('status', 'Y')
+            ->get();
+        $allImages = GalleryImages::orderBy('id', 'asc')->get();
 
-        return view('frontend.about_us', compact(
+
+
+        return view('frontend.gallery', compact(
             'topBanner',
-            'aboutUsContent',
-            'diningContent',
-            'weddingContent',
-            'weddingVenues',
-            'belowContent'
-           
+            'allImages',
+            'categories'
+
+
 
         ));
     }

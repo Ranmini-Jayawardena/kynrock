@@ -19,4 +19,9 @@ class GalleryCategory extends Model
     {
         return $this->hasMany(GalleryImages::class, 'category_id');// Reference the correct model
     }
+  public function subCategories()
+{
+    return $this->hasMany(GallerySubCategory::class, 'category_id');
+}
+
 }
