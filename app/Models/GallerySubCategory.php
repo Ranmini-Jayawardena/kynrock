@@ -18,4 +18,8 @@ class GallerySubCategory extends Model
     {
         return $this->belongsTo(GalleryCategory::class, 'category_id');
     }
+
+    public function images() {
+    return $this->hasMany(GalleryImages::class, 'subcategory_id');
+}
 }

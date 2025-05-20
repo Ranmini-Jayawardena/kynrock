@@ -374,7 +374,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('enquiry-view/{id}', [EnquiryController::class, 'view'])->name('enquiry-view');
 
     //gallery
-    Route::get('gallery', [GalleryCategoryController::class, 'index'])->name('gallery');
+    Route::get('gallery-category', [GalleryCategoryController::class, 'index'])->name('gallery-category');
     Route::post('new-gallery', [GalleryCategoryController::class, 'store'])->name('new-gallery');
     Route::get('gallery-list', [GalleryCategoryController::class, 'list'])->name('gallery-list');
     Route::get('/edit-gallery/{id}', [GalleryCategoryController::class, 'edit'])->name('edit-gallery');
