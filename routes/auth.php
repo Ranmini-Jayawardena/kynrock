@@ -307,7 +307,7 @@ Route::group(['middleware' => ['auth']], function () {
      Route::put('save-experience-content', [ExperienceContentController::class, 'update'])->name('save-experience-content'); 
 
      //locations
-     Route::get('location', [LocationController::class, 'index'])->name('location');
+     Route::get('locations', [LocationController::class, 'index'])->name('locations');
      Route::post('new-location', [LocationController::class, 'store'])->name('new-location');
      Route::get('location-list', [LocationController::class, 'list'])->name('location-list');
      Route::get('/edit-location/{id}', [LocationController::class, 'edit'])->name('edit-location');

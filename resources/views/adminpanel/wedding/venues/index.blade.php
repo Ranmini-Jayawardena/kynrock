@@ -1,7 +1,23 @@
 @section('title', 'Wedding Venues')
 <x-app-layout>
-    <x-slot name="header">
-    </x-slot>
+     <x-slot name="header">
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+        <style>
+            .note-editable {
+                min-height: 300px !important;
+            }
+
+            .note-editable ul {
+                list-style: disc !important;
+                list-style-position: inside !important;
+            }
+
+            .note-editable ol {
+                list-style: decimal !important;
+                list-style-position: inside !important;
+            }
+        </style>
 
     <div id="main" role="main">
         <!-- RIBBON -->
@@ -58,11 +74,17 @@
                             <fieldset>
                                 <div class="row">
                                     <section class="col col-4">
-                                        <label class="label">{{ __('Venue Name') }}<span
-                                                style=" color: red;">*</span></label>
-                                        <label class="input">
-                                            <input type="text" id="venue_name" name="venue_name" required
-                                                value="">
+                                        <label class="label">{{ __('Subcategory') }} <span
+                                                style="color: red;">*</span></label>
+                                        <label class="select">
+                                            <select name="sub_category_id" required>
+                                                <option value="">{{ __('Select Subcategory') }}</option>
+                                                @foreach ($subCategories as $subCategory)
+                                                    <option value="{{ $subCategory->id }}">{{ $subCategory->sub_category_name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <i></i>
                                         </label>
                                     </section>
                                     <section class="col col-2">
@@ -106,7 +128,7 @@
                                             src="{{ asset('public/back/img/whitebg.jpg') }}" alt="preview image"
                                             style="max-height: 250px;">
                                     </section>
-                                    
+
                                 </div>
 
 
@@ -129,6 +151,7 @@
         </div>
     </div>
     <x-slot name="script">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         <script>
             $(function() {
                 $('#wedding-venue-form').parsley();
@@ -137,6 +160,21 @@
             setTimeout(function() {
                 $('.alert').fadeOut('fast');
             }, 5000);
+            $(document).ready(function() {
+                $('.summernote').summernote({
+                    height: 200,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'italic', 'underline', 'clear', 'strikethrough']],
+                        ['fontname', ['fontname']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'para']],
+                        ['height', ['height']],
+                        ['view', ['codeview']]
+                    ]
+                });
+            });
         </script>
 
         <script type="text/javascript">

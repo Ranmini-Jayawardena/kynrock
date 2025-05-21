@@ -60,7 +60,7 @@
                         <button class="nav-link" id="cat{{ $category->id }}-tab" data-bs-toggle="tab"
                             data-bs-target="#cat{{ $category->id }}" type="button" role="tab"
                             aria-controls="cat{{ $category->id }}"
-                            aria-selected="false">{{ $category->category_name }}</button>
+                            aria-selected="false">{{ strtoupper($category->category_name) }}</button>
                     </li>
                 @endforeach
 

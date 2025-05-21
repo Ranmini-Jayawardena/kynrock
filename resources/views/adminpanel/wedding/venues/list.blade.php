@@ -156,8 +156,8 @@
                             name: 'id'
                         },
                         {
-                            data: 'venue_name',
-                            name: 'venue_name'
+                            data: 'subcategory',
+                            name: 'subcategory'
                         },
                         {
                             data: 'order',
