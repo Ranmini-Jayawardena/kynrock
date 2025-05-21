@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Adminpanel\Wedding;
 
 use App\Http\Controllers\Controller;
+use App\Models\GallerySubCategory;
 use App\Models\WeddingVenues;
 use Illuminate\Http\Request;
 use DataTables;
 
 class WeddingVenueController extends Controller
 {
+    private $weddingCategoryId = 17;
+
     function __construct()
     {
         $this->middleware('permission:wedding-venue-list|wedding-venue-create|wedding-venue-edit|wedding-venue-delete', ['only' => ['list']]);
@@ -16,16 +19,22 @@ class WeddingVenueController extends Controller
         $this->middleware('permission:wedding-venue-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:wedding-venue-delete', ['only' => ['block']]);
     }
+    
 
     public function index()
     {
-        return view('adminpanel.wedding.venues.index');
+         $venues = WeddingVenues::with('subCategory')
+                    ->where('category_id', $this->weddingCategoryId)
+                    ->get();
+        $subCategories = GallerySubCategory::where('category_id', $this->weddingCategoryId)->get();
+        return view('adminpanel.wedding.venues.index', compact('venues', 'subCategories'));
     }
+    
 
     public function store(Request $request)
     {
         $request->validate([
-            'venue_name' => 'required',
+            
             'description'=> 'required',
             'icon'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
             
@@ -43,7 +52,8 @@ class WeddingVenueController extends Controller
     
 
         $features = new WeddingVenues();
-        $features->venue_name = $request->venue_name;
+        $features->category_id = $this->weddingCategoryId;
+        $features->sub_category_id = $request->sub_category_id;
         $features->description = $request->description;
         $features->icon = $imagePath;
         $features->order = $request->order;
@@ -60,9 +70,12 @@ class WeddingVenueController extends Controller
     public function list(Request $request)
     {
         if ($request->ajax()) {
-            $data = WeddingVenues::where('is_delete', 0)->get();
+            $data = WeddingVenues::with('subCategory')->where('is_delete', 0)->get(); 
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('subcategory', function ($row) {
+                return $row->subCategory->sub_category_name ?? '-';
+            })
                 ->addColumn('icon', function ($row) {
                     $imgPath = "storage/app/$row->icon";
                     $img = '<img src="'.$imgPath.'">';
@@ -95,14 +108,14 @@ class WeddingVenueController extends Controller
     {
         $featuresID = decrypt($id);
         $data = WeddingVenues::find($featuresID);
+        $subCategories = GallerySubCategory::where('category_id', $this->weddingCategoryId)->get();
 
-        return view('adminpanel.wedding.venues.edit', ['data' => $data]);
+        return view('adminpanel.wedding.venues.edit', ['data' => $data, 'subCategories' => $subCategories]);
     }
 
     public function update(Request $request)
     {
         $request->validate([
-            'venue_name' => 'required',
             'description'=> 'required',
         ]);
 
@@ -119,7 +132,7 @@ class WeddingVenueController extends Controller
         if(isset($imagePath)) {
             $data->icon = $imagePath;
         }
-        $data->venue_name = $request->venue_name;
+        $data->sub_category_id = $request->sub_category_id;
         $data->description = $request->description;
         $data->order = $request->order;
         $data->status = $request->status;

@@ -17,6 +17,7 @@ class LocationList extends Model
 
     public function images()
     {
-        return $this->hasMany(LocationImages::class); // Reference the correct model
+        return $this->hasMany(LocationImages::class,'location_id'); // Reference the correct model
     }
 }
+    

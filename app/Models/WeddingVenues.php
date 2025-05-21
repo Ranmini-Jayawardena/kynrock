@@ -13,6 +13,8 @@ class WeddingVenues extends Model
     public $timestamps = true;
 
     protected $fillable = [
+        'sub_category_id',
+        'category_id',
         'venue_name',
         'description',
         'icon',
@@ -22,4 +24,10 @@ class WeddingVenues extends Model
 
         
     ];
+
+    public function subCategory()
+{
+    return $this->belongsTo(GallerySubCategory::class,'sub_category_id');
+}
+
 }

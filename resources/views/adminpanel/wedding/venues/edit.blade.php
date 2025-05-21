@@ -1,8 +1,23 @@
 @section('title', 'Wedding Venues Edit')
 <x-app-layout>
     <x-slot name="header">
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
-    </x-slot>
+        <style>
+            .note-editable {
+                min-height: 300px !important;
+            }
+
+            .note-editable ul {
+                list-style: disc !important;
+                list-style-position: inside !important;
+            }
+
+            .note-editable ol {
+                list-style: decimal !important;
+                list-style-position: inside !important;
+            }
+        </style>
 
     <div id="main" role="main">
         <!-- RIBBON -->
@@ -60,13 +75,22 @@
                             <fieldset>
                                 <div class="row">
                                     <section class="col col-4">
-                                        <label class="label">{{ __('Venue Name') }} <span
-                                                style=" color: red;">*</span></label>
-                                        <label class="input">
-                                            <input type="text" id="venue_name" name="venue_name"
-                                                value="{{ $data->venue_name }}"required>
+                                        <label class="label">{{ __('Subcategory') }} <span
+                                                style="color: red;">*</span></label>
+                                        <label class="select">
+                                            <select name="sub_category_id" required>
+                                                <option value="">{{ __('Select Subcategory') }}</option>
+                                                @foreach ($subCategories as $subCategory)
+                                                    <option value="{{ $subCategory->id }}"
+                                                        {{ isset($data) && $data->sub_category_id == $subCategory->id ? 'selected' : '' }}>
+                                                        {{ $subCategory->sub_category_name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <i></i>
                                         </label>
                                     </section>
+
                                     <section class="col col-4">
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
@@ -93,7 +117,7 @@
                                         <label class="label">{{ __('Description') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <textarea class="form-control summernote" id="description" name="description" rows="3" required>{{ $data->description}}</textarea>
+                                            <textarea class="form-control summernote" id="description" name="description" rows="3" required>{{ $data->description }}</textarea>
                                         </label>
                                     </section>
                                 </div>
@@ -138,6 +162,7 @@
         </div>
     </div>
     <x-slot name="script">
+         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         <script>
             $(function() {
                 $('#wedding-venue-form').parsley();
@@ -150,12 +175,28 @@
                     reader.readAsDataURL(this.files[0]);
                 });
             });
+           
         </script>
 
         <script>
             setTimeout(function() {
                 $('.alert').fadeOut('fast');
             }, 5000);
+             $(document).ready(function() {
+                $('.summernote').summernote({
+                    height: 200,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'italic', 'underline', 'clear', 'strikethrough']],
+                        ['fontname', ['fontname']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'para']],
+                        ['height', ['height']],
+                        ['view', ['codeview']]
+                    ]
+                });
+            });
         </script>
     </x-slot>
 </x-app-layout>

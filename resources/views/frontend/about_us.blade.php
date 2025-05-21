@@ -296,273 +296,118 @@
 
                  </div>
                  <div class="carousel-inner">
-                     <div class="carousel-item img_bg active" style="background-image: url(images/pool_venue.jpg);">
-                         <div class="carousel-caption">
-                             <div class="d-flex gap-3">
-                                 <div class="img_div">
-                                     <img src="images/icons/pool_venue.png" alt="">
-                                 </div>
-                                 <div>
-                                     <h3 class="mb-1">Poolside Venue</h3>
-                                     <p>Stunning outdoor setting for up to <b>300 guests.</b></p>
-                                     <button class="arrow_btn">
+                     @foreach ($weddingVenues as $index => $weddingVenue)
+                         @php
+                             $isActive = $index === 0;
+                         @endphp
+                         @if ($isActive)
+                             <div class="carousel-item img_bg active"
+                                 style="background-image: url({{ asset(
+                                     'storage/app/' .
+                                         optional(
+                                             $weddingVenue->subCategory?->images->where('order', 1)->first() ??
+                                                 $weddingVenue->subCategory?->images->first(),
+                                         )->image_name,
+                                 ) }})">
+                                 <div class="carousel-caption">
+                                     <div class="d-flex gap-3">
+                                         <div class="img_div">
+                                             <img src="{{ asset('storage/app/' . $weddingVenue->icon) }}"
+                                                 alt="icon">
+                                         </div>
+                                         <div>
+                                             <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}
+                                             </h3>
+                                             {!! $weddingVenue->description !!}
+                                             <button class="arrow_btn">
 
-                                         <span class="circle">
-                                             <span class="icon arrow">
-                                                 <svg version="1.1" id="fi_664866"
-                                                     xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 512.009 512.009"
-                                                     style="enable-background:new 0 0 512.009 512.009;"
-                                                     xml:space="preserve">
-                                                     <g>
-                                                         <path
-                                                             d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
+                                                 <span class="circle">
+                                                     <span class="icon arrow">
+                                                         <svg version="1.1" id="fi_664866"
+                                                             xmlns="http://www.w3.org/2000/svg"
+                                                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                             viewBox="0 0 512.009 512.009"
+                                                             style="enable-background:new 0 0 512.009 512.009;"
+                                                             xml:space="preserve">
+                                                             <g>
+                                                                 <path
+                                                                     d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
                                   c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
                                   s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
                                   c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                         </path>
-                                                     </g>
-                                                 </svg>
-                                             </span>
-                                         </span>
+                                                                 </path>
+                                                             </g>
+                                                         </svg>
+                                                     </span>
+                                                 </span>
 
-                                         <span class="arrow_btn_text">
-                                             <p>View images</p>
-                                         </span>
+                                                 <span class="arrow_btn_text">
+                                                     <p>View images</p>
+                                                 </span>
 
-                                     </button>
+                                             </button>
+                                         </div>
+
+                                     </div>
+
                                  </div>
-
                              </div>
+                         @else
+                             <div class="carousel-item img_bg"
+                                 style="background-image: url({{ asset(
+                                     'storage/app/' .
+                                         optional(
+                                             $weddingVenue->subCategory?->images->where('order', 1)->first() ??
+                                                 $weddingVenue->subCategory?->images->first(),
+                                         )->image_name,
+                                 ) }})">
+                                 <div class="carousel-caption">
+                                     <div class="d-flex gap-3">
+                                         <div class="img_div">
+                                             <img src="{{ asset('storage/app/' . $weddingVenue->icon) }}"
+                                                 alt="">
+                                         </div>
+                                         <div>
+                                             <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}
+                                             </h3>
+                                             {!! $weddingVenue->description !!}
+                                             <button class="arrow_btn">
 
-                         </div>
-                     </div>
-
-                     <div class="carousel-item img_bg" style="background-image: url(images/banquet.jpg);">
-                         <div class="carousel-caption">
-                             <div class="d-flex gap-3">
-                                 <div class="img_div">
-                                     <img src="images/icons/venue_banquet.png" alt="">
-                                 </div>
-                                 <div>
-                                     <h3 class="mb-1">BANQUET HALL</h3>
-                                     <p>Elegant indoor space for <b>60 guests</b> with an outdoor lounge for <b>25 more
-                                             guests.</b></p>
-                                     <button class="arrow_btn">
-
-                                         <span class="circle">
-                                             <span class="icon arrow">
-                                                 <svg version="1.1" id="fi_664866"
-                                                     xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 512.009 512.009"
-                                                     style="enable-background:new 0 0 512.009 512.009;"
-                                                     xml:space="preserve">
-                                                     <g>
-                                                         <path
-                                                             d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
+                                                 <span class="circle">
+                                                     <span class="icon arrow">
+                                                         <svg version="1.1" id="fi_664866"
+                                                             xmlns="http://www.w3.org/2000/svg"
+                                                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                             viewBox="0 0 512.009 512.009"
+                                                             style="enable-background:new 0 0 512.009 512.009;"
+                                                             xml:space="preserve">
+                                                             <g>
+                                                                 <path
+                                                                     d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
                                   c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
                                   s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
                                   c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                         </path>
-                                                     </g>
-                                                 </svg>
-                                             </span>
-                                         </span>
+                                                                 </path>
+                                                             </g>
+                                                         </svg>
+                                                     </span>
+                                                 </span>
 
-                                         <span class="arrow_btn_text">
-                                             <p>explore more</p>
-                                         </span>
+                                                 <span class="arrow_btn_text">
+                                                     <p>explore more</p>
+                                                 </span>
 
-                                     </button>
+                                             </button>
+                                         </div>
+
+                                     </div>
+
                                  </div>
-
                              </div>
+                         @endif
+                     @endforeach
 
-                         </div>
-                     </div>
 
-                     <div class="carousel-item img_bg" style="background-image: url(images/u_shape.jpg);">
-                         <div class="carousel-caption">
-                             <div class="d-flex gap-3">
-                                 <div class="img_div">
-                                     <img src="images/chaicharm.png" alt="">
-                                 </div>
-                                 <div>
-                                     <h3 class="mb-1">U-Shape Seating</h3>
-                                     <p>Perfect for interactive gatherings, accommodating <b>40 guests.</b></p>
-                                     <button class="arrow_btn">
-
-                                         <span class="circle">
-                                             <span class="icon arrow">
-                                                 <svg version="1.1" id="fi_664866"
-                                                     xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 512.009 512.009"
-                                                     style="enable-background:new 0 0 512.009 512.009;"
-                                                     xml:space="preserve">
-                                                     <g>
-                                                         <g>
-                                                             <path
-                                                                 d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                                  c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                                  s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                                  c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                             </path>
-                                                         </g>
-                                                     </g>
-                                                 </svg>
-                                             </span>
-                                         </span>
-
-                                         <span class="arrow_btn_text">
-                                             <p>explore more</p>
-                                         </span>
-
-                                     </button>
-                                 </div>
-
-                             </div>
-
-                         </div>
-                     </div>
-
-                     <div class="carousel-item img_bg" style="background-image: url(images/class_style.jpg);">
-                         <div class="carousel-caption">
-                             <div class="d-flex gap-3">
-                                 <div class="img_div">
-                                     <img src="images/icons/venue_classroom.png" alt="">
-                                 </div>
-                                 <div>
-                                     <h3 class="mb-1">Classroom Style</h3>
-                                     <p>Structured layout for <b>100 guests</b>, ideal for formal settings.</p>
-                                     <button class="arrow_btn">
-
-                                         <span class="circle">
-                                             <span class="icon arrow">
-                                                 <svg version="1.1" id="fi_664866"
-                                                     xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 512.009 512.009"
-                                                     style="enable-background:new 0 0 512.009 512.009;"
-                                                     xml:space="preserve">
-                                                     <g>
-                                                         <g>
-                                                             <path
-                                                                 d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                                  c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                                  s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                                  c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                             </path>
-                                                         </g>
-                                                     </g>
-                                                 </svg>
-                                             </span>
-                                         </span>
-
-                                         <span class="arrow_btn_text">
-                                             <p>explore more</p>
-                                         </span>
-
-                                     </button>
-                                 </div>
-
-                             </div>
-
-                         </div>
-                     </div>
-
-                     <div class="carousel-item img_bg" style="background-image: url(images/theatre_style.jpg);">
-                         <div class="carousel-caption">
-                             <div class="d-flex gap-3">
-                                 <div class="img_div">
-                                     <img src="images/chaicharm.png" alt="">
-                                 </div>
-                                 <div>
-                                     <h3 class="mb-1">Theatre Style</h3>
-                                     <p>Grand arrangement for <b>150 guests</b>, perfect for large receptions.</p>
-                                     <button class="arrow_btn">
-
-                                         <span class="circle">
-                                             <span class="icon arrow">
-                                                 <svg version="1.1" id="fi_664866"
-                                                     xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 512.009 512.009"
-                                                     style="enable-background:new 0 0 512.009 512.009;"
-                                                     xml:space="preserve">
-                                                     <g>
-                                                         <g>
-                                                             <path
-                                                                 d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                                  c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                                  s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                                  c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                             </path>
-                                                         </g>
-                                                     </g>
-                                                 </svg>
-                                             </span>
-                                         </span>
-
-                                         <span class="arrow_btn_text">
-                                             <p>explore more</p>
-                                         </span>
-
-                                     </button>
-                                 </div>
-
-                             </div>
-
-                         </div>
-                     </div>
-
-                     <div class="carousel-item img_bg" style="background-image: url(images/chai_charm.jpg);">
-                         <div class="carousel-caption">
-                             <div class="d-flex gap-3">
-                                 <div class="img_div">
-                                     <img src="images/icons/venue_meeting.png" alt="">
-                                 </div>
-                                 <div>
-                                     <h3 class="mb-1">Mini Meeting Room</h3>
-                                     <p>Exclusive <b>private space</b> for <b>25 guests</b>, ideal for pre-wedding
-                                         events.</p>
-                                     <button class="arrow_btn">
-
-                                         <span class="circle">
-                                             <span class="icon arrow">
-                                                 <svg version="1.1" id="fi_664866"
-                                                     xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 512.009 512.009"
-                                                     style="enable-background:new 0 0 512.009 512.009;"
-                                                     xml:space="preserve">
-                                                     <g>
-                                                         <g>
-                                                             <path
-                                                                 d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
-                                  c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
-                                  s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
-                                  c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                             </path>
-                                                         </g>
-                                                     </g>
-                                                 </svg>
-                                             </span>
-                                         </span>
-
-                                         <span class="arrow_btn_text">
-                                             <p>explore more</p>
-                                         </span>
-
-                                     </button>
-                                 </div>
-
-                             </div>
-
-                         </div>
-                     </div>
 
                  </div>
              </div>

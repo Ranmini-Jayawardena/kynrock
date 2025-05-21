@@ -20,7 +20,11 @@ class AboutUsController extends Controller
         $aboutUsContent = AboutUsContent::first();
         $diningContent = AboutUsDiningContent::first();
         $weddingContent = AboutUsWeddingContent::first();
-        $weddingVenues = WeddingVenues::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
+        $weddingVenues = WeddingVenues::with(['subCategory.images'])
+        ->orderBy('order','asc')
+        ->where('status', 'Y')
+        ->where('is_delete', 0)
+        ->get();
         $belowContent = AboutUsBelowContent::first();
         
 
