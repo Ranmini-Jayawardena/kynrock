@@ -35,5 +35,9 @@ class RoomTypes extends Model
 {
     return $this->hasMany(RoomAmentiesData::class, 'room_id');
 }
+public function roomFeatures()
+{
+    return $this->hasMany(RoomFeaturesData::class, 'room_id');
+}
 
 }

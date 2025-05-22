@@ -294,7 +294,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('blockfeatures/{id}', [WeddingFeaturesController::class, 'block'])->name('blockfeatures');
 
      //experience
-     Route::get('experience', [ExperienceController::class, 'index'])->name('experience');
+     Route::get('experiences', [ExperienceController::class, 'index'])->name('experiences');
      Route::post('new-experience', [ExperienceController::class, 'store'])->name('new-experience');
      Route::get('experience-list', [ExperienceController::class, 'list'])->name('experience-list');
      Route::get('/edit-experience/{id}', [ExperienceController::class, 'edit'])->name('edit-experience');

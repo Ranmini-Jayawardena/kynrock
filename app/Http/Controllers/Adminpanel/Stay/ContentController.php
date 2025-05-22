@@ -24,7 +24,9 @@ class ContentController extends Controller
             'heading_en' => '',
             'description_en' => '',
             'heading2' => '',
-            'description2' => ''
+            'description2' => '',
+            'description3' => '',
+             'image' => '',
         ]);
     }
 
@@ -38,13 +40,25 @@ class ContentController extends Controller
             'description_en' => 'required',
             'heading2' => 'required',
             'description2' => 'required',
+            'description3' => 'required',
         ]);
+        if(!request()->file('image') == ""){
+            $img = $request->file('image')->getClientOriginalName();
+            $imagePath = $request->file('image')->store('public/venue_content_images');
+        }else{
+            $path = "";
+        }
 
         $data =  StayContent::find($request->id);
         $data->heading_en = $request->heading_en;
         $data->description_en = $request->description_en;
         $data->heading2 = $request->heading2;
         $data->description2 = $request->description2;
+        $data->description3 = $request->description3;
+         if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('public/venue_content_images');
+            $data->image = $image;
+        } 
         $data->save();
 
         \LogActivity::addToLog('Content is updated.');

@@ -93,6 +93,34 @@
                                             <textarea class="form-control summernote" id="description2" name="description2" rows="3" required>{{ $data->description2 }}</textarea>
                                         </label>
                                     </section>
+                                </div>
+                                 <div class="row">
+                                    <section class="col col-11"  style="width: 100%;">
+                                        <label class="label">{{ __('Description 3') }}<span style=" color: red;">*</span> </label>
+                                        <label class="input">
+                                            <textarea class="form-control summernote" id="description3" name="description3" rows="3" required>{{ $data->description3 }}</textarea>
+                                        </label>
+                                    </section>
+                                </div>
+                                 <div class = "row">
+                                    <section class="col col-3">
+                                        <label class="label">{{ __('Image') }} (1920 x 1080) <span
+                                                style=" color: red;">*</span></label>
+                                        <label class="input">
+                                            <input type="file" class="form-control form-input" id="image"
+                                                name="image" style="overflow: hidden;">
+                                        </label>
+                                    </section>
+                                    <section class="col col-2">
+                                        @if ($data->image)
+                                            <img id="preview-image" src="storage/app/{{ $data->image }}"
+                                                alt="preview image" style="max-height: 250px;">
+                                        @else
+                                            <img id="preview-image" src="{{ asset('public/back/img/whitebg.jpg') }}"
+                                                alt="preview image" style="max-height: 250px;">
+                                        @endif
+                                    </section>
+                                </div>
                             </fieldset>
                             <footer>
                                 <input type="hidden" name="id" value="{{ $data->id }}>">
@@ -140,6 +168,20 @@
 
                     ]
                 });
+            });
+             function previewImage(input, previewId) {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById(previewId).src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            document.getElementById('image').addEventListener('change', function() {
+                previewImage(this, 'preview-image');
             });
         </script>
     </x-slot>

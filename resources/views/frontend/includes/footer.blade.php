@@ -1,235 +1,262 @@
 <!-- footer start -->
 
-    <div class="container-fluid footer py-4">
-      <div class="container">
+<div class="container-fluid footer py-4">
+    <div class="container">
         <div class="row">
-          <div class="col-4 pe-4 footer_col">
-            <a href="">
-              <div class="footer_logo">
-                <img src="{{asset('public/frontend/images/logo.png')}}" alt="" class="w-100">
-              </div>
-            </a>
-
-            <p>Goodwood Airport Hotel offers the perfect blend of comfort and convenience, located just minutes from Bandaranaike International Airport and within easy reach of the vibrant heart of Sri Lanka, Colombo.</p>
-
-          </div>
-
-          <!-- ============ -->
-
-          <div class="col-4 p-5 d-flex align-items-center justify-content-center row footer_col"> 
-            <h4 class="text-light fw-bold mb-3">NAVIGATION</h4>
-
-            <div class="row">
-              <div class="col-6">
-                <a href="index.html" class="footer_link">
-                  Home
+            <div class="col-4 pe-4 footer_col">
+                <a href="">
+                    <div class="footer_logo">
+                        <img src="{{ asset('public/frontend/images/logo.png') }}" alt="" class="w-100">
+                    </div>
                 </a>
 
-                <a href="stay.html" class="footer_link">
-                  Stay
-                </a>
+                <p>Goodwood Airport Hotel offers the perfect blend of comfort and convenience, located just minutes from
+                    Bandaranaike International Airport and within easy reach of the vibrant heart of Sri Lanka, Colombo.
+                </p>
 
-                <a href="dining.html" class="footer_link">
-                      Dining
+            </div>
+
+            <!-- ============ -->
+
+            <div class="col-4 p-5 d-flex align-items-center justify-content-center row footer_col">
+                <h4 class="text-light fw-bold mb-3">NAVIGATION</h4>
+
+                <div class="row">
+                    <div class="col-6">
+                        <a href="index.html" class="footer_link">
+                            Home
+                        </a>
+
+                        <a href="stay.html" class="footer_link">
+                            Stay
+                        </a>
+
+                        <a href="dining.html" class="footer_link">
+                            Dining
+                        </a>
+
+                        <a href="wedding.html" class="footer_link">
+                            Weddings
+                        </a>
+                    </div>
+
+                    <div class="col-6">
+                        <a href="gallery.html" class="footer_link">
+                            Gallery
+                        </a>
+
+                        <a href="about_us.html" class="footer_link">
+                            About Us
+                        </a>
+
+                        <a href="contact_us.html" class="footer_link">
+                            Contact Us
+                        </a>
+
+                        <a href="" class="footer_link">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ -->
+
+            <div class="col-4 ps-5 d-flex align-items-center justify-content-center row">
+                <div>
+                    <h4 class="text-light">HOT LINE</h4>
+                    <h3 class="d-flex mb-3"><a href="" class="footer_cont">+94 112252356</a> &nbsp; / &nbsp; <a
+                            href="" class="footer_cont">+94 112252356</a></h3>
+
+                    <a href="" class="footer_link mb-1">
+                        Canada Friendship Road, Katunayake, Sri Lanka
                     </a>
 
-                <a href="wedding.html" class="footer_link">
-                  Weddings
-                </a>
-              </div>
+                    <a href="" class="footer_link">
+                        info.goodwoodairporthotel@gmail.com
+                    </a>
 
-              <div class="col-6">
-                <a href="gallery.html" class="footer_link">
-                  Gallery
-                </a>
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="">
+                            <p class="mb-0 footer_cont"><i class="fab fa-facebook-f"></i></p>
+                        </a>
 
-                <a href="about_us.html" class="footer_link">
-                  About Us
-                </a>
+                        <a href="">
+                            <p class="mb-0 footer_cont"><i class="fa-brands fa-x-twitter"></i></p>
+                        </a>
 
-                <a href="contact_us.html" class="footer_link">
-                  Contact Us
-                </a>
+                        <a href="">
+                            <p class="mb-0 footer_cont"><i class="fa-brands fa-youtube"></i></p>
+                        </a>
 
-                <a href="" class="footer_link">
-                  Book Now
-                </a>
-              </div>
+                        <a href="">
+                            <p class="mb-0 footer_cont"><i class="fa-brands fa-instagram"></i></p>
+                        </a>
+                    </div>
+
+                    <a href="terms.html" class="footer_link mb-0" style="font-size: 12px;">
+                        Terms & condition
+                    </a>
+
+                    <a href="privacy_policy.html" class="footer_link" style="font-size: 12px;">
+                        Privacy policy
+                    </a>
+                </div>
             </div>
-          </div>
-
-          <!-- ============ -->
-
-          <div class="col-4 ps-5 d-flex align-items-center justify-content-center row">
-            <div>
-              <h4 class="text-light">HOT LINE</h4>
-              <h3 class="d-flex mb-3"><a href="" class="footer_cont">+94 112252356</a> &nbsp; / &nbsp; <a href="" class="footer_cont">+94 112252356</a></h3>
-
-              <a href="" class="footer_link mb-1">
-                Canada Friendship Road, Katunayake, Sri Lanka
-              </a>
-
-              <a href="" class="footer_link">
-                info.goodwoodairporthotel@gmail.com
-              </a>
-
-              <div class="d-flex gap-3 mb-3">
-                <a href="">
-                  <p class="mb-0 footer_cont"><i class="fab fa-facebook-f"></i></p>
-                </a>
-
-                <a href="">
-                  <p class="mb-0 footer_cont"><i class="fa-brands fa-x-twitter"></i></p>
-                </a>
-
-                <a href="">
-                  <p class="mb-0 footer_cont"><i class="fa-brands fa-youtube"></i></p>
-                </a>
-
-                <a href="">
-                  <p class="mb-0 footer_cont"><i class="fa-brands fa-instagram"></i></p>
-                </a>
-              </div>
-
-              <a href="terms.html" class="footer_link mb-0" style="font-size: 12px;">
-                Terms & condition 
-              </a>
-
-              <a href="privacy_policy.html" class="footer_link" style="font-size: 12px;">
-                Privacy policy
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
 
-    <div class="container py-2">
-      <div class="row">
+<div class="container py-2">
+    <div class="row">
         <div class="col-6">
-          <p class="mb-0" style="font-size: 12px;"><i>Copyright © 2025 GOODWOOD. All rights reserved.</i></p>
+            <p class="mb-0" style="font-size: 12px;"><i>Copyright © 2025 GOODWOOD. All rights reserved.</i></p>
         </div>
 
         <div class="col-6 text-end">
-          <p class="mb-0" style="font-size: 12px;">Design & Developed by TekGeeks</p>
+            <p class="mb-0" style="font-size: 12px;">Design & Developed by TekGeeks</p>
         </div>
-      </div>
     </div>
+</div>
 
-    <!-- footer end -->
+<!-- footer end -->
 
-  </div>
+</div>
 
 
-    <!-- ================================= -->
-    <!-- ================================= -->
-    <!-- ================================= -->
+<!-- ================================= -->
+<!-- ================================= -->
+<!-- ================================= -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="{{asset('public/frontend/js/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('public/frontend/js/popper.min.js')}}" ></script> 
-    <script src="{{asset('public/frontend/js/bootstrap.min.js')}}" ></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="{{ asset('public/frontend/js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('public/frontend/js/popper.min.js') }}"></script>
+<script src="{{ asset('public/frontend/js/bootstrap.min.js') }}"></script>
 
-    <script src="{{asset('public/frontend/js/scroll_top.js')}}"></script>
+<script src="{{ asset('public/frontend/js/scroll_top.js') }}"></script>
 
-    <!-- owl carousel -->
-    <script src="{{asset('public/frontend/owl/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('public/frontend/owl/owl_js.js')}}"></script>
-    <!-- owl carousel -->
+<!-- owl carousel -->
+<script src="{{ asset('public/frontend/owl/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('public/frontend/owl/owl_js.js') }}"></script>
+<!-- owl carousel -->
 
-    <script>
-      $('.expe_owl').owlCarousel({
+<script>
+    $('.expe_owl').owlCarousel({
         loop: true,
         margin: 10,
         responsiveClass: true,
         responsive: {
-          0: {
-            items: 1,
-            nav: true
-          },
-          600: {
-            items: 2,
-            nav: true
-          },
-          1000: {
-            items: 3,
-            nav: true,
-            loop: true
-          },
-          1399: {
-            items: 4,
-            nav: true,
-            loop: true
-          }
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 2,
+                nav: true
+            },
+            1000: {
+                items: 3,
+                nav: true,
+                loop: true
+            },
+            1399: {
+                items: 4,
+                nav: true,
+                loop: true
+            }
         }
-      })
+    })
+</script>
+<!-- owl carousel -->
 
-    </script>
-    <!-- owl carousel -->
+<!-- Swiper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
 
-    <!-- Swiper JS -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
-    
-    <!-- loading effect -->
-    <script src="{{asset('public/frontend/js/aos.js')}}"></script>
+<!-- loading effect -->
+<script src="{{ asset('public/frontend/js/aos.js') }}"></script>
 
-    <!-- date picker -->
-    <script src='https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js'></script>
-    <script src="{{asset('public/frontend/date_picker/date_picker.js')}}"></script>
-    <!-- date picker -->
-    
-    <script>
-      AOS.init({
+<!-- date picker -->
+<script src='https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js'></script>
+<script src="{{ asset('public/frontend/date_picker/date_picker.js') }}"></script>
+<!-- date picker -->
+
+<script>
+    AOS.init({
         easing: 'ease-out-back',
         duration: 1000
-      });
-    </script>
-    <!-- loading effect -->
-    
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper('.room-slider', {
-      spaceBetween: 30,
-      effect: 'fade',
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
     });
-    </script>
+</script>
+<!-- loading effect -->
 
-    <script>
-      var swiper = new Swiper(".dining_slider", {
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.room-slider', {
+        spaceBetween: 30,
+        effect: 'fade',
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+<script>
+    var swiper = new Swiper(".dining_slider", {
         pagination: {
-        el: ".pagination",
-        // dynamicBullets: true,
-        clickable: true,
+            el: ".pagination",
+            // dynamicBullets: true,
+            clickable: true,
         },
         clickable: true,
         loop: true,
         autoplay: {
-        delay: 3500,
+            delay: 3500,
         },
 
-      });
-    </script>
+    });
+</script>
+ <!-- room detail slider -->
 
-    <script>
-      var swiper = new Swiper(".mySwiper", {
+  <script>
+    var slider = new Swiper('.gallery-slider', {
+      slidesPerView: 1,
+      centeredSlides: true,
+      loop: true,
+      loopedSlides: 6,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    var thumbs = new Swiper('.gallery-thumbs', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      loop: true,
+      slideToClickedSlide: true,
+      slidesPerView: 5,
+    });
+
+    slider.controller.control = thumbs;
+    thumbs.controller.control = slider;
+  </script>
+
+  <!-- room detail slider -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
-      });
-    </script>
+    });
+</script>
 
-    <!-- gallery -->
-    <script src="{{asset('public/frontend/gallery/fancybox.min.js')}}"></script>
-    <!-- gallery -->
+<!-- gallery -->
+<script src="{{ asset('public/frontend/gallery/fancybox.min.js') }}"></script>
+<!-- gallery -->
 
-  </body>
+</body>
+
 </html>
-
-
