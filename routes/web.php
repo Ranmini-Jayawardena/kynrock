@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\LocationController;
+use App\Http\Controllers\Frontend\StayController;
 use App\Http\Controllers\Frontend\WeddingController;
 
 Route::get('/admin', function () {
@@ -24,8 +25,8 @@ Route::get('/admin', function () {
     // return view('welcome');
 });
 
-Route::get('/wedding', function () {
-    return view('frontend.wedding');
+Route::get('/experience', function () {
+    return view('frontend.experience');
     //return view('welcome');
 });
 
@@ -39,5 +40,8 @@ Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/location', [LocationController::class, 'index'])->name('location');
 Route::get('/wedding', [WeddingController::class, 'index'])->name('wedding');
+Route::get('/stay', [StayController::class, 'index'])->name('stay');
+Route::get('/room-details/{id}', [StayController::class, 'RoomDetail'])->name('room-details');
+
 
 require __DIR__ . '/auth.php';

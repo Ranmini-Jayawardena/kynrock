@@ -18,6 +18,7 @@ class StayContent extends Model
         'description_en',
         'heading2',
         'description2',
+        'description3'
     ];
 
 }

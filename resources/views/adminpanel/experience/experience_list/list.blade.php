@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row cms_top_btn_row" style="margin-left:auto;margin-right:auto;">
-                        <a href="{{ route('experience') }}">
+                        <a href="{{ route('experiences') }}">
                             <button class="btn cms_top_btn top_btn_height ">{{ __('Add New') }}</button>
                         </a>
 
