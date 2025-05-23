@@ -13,6 +13,8 @@
 */
 
 use App\Http\Controllers\Frontend\AboutUsController;
+use App\Http\Controllers\Frontend\ContactUsController;
+use App\Http\Controllers\Frontend\ExperienceController;
 use App\Http\Controllers\Frontend\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
@@ -25,8 +27,8 @@ Route::get('/admin', function () {
     // return view('welcome');
 });
 
-Route::get('/experience', function () {
-    return view('frontend.experience');
+Route::get('/contact-us', function () {
+    return view('frontend.contact_us');
     //return view('welcome');
 });
 
@@ -42,6 +44,10 @@ Route::get('/location', [LocationController::class, 'index'])->name('location');
 Route::get('/wedding', [WeddingController::class, 'index'])->name('wedding');
 Route::get('/stay', [StayController::class, 'index'])->name('stay');
 Route::get('/room-details/{id}', [StayController::class, 'RoomDetail'])->name('room-details');
+Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
+Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::post('/contact-us', [ContactUsController::class, 'store'])->name('contact.us.store');
+Route::post('new-enquiry', [ContactUsController::class, 'store'])->name('new-enquiry');
 
 
 require __DIR__ . '/auth.php';

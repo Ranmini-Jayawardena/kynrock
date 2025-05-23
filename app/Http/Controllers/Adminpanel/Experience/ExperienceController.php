@@ -35,6 +35,7 @@ class ExperienceController extends Controller
         $experience = new Experience();
         $experience->experience_name = $request->experience_name;
         $experience->description = $request->description;
+        $experience->description2 = $request->description2;
         $experience->status = $request->status;
         $experience->save();
     
@@ -135,6 +136,7 @@ class ExperienceController extends Controller
         // Update experience data
         $data->experience_name = $request->experience_name;
         $data->description = $request->description;
+        $data->description2 = $request->description2;
         $data->status = $request->status;
         $data->save();
     
