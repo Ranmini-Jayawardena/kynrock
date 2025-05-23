@@ -13,10 +13,10 @@ class ExperienceList extends Model
     protected $table = 'experience';
     public $timestamps = true;
 
-    protected $fillable = ['experience_name', 'description', 'is_delete', 'status'];
+    protected $fillable = ['experience_name', 'description', 'description2','is_delete', 'status'];
 
     public function images()
     {
-        return $this->hasMany(ExperienceImages::class); // Reference the correct model
+        return $this->hasMany(ExperienceImages::class,'experience_id'); // Reference the correct model
     }
 }

@@ -107,6 +107,15 @@
                                     </label>
                                 </section>
                             </div>
+                            <div class="row">
+                                <section class="col col-11" style="width: 100%;">
+                                    <label class="label">{{ __('Description 2') }}<span
+                                            style=" color: red;">*</span></label>
+                                    <label class="input">
+                                        <textarea class="form-control " id="description2" name="description2" rows="3" required>{{ $data->description2 }}</textarea>
+                                    </label>
+                                </section>
+                            </div>
 
                             <div id="image-upload-section">
                                 @foreach ($images as $image)
