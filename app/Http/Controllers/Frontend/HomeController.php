@@ -25,11 +25,21 @@ class HomeController extends Controller
         $sliders = MainSlider::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
         $welcomeContent = WelcomeContent::first();
         $roomContent = RoomContent::first();
-        $roomTypes = RoomTypes::with(['roomAmenities.feature' => function ($q) {
-            $q->where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->limit(5);
-        }])
-            ->where('status', 'Y')->where('is_delete', 0)->where('checkbox', 1)
-            ->get();
+       $roomTypes = RoomTypes::where('status', 'Y')
+    ->where('is_delete', 0)
+    ->where('checkbox', 1)
+    ->get();
+
+foreach ($roomTypes as $roomType) {
+    $roomType->load(['roomAmenities.feature' => function ($q) {
+        $q->where('status', 'Y')
+          ->where('is_delete', 0)
+          ->orderBy('order', 'ASC');
+    }]);
+
+    // Optionally limit amenities per room manually
+    $roomType->roomAmenities = $roomType->roomAmenities->take(6);
+}
         $featureContent = FeaturesContent::first();
         $homeFeatures = HomeFeatures::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
         $diningContent = DiningContent::first();

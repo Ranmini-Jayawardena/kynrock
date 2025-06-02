@@ -22,12 +22,24 @@ class StayController extends Controller
     {
         $topBanner = TopBanner::where('id', 6)->first();
         $contents = StayContent::first();
-        $roomTypes = RoomTypes::with(['roomAmenities', 'roomFeatures', 'images'])
-            ->where('status', 'Y')
-            ->where('is_delete', 0)
-            ->orderBy('id', 'desc')
-            ->get();
-       
+        // $roomTypes = RoomTypes::with(['roomAmenities', 'roomFeatures', 'images'])
+        //     ->where('status', 'Y')
+        //     ->where('is_delete', 0)
+        //     ->orderBy('id', 'asc')
+        //     ->get();
+     $roomTypes = RoomTypes::where('status', 'Y')
+    ->where('is_delete', 0)
+    ->orderBy('id', 'asc')
+    ->with(['roomAmenities.feature', 'roomFeatures', 'images'])
+    ->get();
+
+// Sort roomAmenities by feature.order for each RoomType
+foreach ($roomTypes as $roomType) {
+    $roomType->roomAmenities = $roomType->roomAmenities->sortBy(function ($amenity) {
+        return $amenity->feature->order ?? 0;
+    })->values();
+}
+
         $contactDetails = ContactUsDetail::first();
        
         
@@ -53,10 +65,18 @@ class StayController extends Controller
     {
         $topBanner = TopBanner::where('id', 6)->first();
 
-        $roomDetails = RoomTypes::where('status', 'Y')->where('is_delete', 0)
-        ->where('meta_title', $meta_title)
-        ->with(['roomAmenities', 'roomFeatures', 'images'])
-        ->first();
+      $roomDetails = RoomTypes::where('status', 'Y')
+    ->where('is_delete', 0)
+    ->where('meta_title', $meta_title)
+    ->with(['roomAmenities.feature', 'roomFeatures', 'images']) // load all needed relationships
+    ->first();
+
+// Sort by the related `feature.order`
+$roomDetails->roomAmenities = $roomDetails->roomAmenities->sortBy(function ($amenity) {
+    return $amenity->feature->order ?? 0;
+})->values();
+
+
 
         $bottomBanner = BottomBanner::where('id',3)->first();
         $contactDetails = ContactUsDetail::first();
