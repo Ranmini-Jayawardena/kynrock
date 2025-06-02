@@ -201,7 +201,7 @@
                         {{ strip_tags($roomContent->description) }}
                     </p>
 
-                    <a href="stay.html">
+                    <a href="{{ route('stay') }}">
                         <button class="arrow_btn light">
 
                             <span class="circle">
@@ -260,7 +260,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-end pe-5">
-                                        <a href="{{ url('room_detail/' . $room->id) }}">
+                                        <a href="{{ url('room-details/' . $room->meta_title) }}">
                                             <button class="arrow_btn">
                                                 <span class="circle">
                                                     <span class="icon arrow">
@@ -473,7 +473,7 @@
                         data-read-less="See less" aria-hidden="true"></label>
                 </div>
 
-                <a href="wedding.html">
+                <a href="{{ route('wedding') }}">
                     <button class="arrow_btn">
 
                         <span class="circle">
@@ -531,7 +531,7 @@
                     {!! $locationContent->description !!}
                 </p>
 
-                <a href="location.html">
+                <a href="{{ route('location') }}">
                     <button class="arrow_btn">
 
                         <span class="circle">
@@ -574,10 +574,11 @@
                                 {{ \Illuminate\Support\Str::words(strip_tags($location->description), 25, '...') }}</p>
 
 
-
+                        <a href="{{ route('location') }}">
                             <button class="arrow_btn">
 
                                 <span class="circle">
+                                    
                                     <span class="icon arrow">
                                         <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -600,6 +601,7 @@
                                 </span>
 
                             </button>
+                        </a>
 
                         </div>
                     </div>

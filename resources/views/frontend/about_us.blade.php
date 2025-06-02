@@ -244,7 +244,7 @@
                          <div class="text-light">
                              {!! $weddingContent->description !!}
                          </div>
-
+                           <a href="{{ route('wedding') }}">
                          <button class="arrow_btn light">
 
                              <span class="circle">
@@ -272,6 +272,7 @@
                              </span>
 
                          </button>
+                         </a>
                      </div>
                  </div>
              </div>
@@ -319,6 +320,7 @@
                                              <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}
                                              </h3>
                                              {!! $weddingVenue->description !!}
+                                            <a href="{{ route('gallery') }}">
                                              <button class="arrow_btn">
 
                                                  <span class="circle">
@@ -346,6 +348,7 @@
                                                  </span>
 
                                              </button>
+                                            </a>
                                          </div>
 
                                      </div>
@@ -371,6 +374,7 @@
                                              <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}
                                              </h3>
                                              {!! $weddingVenue->description !!}
+                                             <a href="{{ route('gallery') }}">
                                              <button class="arrow_btn">
 
                                                  <span class="circle">
@@ -398,6 +402,7 @@
                                                  </span>
 
                                              </button>
+                                             </a>
                                          </div>
 
                                      </div>
@@ -441,7 +446,7 @@
                      <label for="read-more-venue" class="read-more__label" data-read-more="Read more"
                          data-read-less="See less" aria-hidden="true"></label>
                  </div>
-
+                <a href="{{ route('location') }}">
                  <button class="arrow_btn">
 
                      <span class="circle">
@@ -469,6 +474,7 @@
                      </span>
 
                  </button>
+                </a>
 
              </div>
 
