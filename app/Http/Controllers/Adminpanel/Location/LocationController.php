@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\Adminpanel\location;
+namespace App\Http\Controllers\Adminpanel\Location;
 
 use App\Http\Controllers\Controller;
 use App\Models\LocationList as Location;

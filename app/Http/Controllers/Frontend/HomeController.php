@@ -25,33 +25,34 @@ class HomeController extends Controller
         $sliders = MainSlider::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
         $welcomeContent = WelcomeContent::first();
         $roomContent = RoomContent::first();
-       $roomTypes = RoomTypes::where('status', 'Y')
-    ->where('is_delete', 0)
-    ->where('checkbox', 1)
-    ->get();
+        $roomTypes = RoomTypes::where('status', 'Y')
+            ->where('is_delete', 0)
+            ->orderBy('id', 'asc')
+            ->where('checkbox', 1)
+            ->with(['roomAmenities.feature'])
+            ->get();
 
-foreach ($roomTypes as $roomType) {
-    $roomType->load(['roomAmenities.feature' => function ($q) {
-        $q->where('status', 'Y')
-          ->where('is_delete', 0)
-          ->orderBy('order', 'ASC');
-    }]);
-
-    // Optionally limit amenities per room manually
-    $roomType->roomAmenities = $roomType->roomAmenities->take(6);
-}
+        // Sort roomAmenities by feature.order for each RoomType
+        foreach ($roomTypes as $roomType) {
+            $roomType->roomAmenities = $roomType->roomAmenities
+                ->sortBy(function ($amenity) {
+                    return $amenity->feature->order ?? 0;
+                })
+                ->take(6)
+                ->values(); // reindex
+        }
         $featureContent = FeaturesContent::first();
         $homeFeatures = HomeFeatures::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
         $diningContent = DiningContent::first();
         $venueContent = VenueContent::first();
         $locationContent = LocationContent::first();
         $locationList = LocationList::where('status', 'Y')
-        ->where('is_delete', 0)
-        ->orderBy('order', 'ASC')
-        ->get();
+            ->where('is_delete', 0)
+            ->orderBy('order', 'ASC')
+            ->get();
         $testimonials = TestimonialContent::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
         $contactDetails = ContactUsDetail::first();
-      
+
 
 
 
