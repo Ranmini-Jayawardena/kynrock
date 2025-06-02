@@ -8,6 +8,7 @@ use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
 use App\Models\BottomBanner;
+use App\Models\ContactUsDetail;
 use App\Models\RoomTypes;
 use App\Models\StayContent;
 use App\Models\TopBanner;
@@ -27,7 +28,7 @@ class StayController extends Controller
             ->orderBy('id', 'desc')
             ->get();
        
-
+        $contactDetails = ContactUsDetail::first();
        
         
 
@@ -39,7 +40,9 @@ class StayController extends Controller
         return view('frontend.stay', compact(
             'topBanner',
             'contents'
-            , 'roomTypes'
+            , 'roomTypes',
+            'contactDetails'
+
            
            
 
@@ -56,8 +59,9 @@ class StayController extends Controller
         ->first();
 
         $bottomBanner = BottomBanner::where('id',3)->first();
+        $contactDetails = ContactUsDetail::first();
 
 
-        return view('frontend.room_detail', compact('topBanner', 'roomDetails','bottomBanner'));
+        return view('frontend.room_detail', compact('topBanner', 'roomDetails','bottomBanner','contactDetails'));
     }
 }

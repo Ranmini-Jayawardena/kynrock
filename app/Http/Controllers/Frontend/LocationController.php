@@ -7,6 +7,7 @@ use App\Models\AboutUsBelowContent;
 use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
+use App\Models\ContactUsDetail;
 use App\Models\LocationList;
 use App\Models\TopBanner;
 use App\Models\WeddingVenues;
@@ -24,13 +25,15 @@ class LocationController extends Controller
             ->with(['images' => function ($query) {
                 $query->orderBy('order', 'ASC');
             }])->get();
+        $contactDetails = ContactUsDetail::first();
 
 
       
 
         return view('frontend.location', compact(
             'topBanner',
-            'locations'
+            'locations',
+            'contactDetails'
 
 
 

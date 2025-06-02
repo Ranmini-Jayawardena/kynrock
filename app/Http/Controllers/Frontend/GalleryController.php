@@ -7,6 +7,7 @@ use App\Models\AboutUsBelowContent;
 use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
+use App\Models\ContactUsDetail;
 use App\Models\GalleryCategory;
 use App\Models\GalleryImages;
 use App\Models\TopBanner;
@@ -32,13 +33,15 @@ class GalleryController extends Controller
             ->where('status', 'Y')
             ->get();
         $allImages = GalleryImages::orderBy('id', 'asc')->get();
+        $contactDetails = ContactUsDetail::first();
 
 
 
         return view('frontend.gallery', compact(
             'topBanner',
             'allImages',
-            'categories'
+            'categories',
+            'contactDetails'
 
 
 

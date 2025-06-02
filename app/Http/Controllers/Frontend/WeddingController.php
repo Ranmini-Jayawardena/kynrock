@@ -8,6 +8,7 @@ use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
 use App\Models\BottomBanner;
+use App\Models\ContactUsDetail;
 use App\Models\GalleryCategory;
 use App\Models\GalleryImages;
 use App\Models\LocationList;
@@ -54,6 +55,7 @@ class WeddingController extends Controller
             ->orderBy('order', 'ASC')
             ->get();
         $bottomBanner = BottomBanner::where('id', 2)->first();
+        $contactDetails = ContactUsDetail::first();
 
 
        
@@ -70,7 +72,8 @@ class WeddingController extends Controller
             ,'diningFeatures'
             ,'services'
             ,'weddingHotelFeatures'
-            ,'bottomBanner'
+            ,'bottomBanner',
+            'contactDetails'
             
 
 

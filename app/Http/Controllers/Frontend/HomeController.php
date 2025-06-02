@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUsDetail;
 use App\Models\DiningContent;
 use App\Models\FeaturesContent;
 use App\Models\HomeFeatures;
@@ -39,6 +40,7 @@ class HomeController extends Controller
         ->orderBy('order', 'ASC')
         ->get();
         $testimonials = TestimonialContent::where('status', 'Y')->where('is_delete', 0)->orderBy('order', 'ASC')->get();
+        $contactDetails = ContactUsDetail::first();
       
 
 
@@ -58,6 +60,7 @@ class HomeController extends Controller
             'locationContent',
             'locationList',
             'testimonials',
+            'contactDetails',
 
         ));
     }
