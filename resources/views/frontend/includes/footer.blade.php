@@ -75,46 +75,47 @@
                             <span>&nbsp;/&nbsp;</span>
                         @endif
                         @if (!empty($contactDetails->contact_no))
-                            <a href="tel:{{ $contactDetails->contact_no }}"  class="footer_cont">{{ $contactDetails->contact_no }}</a>
+                            <a href="tel:{{ $contactDetails->contact_no }}"
+                                class="footer_cont">{{ $contactDetails->contact_no }}</a>
                         @endif
 
                     </h3>
 
                     @if (!empty($contactDetails->address))
-                    <a href="{{ $contactDetails->map }}" target="_blank" class="footer_link mb-1">
-                        {{ $contactDetails->address }}
-                    </a>
-                    @endif  
+                        <a href="{{ $contactDetails->map }}" target="_blank" class="footer_link mb-1">
+                            {{ $contactDetails->address }}
+                        </a>
+                    @endif
 
                     @if (!empty($contactDetails->email))
-                    <a href="mailto:{{ $contactDetails->email }}" class="footer_link">
-                        {{ $contactDetails->email }}
-                    </a>
-                    @endif 
+                        <a href="mailto:{{ $contactDetails->email }}" class="footer_link">
+                            {{ $contactDetails->email }}
+                        </a>
+                    @endif
 
                     <div class="d-flex gap-3 mb-3">
                         @if ($contactDetails->facebook_url != '' && $contactDetails->facebook_url != '#')
-                        <a href="{{ $contactDetails->facebook_url }}" target="_blank">
-                            <p class="mb-0 footer_cont"><i class="fab fa-facebook-f"></i></p>
-                        </a>
+                            <a href="{{ $contactDetails->facebook_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fab fa-facebook-f"></i></p>
+                            </a>
                         @endif
 
                         @if ($contactDetails->twitter_url != '' && $contactDetails->twitter_url != '#')
-                        <a href="{{ $contactDetails->twitter_url }}" target="_blank">
-                            <p class="mb-0 footer_cont"><i class="fa-brands fa-x-twitter"></i></p>
-                        </a>
+                            <a href="{{ $contactDetails->twitter_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fa-brands fa-x-twitter"></i></p>
+                            </a>
                         @endif
 
                         @if ($contactDetails->youtube_url != '' && $contactDetails->youtube_url != '#')
-                        <a href="{{ $contactDetails->youtube_url }}" target="_blank">
-                            <p class="mb-0 footer_cont"><i class="fa-brands fa-youtube"></i></p>
-                        </a>
+                            <a href="{{ $contactDetails->youtube_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fa-brands fa-youtube"></i></p>
+                            </a>
                         @endif
 
                         @if ($contactDetails->instagram_url != '' && $contactDetails->instagram_url != '#')
-                        <a href="{{ $contactDetails->instagram_url }}" target="_blank">
-                            <p class="mb-0 footer_cont"><i class="fa-brands fa-instagram"></i></p>
-                        </a>
+                            <a href="{{ $contactDetails->instagram_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fa-brands fa-instagram"></i></p>
+                            </a>
                         @endif
                     </div>
 
@@ -134,14 +135,15 @@
 <div class="container py-2">
     <div class="row">
         <div class="col-6">
-            <p class="mb-0" style="font-size: 12px;"><i>Copyright © {{ date('Y') }} GOODWOOD. All rights reserved.</i></p>
+            <p class="mb-0" style="font-size: 12px;"><i>Copyright © {{ date('Y') }} GOODWOOD. All rights
+                    reserved.</i></p>
         </div>
 
-        <div class="col-6 text-end">
-            <p class="mb-0" style="font-size: 12px;">Design & Developed by<a href="https://www.tekgeeks.net/"
-                                target="_blank">TekGeeks</a></p>
+        <div class="col-6 text-end d-flex justify-content-end">
+            <p class="mb-0 d-flex gap-1" style="font-size: 12px;">Design & Developed by<a
+                    href="https://www.tekgeeks.net/" target="_blank" class="fw-bold">TekGeeks</a></p>
         </div>
-       
+
     </div>
 </div>
 
