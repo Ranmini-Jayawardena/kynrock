@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Adminpanel\Gallery;
 
 use App\Http\Controllers\Controller;
 use App\Models\GalleryCategory as Category;
-use App\Models\GallerySubcategory as Subcategory;
+use App\Models\GallerySubCategory;
 use App\Models\GalleryImages as Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +29,7 @@ class GalleryCategoryController extends Controller
     {
         $request->validate([
             'category_name' => 'required',
-            'subcategories.*.sub_category_name' => 'required|string|max:255',
+            'subcategories.*.sub_category_name' => 'nullable|string|max:255',
         ]);
 
         $category = new Category();
@@ -42,16 +42,18 @@ class GalleryCategoryController extends Controller
         // Save subcategories
         if ($request->has('subcategories')) {
             foreach ($request->subcategories as $sub) {
-                $subcategory = new Subcategory();
-                $subcategory->category_id = $category->id;
-                $subcategory->sub_category_name = $sub['sub_category_name'];
-                $subcategory->order = $sub['order'] ?? 0;
-                $subcategory->save();
+                if (!empty($sub['sub_category_name'])) {
+                    $subcategory = new GallerySubCategory();
+                    $subcategory->category_id = $category->id;
+                    $subcategory->sub_category_name = $sub['sub_category_name'];
+                    $subcategory->order = $sub['order'] ?? 0;
+                    $subcategory->save();
+                }
             }
-        }
 
-        return redirect()->route('gallery-list')
-            ->with('success', 'Gallery category and subcategories created successfully.');
+            return redirect()->route('gallery-list')
+                ->with('success', 'Gallery category and subcategories created successfully.');
+        }
     }
 
     public function list(Request $request)
@@ -80,7 +82,7 @@ class GalleryCategoryController extends Controller
     {
         $categoryID = decrypt($id);
         $data = Category::find($categoryID);
-        $subcategories = Subcategory::where('category_id', $categoryID)
+        $subcategories = GallerySubCategory::where('category_id', $categoryID)
             ->OrderBy('order')
             ->get();
 
@@ -91,7 +93,7 @@ class GalleryCategoryController extends Controller
     {
         $request->validate([
             'category_name' => 'required',
-            'subcategories.*.sub_category_name' => 'required|string|max:255',
+            'subcategories.*.sub_category_name' => 'nullable|string|max:255',
         ]);
 
         $data = Category::find($request->id);
@@ -103,47 +105,61 @@ class GalleryCategoryController extends Controller
         $data->status = $request->status;
         $data->save();
 
-        $existingSubcategoryIds = Subcategory::where('category_id', $data->id)->pluck('id')->toArray();
+        $existingSubcategoryIds = GallerySubCategory::where('category_id', $data->id)->pluck('id')->toArray();
         $newSubcategoryIds = [];
 
-        foreach ($request->subcategories as $sub) {
-            if (isset($sub['id'])) {
-                $newSubcategoryIds[] = $sub['id'];
-            }
-        }
-
-        // Identify subcategories that were removed
-        $subcategoriesToDelete = array_diff($existingSubcategoryIds, $newSubcategoryIds);
-
-        // Delete images for removed subcategories
-        foreach ($subcategoriesToDelete as $subId) {
-            $images = Image::where('subcategory_id', $subId)->get();
-            foreach ($images as $image) {
-                if (Storage::exists($image->image_name)) {
-                    Storage::delete($image->image_name);
+        if ($request->has('subcategories')) {
+            foreach ($request->subcategories as $sub) {
+                if (isset($sub['id'])) {
+                    $newSubcategoryIds[] = $sub['id'];
                 }
-                $image->delete();
             }
-            Subcategory::where('id', $subId)->delete(); // remove subcategory too
-        }
 
+            // Identify subcategories that were removed
+            $subcategoriesToDelete = array_diff($existingSubcategoryIds, $newSubcategoryIds);
 
-        foreach ($request->subcategories as $sub) {
-            if (isset($sub['id'])) {
-                // Update existing subcategory
-                $subcategory = Subcategory::find($sub['id']);
-                if ($subcategory) {
-                    $subcategory->sub_category_name = $sub['sub_category_name'];
-                    $subcategory->order = $sub['order'] ?? 0;
-                    $subcategory->save();
+            // Delete images for removed subcategories
+            foreach ($subcategoriesToDelete as $subId) {
+                $images = Image::where('subcategory_id', $subId)->get();
+                foreach ($images as $image) {
+                    if (Storage::exists($image->image_name)) {
+                        Storage::delete($image->image_name);
+                    }
+                    $image->delete();
                 }
-            } else {
-                // Create new subcategory
-                $subcategory = new Subcategory();
-                $subcategory->category_id = $data->id;
-                $subcategory->sub_category_name = $sub['sub_category_name'];
-                $subcategory->order = $sub['order'] ?? 0;
-                $subcategory->save();
+                GallerySubCategory::where('id', $subId)->delete(); // remove subcategory too
+            }
+
+
+            foreach ($request->subcategories as $sub) {
+                if (!empty($sub['sub_category_name'])) {
+                    if (isset($sub['id'])) {
+                        $subcategory = GallerySubCategory::find($sub['id']);
+                        if ($subcategory) {
+                            $subcategory->sub_category_name = $sub['sub_category_name'];
+                            $subcategory->order = $sub['order'] ?? 0;
+                            $subcategory->save();
+                        }
+                    } else {
+                        $subcategory = new GallerySubCategory();
+                        $subcategory->category_id = $data->id;
+                        $subcategory->sub_category_name = $sub['sub_category_name'];
+                        $subcategory->order = $sub['order'] ?? 0;
+                        $subcategory->save();
+                    }
+                }
+            }
+        } else {
+            // If all subcategories are removed
+            foreach ($existingSubcategoryIds as $subId) {
+                $images = Image::where('subcategory_id', $subId)->get();
+                foreach ($images as $image) {
+                    if (Storage::exists($image->image_name)) {
+                        Storage::delete($image->image_name);
+                    }
+                    $image->delete();
+                }
+                GallerySubCategory::where('id', $subId)->delete();
             }
         }
 

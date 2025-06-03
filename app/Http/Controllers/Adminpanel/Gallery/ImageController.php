@@ -47,7 +47,7 @@ class ImageController extends Controller
     {
         $request->validate([
             'category_id' => 'required|exists:categories,id',
-            'subcategory_id' => 'required|exists:sub_categories,id',
+            'subcategory_id' => 'nullable|exists:sub_categories,id',
             'images.*.image_name' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
@@ -56,7 +56,7 @@ class ImageController extends Controller
         foreach ($request->images as $img) {
             $image = new GalleryImages();
             $image->category_id = $request->category_id;
-            $image->subcategory_id = $request->subcategory_id;
+            $image->subcategory_id = $request->subcategory_id ?? null;
             $image->order = $img['order'] ?? 0;
             $image->image_name = $img['image_name']->store('public/images');
             $image->save();
@@ -72,7 +72,7 @@ class ImageController extends Controller
 
         if ($request->ajax()) {
             $data = GalleryImages::with('category', 'subcategory')
-                ->selectRaw('MIN(id) as id, category_id, subcategory_id') // get one image per group
+                ->selectRaw('MIN(id) as id, category_id, IFNULL(subcategory_id, 0) as subcategory_id')// get one image per group
                 ->groupBy('category_id', 'subcategory_id')
                 ->get();
 

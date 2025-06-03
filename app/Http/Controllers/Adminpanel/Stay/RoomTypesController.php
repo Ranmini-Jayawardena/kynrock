@@ -42,7 +42,6 @@ class RoomTypesController extends Controller
     {
         $request->validate([
             'room_name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
             'description_en' => 'required|string',
             'home_image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
@@ -213,7 +212,6 @@ class RoomTypesController extends Controller
     {
         $request->validate([
             'room_name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
             'description_en' => 'required|string',
             'home_image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 

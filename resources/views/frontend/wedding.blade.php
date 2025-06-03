@@ -151,9 +151,9 @@
                                         <div>
                                             <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}</h3>
                                             {!! $weddingVenue->description !!}
-                                            <a href="{{ route('gallery') }}">
+                                            
                                             <button class="arrow_btn">
-
+                                            <a href="{{ route('gallery') }}">
                                                 <span class="circle">
                                                     <span class="icon arrow">
                                                         <svg version="1.1" id="fi_664866"
@@ -179,6 +179,7 @@
                                                 </span>
 
                                             </button>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -203,8 +204,9 @@
                                         <div>
                                             <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}</h3>
                                             {!! $weddingVenue->description !!}
+                                             <a href="{{ route('gallery') }}">
                                             <button class="arrow_btn">
-                                        <a href="{{ route('gallery') }}">
+                                       
                                                 <span class="circle">
                                                     <span class="icon arrow">
                                                         <svg version="1.1" id="fi_664866"
@@ -230,6 +232,7 @@
                                                 </span>
 
                                             </button>
+                                        </a>
                                         </div>
 
                                     </div>
