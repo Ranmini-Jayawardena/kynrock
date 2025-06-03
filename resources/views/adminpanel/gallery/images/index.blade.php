@@ -132,10 +132,10 @@
     <x-slot name="script">
         <script>
             $(function() {
-                let imageIndex = 1;
+                    let imageIndex = 1;
 
-                $(document).on('click', '.add-image', function() {
-                    const newInput = `
+                    $(document).on('click', '.add-image', function() {
+                        const newInput = `
                         <div class="row image-upload-wrapper">
                             <section class="col col-4">
                                 <label class="label">Image (1920 x 1080) <span style="color: red;">*</span></label>
@@ -155,91 +155,116 @@
                                 <button type="button" class="btn-sm btn-danger remove-image" style="width: 70px;">Remove</button>
                             </section>
                         </div>`;
-                    $('#image-upload-section').append(newInput);
-                    imageIndex++;
-                });
-
-                $(document).on('click', '.remove-image', function() {
-                    $(this).closest('.image-upload-wrapper').remove();
-                });
-
-                $(document).ready(function() {
-                    $('#category_id').change(function() {
-                        let categoryId = $(this).val();
-
-                        if (categoryId) {
-                            $.ajax({
-                                url: "{{ route('get-subcategories') }}",
-                                type: "GET",
-                                data: {
-                                    category_id: categoryId
-                                },
-                                success: function(data) {
-                                    $('#subcategory_id').empty();
-                                    $('#subcategory_id').append(
-                                        '<option value="">Select Subcategory</option>');
-                                    $.each(data, function(key, value) {
-                                        $('#subcategory_id').append(
-                                            '<option value="' + value.id +
-                                            '">' + value.sub_category_name +
-                                            '</option>');
-                                    });
-                                }
-                            });
-                        } else {
-                            $('#subcategory_id').empty();
-                            $('#subcategory_id').append('<option value="">Select Subcategory</option>');
-                        }
+                        $('#image-upload-section').append(newInput);
+                        imageIndex++;
                     });
-                });
 
-                $(document).ready(function() {
-                    let imageIndex = 1;
+                    $(document).on('click', '.remove-image', function() {
+                        $(this).closest('.image-upload-wrapper').remove();
+                    });
 
-                    // Disable submit button by default
-                    $('button[type="submit"]').prop('disabled', true);
+                    $(document).ready(function() {
+                        $('#category_id').change(function() {
+                            let categoryId = $(this).val();
 
-                    // Check for existing category-subcategory combination
-                    function checkCategorySubcategoryCombination(categoryId, subcategoryId) {
-                        if (categoryId && subcategoryId) {
-                            $.ajax({
-                                url: "{{ route('check-category-subcategory-combination') }}", // Adjust this route if necessary
-                                type: "GET",
-                                data: {
-                                    category_id: categoryId,
-                                    subcategory_id: subcategoryId
-                                },
-                                success: function(response) {
-                                    if (response.exists) {
-                                        // Show error message near the subcategory field
-                                        $('#category-subcategory-error').text(
-                                            'Already images are uploaded for this subcategory. If want to update go to edit page.'
-                                        );
-                                        $('button[type="submit"]').prop('disabled',
-                                            true); // Disable submit button
-                                    } else {
-                                        // Clear the error message if no duplicate found
+                            if (categoryId) {
+                                $.ajax({
+                                    url: "{{ route('get-subcategories') }}",
+                                    type: "GET",
+                                    data: {
+                                        category_id: categoryId
+                                    },
+                                    success: function(data) {
+                                        $('#subcategory_id').empty();
+
+                                        if (data.length > 0) {
+                                            $('#subcategory_id').prop('disabled',
+                                                false); // Enable dropdown
+                                            $('#subcategory_id').append(
+                                                '<option value="">Select Subcategory</option>'
+                                            );
+
+                                            $.each(data, function(key, value) {
+                                                $('#subcategory_id').append(
+                                                    '<option value="' + value.id +
+                                                    '">' + value.sub_category_name +
+                                                    '</option>'
+                                                );
+                                            });
+                                        } else {
+                                            $('#subcategory_id').append(
+                                                '<option value="">No Subcategories</option>'
+                                            );
+                                            $('#subcategory_id').prop('disabled',
+                                                true); // Disable dropdown if none
+                                            $('#subcategory_id').val('');
+                                        }
+
+                                        // Clear any previous error
                                         $('#category-subcategory-error').text('');
                                         $('button[type="submit"]').prop('disabled',
-                                            false); // Enable submit button
+                                            false); // Reset submit
                                     }
-                                }
-                            });
-                        }
-                    }
+                                });
+                            } else {
+                                $('#subcategory_id').empty().append(
+                                    '<option value="">Select Subcategory</option>');
+                                $('#subcategory_id').prop('disabled', true);
+                            }
+                        });
 
-                    // Trigger when category or subcategory changes
-                    $('#category_id, #subcategory_id').change(function() {
-                        const categoryId = $('#category_id').val();
-                        const subcategoryId = $('#subcategory_id').val();
-
-                        checkCategorySubcategoryCombination(categoryId, subcategoryId);
                     });
-                });
 
-                setTimeout(function() {
-                    $('.alert').fadeOut('fast');
-                }, 5000);
+                    $(document).ready(function() {
+                        let imageIndex = 1;
+
+                        // Disable submit button by default
+                        $('button[type="submit"]').prop('disabled', true);
+
+                        // Check for existing category-subcategory combination
+                        function checkCategorySubcategoryCombination(categoryId, subcategoryId) {
+                            if (categoryId && subcategoryId && !$('#subcategory_id').prop('disabled')) {
+                                $.ajax({
+                                    url: "{{ route('check-category-subcategory-combination') }}",
+                                    type: "GET",
+                                    data: {
+                                        category_id: categoryId,
+                                        subcategory_id: subcategoryId
+                                    },
+                                    success: function(response) {
+                                        if (response.exists) {
+                                            $('#category-subcategory-error').text(
+                                                'Already images are uploaded for this subcategory. If want to update go to edit page.'
+                                            );
+                                            $('button[type="submit"]').prop('disabled', true);
+                                        } else {
+                                            $('#category-subcategory-error').text('');
+                                            $('button[type="submit"]').prop('disabled', false);
+                                        }
+                                    }
+                                });
+                            } else {
+                                $('#category-subcategory-error').text('');
+                                $('button[type="submit"]').prop('disabled', false);
+                            }
+                        }
+
+                
+                
+            
+
+            // Trigger when category or subcategory changes
+            $('#category_id, #subcategory_id').change(function() {
+            const categoryId = $('#category_id').val();
+            const subcategoryId = $('#subcategory_id').val();
+
+            checkCategorySubcategoryCombination(categoryId, subcategoryId);
+            });
+            });
+
+            setTimeout(function() {
+            $('.alert').fadeOut('fast');
+            }, 5000);
             });
         </script>
     </x-slot>

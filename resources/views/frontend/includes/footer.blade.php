@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4 pe-4 footer_col">
-                <a href="">
+                <a href="{{ url('/') }}">
                     <div class="footer_logo">
                         <img src="{{ asset('public/frontend/images/logo.png') }}" alt="" class="w-100">
                     </div>
@@ -23,11 +23,11 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <a href="index.html" class="footer_link">
+                        <a href="{{ route('home') }}" class="footer_link">
                             Home
                         </a>
 
-                        <a href="stay.html" class="footer_link">
+                        <a href="{{ route('stay') }}" class="footer_link">
                             Stay
                         </a>
 
@@ -35,21 +35,21 @@
                             Dining
                         </a>
 
-                        <a href="wedding.html" class="footer_link">
+                        <a href="{{ route('wedding') }}" class="footer_link">
                             Weddings
                         </a>
                     </div>
 
                     <div class="col-6">
-                        <a href="gallery.html" class="footer_link">
+                        <a href="{{ route('gallery') }}" class="footer_link">
                             Gallery
                         </a>
 
-                        <a href="about_us.html" class="footer_link">
+                        <a href="{{ route('about-us') }}" class="footer_link">
                             About Us
                         </a>
 
-                        <a href="contact_us.html" class="footer_link">
+                        <a href="{{ route('contact-us') }}" class="footer_link">
                             Contact Us
                         </a>
 
@@ -65,40 +65,65 @@
             <div class="col-4 ps-5 d-flex align-items-center justify-content-center row">
                 <div>
                     <h4 class="text-light">HOT LINE</h4>
-                    <h3 class="d-flex mb-3"><a href="" class="footer_cont">+94 112252356</a> &nbsp; / &nbsp; <a
-                            href="" class="footer_cont">+94 112252356</a></h3>
+                    <h3 class="d-flex mb-3">
 
-                    <a href="" class="footer_link mb-1">
-                        Canada Friendship Road, Katunayake, Sri Lanka
-                    </a>
+                        @if (!empty($contactDetails->hotline))
+                            <a href="tel: {{ $contactDetails->hotline }}"
+                                class="footer_cont">{{ $contactDetails->hotline }}</a>
+                        @endif
+                        @if (!empty($contactDetails->hotline) && !empty($contactDetails->contact_no))
+                            <span>&nbsp;/&nbsp;</span>
+                        @endif
+                        @if (!empty($contactDetails->contact_no))
+                            <a href="tel:{{ $contactDetails->contact_no }}"
+                                class="footer_cont">{{ $contactDetails->contact_no }}</a>
+                        @endif
 
-                    <a href="" class="footer_link">
-                        info.goodwoodairporthotel@gmail.com
-                    </a>
+                    </h3>
+
+                    @if (!empty($contactDetails->address))
+                        <a href="{{ $contactDetails->map }}" target="_blank" class="footer_link mb-1">
+                            {{ $contactDetails->address }}
+                        </a>
+                    @endif
+
+                    @if (!empty($contactDetails->email))
+                        <a href="mailto:{{ $contactDetails->email }}" class="footer_link">
+                            {{ $contactDetails->email }}
+                        </a>
+                    @endif
 
                     <div class="d-flex gap-3 mb-3">
-                        <a href="">
-                            <p class="mb-0 footer_cont"><i class="fab fa-facebook-f"></i></p>
-                        </a>
+                        @if ($contactDetails->facebook_url != '' && $contactDetails->facebook_url != '#')
+                            <a href="{{ $contactDetails->facebook_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fab fa-facebook-f"></i></p>
+                            </a>
+                        @endif
 
-                        <a href="">
-                            <p class="mb-0 footer_cont"><i class="fa-brands fa-x-twitter"></i></p>
-                        </a>
+                        @if ($contactDetails->twitter_url != '' && $contactDetails->twitter_url != '#')
+                            <a href="{{ $contactDetails->twitter_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fa-brands fa-x-twitter"></i></p>
+                            </a>
+                        @endif
 
-                        <a href="">
-                            <p class="mb-0 footer_cont"><i class="fa-brands fa-youtube"></i></p>
-                        </a>
+                        @if ($contactDetails->youtube_url != '' && $contactDetails->youtube_url != '#')
+                            <a href="{{ $contactDetails->youtube_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fa-brands fa-youtube"></i></p>
+                            </a>
+                        @endif
 
-                        <a href="">
-                            <p class="mb-0 footer_cont"><i class="fa-brands fa-instagram"></i></p>
-                        </a>
+                        @if ($contactDetails->instagram_url != '' && $contactDetails->instagram_url != '#')
+                            <a href="{{ $contactDetails->instagram_url }}" target="_blank">
+                                <p class="mb-0 footer_cont"><i class="fa-brands fa-instagram"></i></p>
+                            </a>
+                        @endif
                     </div>
 
-                    <a href="terms.html" class="footer_link mb-0" style="font-size: 12px;">
+                    <a href="{{ route('terms-and-conditions') }}" class="footer_link mb-0" style="font-size: 12px;">
                         Terms & condition
                     </a>
 
-                    <a href="privacy_policy.html" class="footer_link" style="font-size: 12px;">
+                    <a href="{{ route('privacy-policy') }}" class="footer_link" style="font-size: 12px;">
                         Privacy policy
                     </a>
                 </div>
@@ -110,12 +135,15 @@
 <div class="container py-2">
     <div class="row">
         <div class="col-6">
-            <p class="mb-0" style="font-size: 12px;"><i>Copyright © 2025 GOODWOOD. All rights reserved.</i></p>
+            <p class="mb-0" style="font-size: 12px;"><i>Copyright © {{ date('Y') }} GOODWOOD. All rights
+                    reserved.</i></p>
         </div>
 
-        <div class="col-6 text-end">
-            <p class="mb-0" style="font-size: 12px;">Design & Developed by TekGeeks</p>
+        <div class="col-6 text-end d-flex justify-content-end">
+            <p class="mb-0 d-flex gap-1" style="font-size: 12px;">Design & Developed by<a
+                    href="https://www.tekgeeks.net/" target="_blank" class="fw-bold">TekGeeks</a></p>
         </div>
+
     </div>
 </div>
 
@@ -217,33 +245,33 @@
 
     });
 </script>
- <!-- room detail slider -->
+<!-- room detail slider -->
 
-  <script>
+<script>
     var slider = new Swiper('.gallery-slider', {
-      slidesPerView: 1,
-      centeredSlides: true,
-      loop: true,
-      loopedSlides: 6,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+        slidesPerView: 1,
+        centeredSlides: true,
+        loop: true,
+        loopedSlides: 6,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
     });
 
     var thumbs = new Swiper('.gallery-thumbs', {
-      slidesPerView: 'auto',
-      spaceBetween: 10,
-      loop: true,
-      slideToClickedSlide: true,
-      slidesPerView: 5,
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        loop: true,
+        slideToClickedSlide: true,
+        slidesPerView: 5,
     });
 
     slider.controller.control = thumbs;
     thumbs.controller.control = slider;
-  </script>
+</script>
 
-  <!-- room detail slider -->
+<!-- room detail slider -->
 <script>
     var swiper = new Swiper(".mySwiper", {
         navigation: {

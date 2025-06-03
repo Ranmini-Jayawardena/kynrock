@@ -77,19 +77,17 @@
                                 <div id="subcategory-section">
                                     <div class="row subcategory-wrapper">
                                         <section class="col col-4">
-                                            <label class="label">{{ __('Subcategory Name') }} <span
-                                                    style="color: red;">*</span></label>
+                                            <label class="label">{{ __('Subcategory Name') }} </label>
                                             <label class="input">
                                                 <input type="text" class="form-control"
-                                                    name="subcategories[0][sub_category_name]" required>
+                                                    name="subcategories[0][sub_category_name]" >
                                             </label>
                                         </section>
                                         <section class="col col-2">
-                                            <label class="label">{{ __('Order') }} <span
-                                                    style="color: red;">*</span></label>
+                                            <label class="label">{{ __('Order') }} </label>
                                             <label class="input">
                                                 <input type="number" class="form-control"
-                                                    name="subcategories[0][order]" min="0" required>
+                                                    name="subcategories[0][order]" min="0" >
                                             </label>
                                         </section>
                                         <section class="col col-2"
@@ -137,15 +135,15 @@
                 const newSubcategory = `
 <div class="row subcategory-wrapper">
     <section class="col col-4">
-        <label class="label">Subcategory Name <span style="color: red;">*</span></label>
+        <label class="label">Subcategory Name </label>
         <label class="input">
-            <input type="text" class="form-control" name="subcategories[${subcategoryIndex}][sub_category_name]" required>
+            <input type="text" class="form-control" name="subcategories[${subcategoryIndex}][sub_category_name]" >
         </label>
     </section>
     <section class="col col-2">
-        <label class="label">Order <span style="color: red;">*</span></label>
+        <label class="label">Order </label>
         <label class="input">
-            <input type="number" class="form-control" name="subcategories[${subcategoryIndex}][order]" min="0" required>
+            <input type="number" class="form-control" name="subcategories[${subcategoryIndex}][order]" min="0" >
         </label>
     </section>
     <section class="col col-2"style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">

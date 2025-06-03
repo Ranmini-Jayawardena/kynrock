@@ -7,6 +7,7 @@ use App\Models\AboutUsBelowContent;
 use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
+use App\Models\ContactUsDetail;
 use App\Models\TopBanner;
 use App\Models\WeddingVenues;
 
@@ -26,7 +27,7 @@ class AboutUsController extends Controller
         ->where('is_delete', 0)
         ->get();
         $belowContent = AboutUsBelowContent::first();
-        
+        $contactDetails = ContactUsDetail::first();
 
 
 
@@ -39,7 +40,8 @@ class AboutUsController extends Controller
             'diningContent',
             'weddingContent',
             'weddingVenues',
-            'belowContent'
+            'belowContent',
+            'contactDetails'
            
 
         ));

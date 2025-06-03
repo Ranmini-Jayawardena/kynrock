@@ -87,7 +87,7 @@
                     <div class="tab-pane fade" id="cat{{ $category->id }}" role="tabpanel"
                         aria-labelledby="cat{{ $category->id }}-tab">
 
-
+                        @if ($category->subCategories->count() > 0)
                         <ul class="nav nav-tabs gallery_sub_tabs mb-3" id="myTab-{{ $category->id }}" role="tablist">
                             @foreach ($category->subCategories as $index => $subCategory)
                                 <li class="nav-item" role="presentation">
@@ -143,7 +143,20 @@
                                 @endif
                             @endforeach
                         </div>
-
+                        @else
+                            <div class="row">
+                                @foreach ($category->images as $image)
+                                    <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                                        <a href="{{ asset('storage/app/' . $image->image_name) }}"
+                                            data-fancybox="images" class="w-100">
+                                            <div class="img_bg gallery_img_div"
+                                                style="background-image: url('{{ asset('storage/app/' . $image->image_name) }}');">
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             </div>

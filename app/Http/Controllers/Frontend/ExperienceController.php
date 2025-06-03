@@ -7,6 +7,7 @@ use App\Models\AboutUsBelowContent;
 use App\Models\AboutUsContent;
 use App\Models\AboutUsDiningContent;
 use App\Models\AboutUsWeddingContent;
+use App\Models\ContactUsDetail;
 use App\Models\ExperienceContent;
 use App\Models\ExperienceList;
 use App\Models\TopBanner;
@@ -26,7 +27,7 @@ class ExperienceController extends Controller
             ->with(['images' => function ($query) {
                 $query->orderBy('order', 'ASC');
         }])->get();
-       
+       $contactDetails = ContactUsDetail::first();
         
 
 
@@ -37,7 +38,8 @@ class ExperienceController extends Controller
         return view('frontend.experience', compact(
             'topBanner',
             'experiences',
-            'experienceContent'
+            'experienceContent',
+            'contactDetails'
        
            
 

@@ -22,6 +22,7 @@ class ContactUsController extends Controller
         $topBanner = TopBanner::where('id', 8)->first();
         $contactDetails = ContactUsDetail::first();
         $bottomBanner = BottomBanner::where('id', 4)->first();
+        
 
 
         // dd($testimonials);

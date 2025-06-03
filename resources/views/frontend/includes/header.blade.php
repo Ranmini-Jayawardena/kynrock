@@ -7,18 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <meta name="description" content="" />
-    <link rel="canonical" href="" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
-    <meta name="og:image" content="" />
-    <meta name="twitter:card" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:title" content="" />
+    @php
+
+        $room = e(Request::segment(2));
+
+        if (request()->is('stay')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('stay');
+        } elseif (request()->is('experience')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('experience');
+        } elseif (request()->is('gallery')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('gallery');
+        } elseif (request()->is('about-us')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('about-us');
+        } elseif (request()->is('contact-us')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('contact-us');
+        } elseif (request()->is('room-details/' . $room)) {
+            $meta = \App\Helpers\HeaderHelper::getRoomDetail($room, 'room-details');
+        } elseif (request()->is('wedding')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('wedding');
+        } elseif (request()->is('location')) {
+            $meta = \App\Helpers\HeaderHelper::getMeta('location');
+        } else {
+            $meta = \App\Helpers\HeaderHelper::getMeta('home');
+        }
+
+    @endphp
+
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="width">
+    <link rel="icon" type="image/png" href="{{ asset('public/frontend/images/favicon.png') }}">
+    <meta name="description" content="{{ $meta->description }}" />
+    <meta name="robots" content="{{ $meta->robots }}" />
+    <meta name="keywords" content="{{ $meta->keywords }}" />
+    <meta name="og:title" content="{{ $meta->og_title }}" />
+    <meta name="og:type" content="{{ $meta->og_type }}" />
+    <meta name="og:tag" content="{{ $meta->og_tag }}" />
+    <meta name="og:url" content="{{ $meta->og_url }}" />
+    <meta name="og:image" content="{{ asset('storage/app/' . $meta->og_image) }}" />
+    <meta name="og:site_name" content="{{ $meta->og_sitename }}" />
+    <meta name="og:description" content="{{ $meta->og_description }}" />
+    <link rel="canonical" href="{{ url()->full() }}" />
+    <title>{{ $meta->page_title }}</title>
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('public/frontend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -28,7 +57,6 @@
     <link href="{{ asset('public/frontend/css/mediaquery.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
 
-    <title>goodwood</title>
 
     <!--favicon-->
     <link rel="shortcut icon" href="{{ asset('public/frontend/images/favicon.png') }}" />
@@ -110,7 +138,7 @@
                     <div class="row text-end">
 
                         <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12">
-                            <a href="index.html">
+                            <a href="{{ url('/') }}">
                                 <img src="{{ asset('public/frontend/images/logo_header.png') }}" alt="logo_header"
                                     class="header_logo">
                             </a>
@@ -124,32 +152,39 @@
                             <div>
                                 <div class="top_nav d-flex justify-content-end gap-4">
 
-                                    <a href="">
-                                        <p class="mb-0"><i class="fa-solid fa-phone me-2"></i> +94 11 2252 356 </p>
+                                    <a href="tel: {{ $contactDetails->contact_no }}">
+                                        <p class="mb-0"><i
+                                                class="fa-solid fa-phone me-2"></i>{{ $contactDetails->contact_no }}
+                                        </p>
                                     </a>
                                     <!-- ======================= -->
-                                    <a href="">
+                                    <a href="mailto:{{ $contactDetails->email }}">
                                         <p class="mb-0"><i
-                                                class="fa-regular fa-envelope me-2"></i>info.goodwoodairporthotel@gmail.com
+                                                class="fa-regular fa-envelope me-2"></i>{{ $contactDetails->email }}
                                         </p>
                                     </a>
 
                                     <div class="d-flex gap-3">
-                                        <a href="">
-                                            <p class="mb-0"><i class="fab fa-facebook-f"></i></p>
-                                        </a>
-
-                                        <a href="">
-                                            <p class="mb-0"><i class="fa-brands fa-x-twitter"></i></i></p>
-                                        </a>
-
-                                        <a href="">
-                                            <p class="mb-0"><i class="fa-brands fa-youtube"></i></p>
-                                        </a>
-
-                                        <a href="">
-                                            <p class="mb-0"><i class="fa-brands fa-instagram"></i></p>
-                                        </a>
+                                        @if ($contactDetails->facebook_url != '' && $contactDetails->facebook_url != '#')
+                                            <a href="{{ $contactDetails->facebook_url }}">
+                                                <p class="mb-0"><i class="fab fa-facebook-f"></i></p>
+                                            </a>
+                                        @endif
+                                        @if ($contactDetails->twitter_url != '' && $contactDetails->twitter_url != '#')
+                                            <a href="{{ $contactDetails->twitter_url }}">
+                                                <p class="mb-0"><i class="fa-brands fa-x-twitter"></i></i></p>
+                                            </a>
+                                        @endif
+                                        @if ($contactDetails->youtube_url != '' && $contactDetails->youtube_url != '#')
+                                            <a href="{{ $contactDetails->youtube_url }}">
+                                                <p class="mb-0"><i class="fa-brands fa-youtube"></i></p>
+                                            </a>
+                                        @endif
+                                        @if ($contactDetails->instagram_url != '' && $contactDetails->instagram_url != '#')
+                                            <a href="{{ $contactDetails->instagram_url }}">
+                                                <p class="mb-0"><i class="fa-brands fa-instagram"></i></p>
+                                            </a>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -163,32 +198,32 @@
                                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                                         <ul class="navbar-nav">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="stay.html">Stay</a>
+                                                <a class="nav-link {{ request()->is('stay') ? 'active' : '' }}" href="{{ route('stay') }}">Stay</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="dining.html">Dining </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="wedding.html">Weddings</a>
+                                                <a class="nav-link {{ request()->is('wedding') ? 'active' : '' }}" href="{{ route('wedding') }}">Weddings</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="gallery.html">Gallery</a>
+                                                <a class="nav-link {{ request()->is('gallery') ? 'active' : '' }}" href="{{ route('gallery') }}">Gallery</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
+                                                <a class="nav-link {{ request()->is('about-us') ? 'active' : '' }}" href="{{ route('about-us') }}">About Us</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                    href="location.html">Location</a>
+                                                <a class="nav-link {{ request()->is('location') ? 'active' : '' }}" 
+                                                    href="{{ route('location') }}">Location</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="experience.html">Experience</a>
+                                                <a class="nav-link {{ request()->is('experience') ? 'active' : '' }}" href="{{ route('experience') }}">Experience</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link border-0" href="contact_us.html">Contact Us</a>
+                                                <a class="nav-link border-0 {{ request()->is('contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>

@@ -101,9 +101,9 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-4">
-                                        <label class="label">{{ __('Title') }}<span style=" color: red;">*</span> </label>
+                                        <label class="label">{{ __('Title') }} </label>
                                         <label class="input">
-                                            <input type="text" id="title" name="title" required>
+                                            <input type="text" id="title" name="title" >
                                         </label>
                                     </section>
                                 </div>
