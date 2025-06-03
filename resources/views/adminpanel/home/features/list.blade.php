@@ -110,7 +110,7 @@
                                             <tr>
                                                 <th>{{ __('No') }}</th>
                                                 <th>{{ __('heading') }}</th>
-                                                <th width="100px">{{ __('Image') }}</th>
+                                                <th width="100px" >{{ __('Image') }}</th>
                                                 <th width="100px">{{ __('Order') }}</th>
                                                 <th width="100px">{{ __('Edit') }}</th>
                                                 <th width="100px">{{ __('Status') }}</th>
@@ -161,6 +161,7 @@
                             name: 'heading'
                         },
                         {
+                            
                             data: 'feature_image',
                             name: 'feature_image'
                         },
