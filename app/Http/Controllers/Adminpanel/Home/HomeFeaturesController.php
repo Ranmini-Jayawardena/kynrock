@@ -39,7 +39,7 @@ class HomeFeaturesController extends Controller
             $path = "";
         }
 
-    
+
 
         $features = new HomeFeatures();
         $features->heading = $request->heading;
@@ -49,7 +49,7 @@ class HomeFeaturesController extends Controller
         $features->save();
         $id = $features->id;
 
-        \LogActivity::addToLog('New main Feature '.$request->heading.' added('.$id.').');
+        \LogActivity::addToLog('New main Feature ' . $request->heading . ' added(' . $id . ').');
 
         return redirect()->route('home-features-list')
             ->with('success', 'New Feature created successfully.');
@@ -63,7 +63,9 @@ class HomeFeaturesController extends Controller
                 ->addIndexColumn()
                 ->addColumn('feature_image', function ($row) {
                     $imgPath = "storage/app/$row->image_name";
-                    $img = '<img src="'.$imgPath.'">';
+                    $img = '  <div style="background-color: #000; padding: 5px; text-align: center;">
+            <img src="' . $imgPath . '"  />
+        </div>';
                     return $img;
                 })
                 ->addColumn('edit', function ($row) {
@@ -71,18 +73,18 @@ class HomeFeaturesController extends Controller
                     $btn = '<a href="' . $edit_url . '"><i class="fa fa-edit"></i></a>';
                     return $btn;
                 })
-                ->addColumn('activation', function($row){
-                    if ( $row->status == "Y" )
-                        $status ='fa fa-check';
+                ->addColumn('activation', function ($row) {
+                    if ($row->status == "Y")
+                        $status = 'fa fa-check';
                     else
-                        $status ='fa fa-remove';
+                        $status = 'fa fa-remove';
 
-                    $btn = '<a href="changestatus-home-features/'.$row->id.'/'.$row->cEnable.'"><i class="'.$status.'"></i></a>';
+                    $btn = '<a href="changestatus-home-features/' . $row->id . '/' . $row->cEnable . '"><i class="' . $status . '"></i></a>';
 
                     return $btn;
                 })
                 ->addColumn('blockfeatures', 'adminpanel.home.features.actionsBlock')
-                ->rawColumns(['feature_image','edit', 'activation','blockfeatures'])
+                ->rawColumns(['feature_image', 'edit', 'activation', 'blockfeatures'])
                 ->make(true);
         }
 
@@ -115,7 +117,7 @@ class HomeFeaturesController extends Controller
 
         $data =  HomeFeatures::find($request->id);
         $data->heading = $request->heading;
-        if(isset($imagePath)) {
+        if (isset($imagePath)) {
             $data->image_name = $imagePath;
         }
         $data->order = $request->order;
@@ -123,7 +125,7 @@ class HomeFeaturesController extends Controller
         $data->save();
         $id = $data->id;
 
-        \LogActivity::addToLog('Main slider record '.$data->heading.' updated('.$id.').');
+        \LogActivity::addToLog('Main slider record ' . $data->heading . ' updated(' . $id . ').');
 
         return redirect()->route('home-features-list')
             ->with('success', 'Main slider updated successfully.');
@@ -137,26 +139,25 @@ class HomeFeaturesController extends Controller
 
         $data =  HomeFeatures::find($request->id);
 
-        if ( $data->status == "Y" ) {
+        if ($data->status == "Y") {
             $data->status = 'N';
             $data->save();
             $id = $data->id;
 
-            \LogActivity::addToLog('Main slider record '.$data->heading.' deactivated('.$id.').');
+            \LogActivity::addToLog('Main slider record ' . $data->heading . ' deactivated(' . $id . ').');
 
             return redirect()->route('home-features-list')
-            ->with('success', 'Main slider deactivate successfully.');
-
+                ->with('success', 'Main slider deactivate successfully.');
         } else {
 
             $data->status = "Y";
             $data->save();
             $id = $data->id;
 
-            \LogActivity::addToLog('Main slider record '.$data->heading.' activated('.$id.').');
+            \LogActivity::addToLog('Main slider record ' . $data->heading . ' activated(' . $id . ').');
 
             return redirect()->route('home-features-list')
-            ->with('success', 'Main slider activate successfully.');
+                ->with('success', 'Main slider activate successfully.');
         }
     }
 
@@ -171,7 +172,7 @@ class HomeFeaturesController extends Controller
         $data->save();
         $id = $data->id;
 
-        \LogActivity::addToLog('Main slider record '.$data->heading.' deleted('.$id.').');
+        \LogActivity::addToLog('Main slider record ' . $data->heading . ' deleted(' . $id . ').');
 
         return redirect()->route('home-features-list')
             ->with('success', 'Main slider deleted successfully.');

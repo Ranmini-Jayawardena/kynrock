@@ -62,7 +62,7 @@
                                     </section>
 
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Image') }} (800 x 1200) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image6"
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 1') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Slider Image 1') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image1"
@@ -115,7 +115,7 @@
 
                                     </section>
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 2') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Slider Image 2') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image2"
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 3') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Slider Image 3') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image3"
@@ -165,7 +165,7 @@
                                         @endif
                                     </section>
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 4') }} (1920 x 1080) </label>
+                                        <label class="label">{{ __('Slider Image 4') }} (800 x 800) </label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image4"
                                                 name="image4" style="overflow: hidden;">
@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 5') }} (1920 x 1080) </label>
+                                        <label class="label">{{ __('Slider Image 5') }} (800 x 800) </label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image5"
                                                 name="image5" style="overflow: hidden;">
