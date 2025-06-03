@@ -112,7 +112,7 @@
                                     <label class="label">{{ __('Description 2') }}<span
                                             style=" color: red;">*</span></label>
                                     <label class="input">
-                                        <textarea class="form-control " id="description2" name="description2" rows="3" required>{{ $data->description2 }}</textarea>
+                                        <textarea class="form-control " id="description2" name="description2" rows="3" required></textarea>
                                     </label>
                                 </section>
                             </div>
@@ -138,7 +138,7 @@
                                         <section class="col col-2"
                                             style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
                                             <button type="button"
-                                                class="btn-sm btn-success add-image">{{ __('Add More') }}</button>
+                                                class="btn-sm btn-success add-image" style="width:70px">{{ __('Add More') }}</button>
                                         </section>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                             </label>
                         </section>
                         <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
-                            <button type="button" class="btn-sm btn-danger remove-image">{{ __('Remove') }}</button>
+                            <button type="button" class="btn-sm btn-danger remove-image" style="width:70px">{{ __('Remove') }}</button>
                         </section>
                     </div>`;
                 $('#image-upload-section').append(newImageUploadWrapper);

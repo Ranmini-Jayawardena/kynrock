@@ -144,7 +144,7 @@
                                             style="margin-top: 15px; padding: 10px 20px; font-size: 16px; width:500px">
                                             <input type="hidden" name="images[{{ $loop->index }}][id]"
                                                 value="{{ $image->id }}">
-                                            <button type="button" class="btn-sm btn-danger remove-image"
+                                            <button type="button" class="btn-sm btn-danger remove-image"style="width:70px"
                                                 data-image-id="{{ $image->id }}">{{ __('Remove') }}</button>
                                         </section>
                                     </div>
@@ -167,7 +167,7 @@
                                     <section class="col col-2"
                                         style="margin-top: 15px; padding: 10px 20px; font-size: 16px; width:200px">
                                         <button type="button"
-                                            class="btn-sm btn-success add-image">{{ __('Add More') }}</button>
+                                            class="btn-sm btn-success add-image" style="width:70px">{{ __('Add More') }}</button>
                                     </section>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
                             </label>
                         </section>
                         <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
-                            <button type="button" class="btn-sm btn-danger remove-image">{{ __('Remove') }}</button>
+                            <button type="button" class="btn-sm btn-danger remove-image" style="width:70px">{{ __('Remove') }}</button>
                         </section>
                     </div>`;
                 imageUploadSection.append(newImageUploadWrapper);
