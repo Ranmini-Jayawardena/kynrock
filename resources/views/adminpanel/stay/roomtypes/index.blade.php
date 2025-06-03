@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="row">
                                         <section class="col col-2">
-                                            <label class="label">{{ __('Home Image ') }} (800 x 1000) </label>
+                                            <label class="label">{{ __('Home Image ') }} (1200 x 800) </label>
                                             <label class="input">
                                                 <input type="file" class="form-control form-input" id="home_image" name="home_image" style="overflow: hidden;" >
                                             </label>

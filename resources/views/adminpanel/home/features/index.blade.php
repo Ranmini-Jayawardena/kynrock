@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Image') }} (512 x 512) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image_name"

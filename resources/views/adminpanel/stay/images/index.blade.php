@@ -66,7 +66,7 @@
                                 <div id="image-upload-section">
                                     <div class="row image-upload-wrapper">
                                         <section class="col col-4">
-                                            <label class="label">{{ __('Image') }} (1920 x 1080) <span style="color: red;">*</span></label>
+                                            <label class="label">{{ __('Image') }} (1200 x 800) <span style="color: red;">*</span></label>
                                             <label class="input">
                                                 <input type="file" class="form-control form-input image-input" name="images[][image_name]" required>
                                             </label>
@@ -107,7 +107,7 @@
                     var newImageUploadWrapper = `
                         <div class="row image-upload-wrapper">
                             <section class="col col-4">
-                                <label class="label">{{ __('Image') }} (1920 x 1080) <span style="color: red;">*</span></label>
+                                <label class="label">{{ __('Image') }} (1200 x 800) <span style="color: red;">*</span></label>
                                 <label class="input">
                                     <input type="file" class="form-control form-input image-input" name="images[][image_name]" required>
                                 </label>
