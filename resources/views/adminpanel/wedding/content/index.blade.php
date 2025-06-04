@@ -82,7 +82,7 @@
                                     </section>
 
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Image') }} (800 x 1000) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image"
@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Wedding Package Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Wedding Package Image') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input"
@@ -218,7 +218,7 @@
 
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Services Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Services Image') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="services_image"

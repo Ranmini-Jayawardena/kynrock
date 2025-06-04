@@ -37,9 +37,9 @@ class AboutUsContentController extends Controller
                 'feature_icon4' => '',
                 'feature_name4' => '',
                 'feature_description4' => '',
-                'feature_icon5' => '',
-                'feature_name5' => '',
-                'feature_description5' => '',
+                // 'feature_icon5' => '',
+                // 'feature_name5' => '',
+                // 'feature_description5' => '',
 
             ]);
         }
@@ -102,14 +102,14 @@ class AboutUsContentController extends Controller
             $path = "";
         }
 
-        if (!$request->file('feature_icon5') == "") {
+        // if (!$request->file('feature_icon5') == "") {
 
-            $img = $request->file('feature_icon5')->getClientOriginalName();
+        //     $img = $request->file('feature_icon5')->getClientOriginalName();
 
-            $imagePath = $request->file('feature_icon5')->store('public/aboutuscontentimages');
-        } else {
-            $path = "";
-        }
+        //     $imagePath = $request->file('feature_icon5')->store('public/aboutuscontentimages');
+        // } else {
+        //     $path = "";
+        // }
 
 
 
@@ -126,8 +126,8 @@ class AboutUsContentController extends Controller
         $data->feature_description3 = $request->feature_description3;
         $data->feature_name4 = $request->feature_name4;
         $data->feature_description4 = $request->feature_description4;
-        $data->feature_name5 = $request->feature_name5;
-        $data->feature_description5 = $request->feature_description5;
+        // $data->feature_name5 = $request->feature_name5;
+        // $data->feature_description5 = $request->feature_description5;
 
 
 
@@ -153,10 +153,10 @@ class AboutUsContentController extends Controller
             $feature_icon4 = $request->file('feature_icon4')->store('public/aboutuscontentimages');
             $data->feature_icon4 = $feature_icon4;
         }
-        if ($request->hasFile('feature_icon5')) {
-            $feature_icon5 = $request->file('feature_icon5')->store('public/aboutuscontentimages');
-            $data->feature_icon5 = $feature_icon5;
-        }
+        // if ($request->hasFile('feature_icon5')) {
+        //     $feature_icon5 = $request->file('feature_icon5')->store('public/aboutuscontentimages');
+        //     $data->feature_icon5 = $feature_icon5;
+        // }
 
         $data->save();
 

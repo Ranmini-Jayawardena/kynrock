@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Icon') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Icon') }} (512 x 512) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="icon"

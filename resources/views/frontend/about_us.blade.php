@@ -1,6 +1,134 @@
  @include('frontend.includes.header')
 
- <div class="position-relative container-fluid inner_slider p-0">
+
+  <div class="position-relative container-fluid inner_slider p-0">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active inner_main_img" style="background-image: linear-gradient(to bottom, rgb(0 0 0 / 30%), rgb(0 0 0 / 30%)), url({{ asset('storage/app/' . $topBanner->banner_image) }})">
+            <h1 class="text-center bottom-0 position-absolute w-100 text-light">{{ strtoupper($topBanner->heading) }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- main slider end -->
+
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+
+    <!-- description start -->
+     <div class="container-fluid half_bg" >
+      <div class="container sec_padding">
+        <div class="row"> 
+          <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+            <p class="sub_heading">
+              Kynrock Hotels
+            </p>
+            <h2 data-aos="fade-up">
+               {{ $aboutUsContent->title1 }}
+            </h2>
+
+            <div class="des_div">
+                <div class="mb-5">
+                 {!! $aboutUsContent->content1 !!}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+
+     <div class="container mt-n5" style="margin-bottom: 150px !important;">
+      <div class="row position-relative"> 
+
+        <div class="offset-1 col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12" style="z-index: 1;">
+          <div class="img_bg p-5 rounded-3 mt-3" style="background-image: url(public/frontend/images/light_bg.jpg);"  data-speed="0.9">
+            <h2>{{ $aboutUsContent->title2 }}</h2>
+           {!! $aboutUsContent->content2 !!}
+
+            <div class="row">
+              <div class="col-12 mb-3">
+                <div class="d-flex gap-3 icon_div align-items-center">
+                  <div class="logo_div">
+                    <img src="{{ 'storage/app/' . $aboutUsContent->feature_icon1 }}" alt="feature icon">
+                  </div>
+                  <div>
+                    <h5 class="mb-1">{{ $aboutUsContent->feature_name1 }}</h5>
+                    <p>{{ $aboutUsContent->feature_description1 }}</p>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!-- ============== -->
+
+              <div class="col-12 mb-3">
+                <div class="d-flex gap-3 icon_div align-items-center">
+                  <div class="logo_div">
+                    <img src="{{ 'storage/app/' . $aboutUsContent->feature_icon2 }}" alt="feature icon">
+                  </div>
+                  <div>
+                    <h5 class="mb-1">{{ $aboutUsContent->feature_name2 }}</h5>
+                    <p>{{ $aboutUsContent->feature_description2 }}</p>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!-- ============== -->
+
+              <div class="col-12 mb-3">
+                <div class="d-flex gap-3 icon_div align-items-center">
+                  <div class="logo_div">
+                    <img src="{{ 'storage/app/' . $aboutUsContent->feature_icon3 }}" alt="feature icon">
+                  </div>
+                  <div>
+                    <h5 class="mb-1">{{ $aboutUsContent->feature_name3 }}</h5>
+                    <p>{{ $aboutUsContent->feature_description3 }}</p>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!-- ============== -->
+
+              <div class="col-12 mb-3">
+                <div class="d-flex gap-3 icon_div align-items-center">
+                  <div class="logo_div">
+                    <img src="{{ 'storage/app/' . $aboutUsContent->feature_icon4 }}" alt="feature icon">
+                  </div>
+                  
+                  <div>
+                    <h5 class="mb-1">{{ $aboutUsContent->feature_name4 }}</h5>
+                    <p>{{ $aboutUsContent->feature_description4 }}</p>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!-- ============== -->
+               
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 position-absolute end-0">
+          <img src="{{ asset('storage/app/' . $aboutUsContent->image1) }}" alt="about us" class="w-100 rounded-3 wedding_img">
+        </div>
+
+      </div>
+     </div>
+    <!-- description end -->
+
+    <div class="clearfix"></div>
+
+    <!-- =================================================== -->
+
+    <!-- ================================================== -->
+    <!-- ================================================== -->
+    <!-- ================================================== -->
+    
+
+ {{-- <div class="position-relative container-fluid inner_slider p-0">
      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
          <div class="carousel-inner">
              <div class="carousel-item active inner_main_img"
@@ -540,7 +668,7 @@
          </div>
      </div>
  </div>
- </div>
+ </div> --}}
 
  <!-- Your Comfort, Our Priority end -->
 
