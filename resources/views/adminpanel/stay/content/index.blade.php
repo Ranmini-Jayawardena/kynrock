@@ -90,7 +90,7 @@
                                     <section class="col col-11"  style="width: 100%;">
                                         <label class="label">{{ __('Description 2') }}<span style=" color: red;">*</span> </label>
                                         <label class="input">
-                                            <textarea class="form-control summernote" id="description2" name="description2" rows="3" required>{{ $data->description2 }}</textarea>
+                                            <textarea class="form-control summernote" id="description2" name="description2" rows="3" >{{ $data->description2 }}</textarea>
                                         </label>
                                     </section>
                                 </div>

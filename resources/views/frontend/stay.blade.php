@@ -163,7 +163,9 @@
                 {{ $contents->heading2 }}
             </h2>
             <div class="des_div">
+                @if(!empty($contents->description2))
                 {!! $contents->description2 !!}
+                @endif
 
                 <div class="row mt-4">
                     <div class="col-10">

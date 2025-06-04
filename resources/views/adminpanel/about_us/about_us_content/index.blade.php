@@ -67,6 +67,8 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="content1" name="content1" rows="3" required>{{ $data->content1 }}</textarea>
+                                             <span id="warning1" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -87,6 +89,8 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="content2" name="content2" rows="3" required>{{ $data->content2 }}</textarea>
+                                             <span id="warning2" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -302,6 +306,33 @@
                     ]
                 });
 
+                $('#button1id').click(function(event) {
+                var descriptionContent = $('#content1').summernote('isEmpty') ? '' : $('#content1').summernote('code');
+                var subdescriptionContent = $('#content2').summernote('isEmpty') ? '' : $('#content2').summernote('code');
+                var isValid = true;
+
+                
+                if (descriptionContent.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning1').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning1').hide();
+                }
+
+               
+                if (subdescriptionContent.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning2').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning2').hide();
+                }
+
+                return isValid;
+            });
+            });
+
                 // Image Preview Functionality
                 function previewImage(input, previewId) {
                     const file = input.files[0];
@@ -334,7 +365,7 @@
                     previewImage(this, 'preview-feature_icon5');
                 });
 
-            });
+            
         </script>
     </x-slot>
 </x-app-layout>
