@@ -56,7 +56,7 @@
                                         <label class="label">{{ __('Heading 1') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="title1" name="title1" required
+                                            <input type="text" id="title1" name="title1" required maxlength="191"
                                                 value="{{ $data->title1 }}">
                                         </label>
                                     </section>
@@ -78,7 +78,7 @@
                                         <label class="label">{{ __(' Heading 2') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="title2" name="title2" required
+                                            <input type="text" id="title2" name="title2" required maxlength="191"
                                                 value="{{ $data->title2 }}">
                                         </label>
                                     </section>
@@ -127,7 +127,7 @@
                                         <label class="label">{{ __(' Name 1') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="feature_name1" name="feature_name1" required
+                                            <input type="text" id="feature_name1" name="feature_name1" required maxlength="191"
                                                 value="{{ $data->feature_name1 }}">
                                         </label>
                                     </section>
@@ -157,7 +157,7 @@
                                         <label class="label">{{ __(' Name 2') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="feature_name2" name="feature_name2" required
+                                            <input type="text" id="feature_name2" name="feature_name2" required maxlength="191"
                                                 value="{{ $data->feature_name2 }}">
                                         </label>
                                     </section>
@@ -187,7 +187,7 @@
                                         <label class="label">{{ __(' Name 3') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="feature_name3" name="feature_name3" required
+                                            <input type="text" id="feature_name3" name="feature_name3" required maxlength="191"
                                                 value="{{ $data->feature_name1 }}">
                                         </label>
                                     </section>
@@ -217,7 +217,7 @@
                                         <label class="label">{{ __(' Name 4') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="feature_name4" name="feature_name4" required
+                                            <input type="text" id="feature_name4" name="feature_name4" required maxlength="191"
                                                 value="{{ $data->feature_name4 }}">
                                         </label>
                                     </section>
