@@ -68,8 +68,8 @@
                     <!-- end widget edit box -->
                     <!-- widget content -->
                     <div class="widget-body no-padding">
-                        <form action="{{ route('new-room-amenities') }}" enctype="multipart/form-data"
-                            method="post" id="room-amenities-form" class="smart-form">
+                        <form action="{{ route('new-room-amenities') }}" enctype="multipart/form-data" method="post"
+                            id="room-amenities-form" class="smart-form">
                             @csrf
                             <fieldset>
                                 <div class="row">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Icon') }} (512 x 512)  <span
+                                        <label class="label">{{ __('Icon') }} (512 x 512) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="icon"
@@ -169,7 +169,7 @@
                 });
             });
         </script>
-         <script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready(function(e) {
                 $('#icon').change(function() {
                     let reader = new FileReader();

@@ -105,7 +105,7 @@ class GalleryCategoryController extends Controller
         $data->status = $request->status;
         $data->save();
 
-        $existingSubcategoryIds = GallerySubCategory::where('category_id', $data->id)->pluck('id')->toArray();
+        $existingSubcategoryIds = GallerySubCategory::where('category_id', $data->id)->pluck('id')->toArray(); 
         $newSubcategoryIds = [];
 
         if ($request->has('subcategories')) {
