@@ -68,7 +68,7 @@
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" required>
+                                            <input type ="number" id="order" name="order" value="" max="255" required>
                                         </label>
                                     </section>
 
