@@ -101,7 +101,7 @@
                                         </label>
                                         <label class="input">
                                             <input type="text" id="title" name="title"
-                                                value="{{ $data->title }}" >
+                                                value="{{ $data->title }}">
                                         </label>
                                     </section>
                                 </div>
@@ -180,7 +180,8 @@
                                         <label class="label">{{ __('Stay Page Content 2') }} <span
                                                 style="color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="home_content2" name="home_content2" value="{{$data->home_content2}}" required>
+                                            <input type="text" id="home_content2" name="home_content2"
+                                                value="{{ $data->home_content2 }}" required>
                                         </label>
                                     </section>
                                     <section class="col col-12">
@@ -193,8 +194,9 @@
                                                     @if ($data->checkbox == 1) {{ 'checked' }} @endif>
                                                 <i></i>Display this room type on the homepage as well
                                             </label>
-                                            <span id="checkbox-warning" style="display:none; color:red;"> Title and content
-                                                 are required to display this section on the homepage.</span>
+                                            <span id="checkbox-warning" style="display:none; color:red;"> Title and
+                                                content
+                                                are required to display this section on the homepage.</span>
                                     </section>
 
                                 </div>
@@ -222,7 +224,7 @@
 
                                 </div>
 
-                            
+
 
                                 <header style="margin-top: 70px; margin-bottom: 35px;">
                                     {{ __('Meta Tags for Room Types') }}
