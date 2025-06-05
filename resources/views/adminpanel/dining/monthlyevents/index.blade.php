@@ -1,6 +1,22 @@
 @section('title', 'Monthly Events')
 <x-app-layout>
-    <x-slot name="header">
+       <x-slot name="header">
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        <style>
+            .note-editable {
+                min-height: 300px !important;
+            }
+
+            .note-editable ul {
+                list-style: disc !important;
+                list-style-position: inside !important;
+            }
+
+            .note-editable ol {
+                list-style: decimal !important;
+                list-style-position: inside !important;
+            }
+        </style>
     </x-slot>
 
     <div id="main" role="main">

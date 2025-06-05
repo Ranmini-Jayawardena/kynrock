@@ -108,7 +108,7 @@
                                                 <label class="input">
                                                     <input type="number" name="images[{{ $index }}][order]"
                                                         value="{{ $image->order ?? 0 }}" class="form-control"
-                                                        min="0" required>
+                                                        min="0" max="255" required>
                                                 </label>
                                             </section>
 
@@ -175,7 +175,7 @@
     <section class="col col-2">
         <label class="label">Order <span style="color: red;">*</span></label>
         <label class="input">
-            <input type="number" name="images[${imageIndex}][order]" class="form-control" min="0" required>
+            <input type="number" name="images[${imageIndex}][order]" class="form-control" min="0" max="255" required>
         </label>
     </section>
     <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
