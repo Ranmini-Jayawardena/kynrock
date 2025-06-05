@@ -56,7 +56,7 @@
                                         <label class="label">{{ __('Heading 1') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="title1" name="title1" required
+                                            <input type="text" id="title1" name="title1" required maxlength="191"
                                                 value="{{ $data->title1 }}">
                                         </label>
                                     </section>
@@ -67,6 +67,8 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="description1" name="description1" rows="3" required>{{ $data->description1 }}</textarea>
+                                            <span id="warning1" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -76,13 +78,13 @@
                                         <label class="label">{{ __('Heading 2') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="title2" name="title2" required
+                                            <input type="text" id="title2" name="title2" required maxlength="191"
                                                 value="{{ $data->title2 }}">
                                         </label>
                                     </section>
 
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Image') }} (800 x 1000) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image"
@@ -104,7 +106,7 @@
                                         <label class="label">{{ __('Wedding Venue Content Heading') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="wedding_venue_title" name="wedding_venue_title"
+                                            <input type="text" id="wedding_venue_title" name="wedding_venue_title" maxlength="191"
                                                 required value="{{ $data->wedding_venue_title }}">
                                         </label>
                                     </section>
@@ -116,6 +118,7 @@
                                         <label class="input">
                                             <textarea class="form-control " id="wedding_venue_description1" name="wedding_venue_description1" rows="3"
                                                 required>{{ $data->wedding_venue_description1 }}</textarea>
+                                                
                                         </label>
                                     </section>
                                 </div>
@@ -126,6 +129,8 @@
                                         <label class="input">
                                             <textarea class="form-control summernote" id="wedding_venue_description2" name="wedding_venue_description2" rows="3"
                                                 required>{{ $data->wedding_venue_description2 }}</textarea>
+                                                <span id="warning2" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -136,7 +141,7 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="text" id="wedding_package_title"
-                                                name="wedding_package_title" required
+                                                name="wedding_package_title" required maxlength="191"
                                                 value="{{ $data->wedding_package_title }}">
                                         </label>
                                     </section>
@@ -148,12 +153,14 @@
                                         <label class="input">
                                             <textarea class="form-control summernote" id="wedding_package_description" name="wedding_package_description"
                                                 rows="3" required>{{ $data->wedding_package_description }}</textarea>
+                                            <span id="warning3" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Wedding Package Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Wedding Package Image') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input"
@@ -179,7 +186,7 @@
                                         <label class="label">{{ __('Cultinary Title') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="cultinary_title" name="cultinary_title"
+                                            <input type="text" id="cultinary_title" name="cultinary_title" maxlength="191"
                                                 required value="{{ $data->cultinary_title }}">
                                         </label>
                                     </section>
@@ -191,6 +198,8 @@
                                         <label class="input">
                                             <textarea class="form-control summernote" id="cultinary_description" name="cultinary_description" rows="3"
                                                 required>{{ $data->cultinary_description }}</textarea>
+                                            <span id="warning4" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -200,7 +209,7 @@
                                         <label class="label">{{ __('Services Title') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="services_title" name="services_title" required
+                                            <input type="text" id="services_title" name="services_title" required maxlength="191"
                                                 value="{{ $data->services_title }}">
                                         </label>
                                     </section>
@@ -212,13 +221,15 @@
                                         <label class="input">
                                             <textarea class="form-control summernote" id="services_description" name="services_description" rows="3"
                                                 required>{{ $data->services_description }}</textarea>
+                                            <span id="warning5" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
 
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Services Image') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Services Image') }} (800 x 800) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="services_image"
@@ -244,7 +255,7 @@
                                         <label class="label">{{ __('Plan Wedding Title') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="plan_wedding_title" name="plan_wedding_title"
+                                            <input type="text" id="plan_wedding_title" name="plan_wedding_title" maxlength="191"
                                                 required value="{{ $data->plan_wedding_title }}">
                                         </label>
                                     </section>
@@ -256,6 +267,8 @@
                                         <label class="input">
                                             <textarea class="form-control summernote" id="plan_wedding_description" name="plan_wedding_description"
                                                 rows="3" required>{{ $data->plan_wedding_description }}</textarea>
+                                            <span id="warning6" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -331,6 +344,72 @@
                     ]
                 });
             });
+
+
+            $('#button1id').click(function(event) {
+                var descriptionContent1 = $('#description1').summernote('isEmpty') ? '' : $('#description1').summernote('code');
+                var subdescriptionContent2 = $('#wedding_venue_description2').summernote('isEmpty') ? '' : $('#wedding_venue_description2').summernote('code');
+                var subdescriptionContent3 = $('#wedding_package_description').summernote('isEmpty') ? '' : $('#wedding_package_description').summernote('code');
+                var subdescriptionContent4= $('#cultinary_description').summernote('isEmpty') ? '' : $('#cultinary_description').summernote('code');
+                var subdescriptionContent5 = $('#services_description').summernote('isEmpty') ? '' : $('#services_description').summernote('code');
+                var subdescriptionContent6 = $('#plan_wedding_description').summernote('isEmpty') ? '' : $('#plan_wedding_description').summernote('code');
+
+                var isValid = true;
+
+                
+                if (descriptionContent1.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning1').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning1').hide();
+                }
+
+               
+                if (subdescriptionContent2.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning2').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning2').hide();
+                }
+
+                 if (subdescriptionContent3.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning3').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning3').hide();
+                }
+
+                 if (subdescriptionContent4.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning4').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning4').hide();
+                }
+
+                 if (subdescriptionContent5.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning5').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning5').hide();
+                }
+
+                 if (subdescriptionContent6.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning6').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning6').hide();
+                }
+
+
+                return isValid;
+            });
+            
         </script>
     </x-slot>
 </x-app-layout>

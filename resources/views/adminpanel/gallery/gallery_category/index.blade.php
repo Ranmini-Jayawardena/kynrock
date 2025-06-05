@@ -55,7 +55,8 @@
                                         <label class="label">{{ __('Category Name') }}<span
                                                 style="color: red;">*</span> </label>
                                         <label class="input">
-                                            <input type="text" id="category_name" name="category_name" required>
+                                            <input type="text" id="category_name" name="category_name" required maxlength="191">
+                                                
                                         </label>
                                     </section>
 
@@ -80,14 +81,14 @@
                                             <label class="label">{{ __('Subcategory Name') }} </label>
                                             <label class="input">
                                                 <input type="text" class="form-control"
-                                                    name="subcategories[0][sub_category_name]" >
+                                                    name="subcategories[0][sub_category_name]" maxlength="191" >
                                             </label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">{{ __('Order') }} </label>
                                             <label class="input">
                                                 <input type="number" class="form-control"
-                                                    name="subcategories[0][order]" min="0" >
+                                                    name="subcategories[0][order]" min="0" max="255" >
                                             </label>
                                         </section>
                                         <section class="col col-2"
@@ -137,13 +138,13 @@
     <section class="col col-4">
         <label class="label">Subcategory Name </label>
         <label class="input">
-            <input type="text" class="form-control" name="subcategories[${subcategoryIndex}][sub_category_name]" >
+            <input type="text" class="form-control" maxlength="191" name="subcategories[${subcategoryIndex}][sub_category_name]" >
         </label>
     </section>
     <section class="col col-2">
         <label class="label">Order </label>
         <label class="input">
-            <input type="number" class="form-control" name="subcategories[${subcategoryIndex}][order]" min="0" >
+            <input type="number" class="form-control" name="subcategories[${subcategoryIndex}][order]" min="0" max="255" >
         </label>
     </section>
     <section class="col col-2"style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">

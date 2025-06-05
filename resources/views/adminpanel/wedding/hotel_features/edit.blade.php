@@ -63,7 +63,7 @@
                                         <label class="label">{{ __('Feature Name') }} <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="feature_name" name="feature_name"
+                                            <input type="text" id="feature_name" name="feature_name" maxlength="191"
                                                 value="{{ $data->feature_name }}"required>
                                         </label>
                                     </section>
@@ -71,7 +71,7 @@
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order"
+                                            <input type ="number" id="order" name="order" max="255"
                                                 value="{{ $data->order }}" required>
                                         </label>
                                     </section>
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Icon') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Icon') }} (512 x 512) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="icon"

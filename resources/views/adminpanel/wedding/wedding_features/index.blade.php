@@ -77,7 +77,7 @@
                                         <label class="label">{{ __('Feature Name') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="feature_name" name="feature_name" required
+                                            <input type="text" id="feature_name" name="feature_name" required maxlength="191"
                                                 value="">
                                         </label>
                                     </section>
@@ -85,7 +85,7 @@
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" required>
+                                            <input type ="number" id="order" name="order" value="" required max="255">
                                         </label>
                                     </section>
                                     <section class="col col-4">
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Icon') }} (1920 x 1080) <span
+                                        <label class="label">{{ __('Icon') }} (512 x 512) <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="icon"

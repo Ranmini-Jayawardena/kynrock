@@ -105,7 +105,7 @@
                                                     style="color: red;">*</span></label>
                                             <label class="input">
                                                 <input type="number" class="form-control form-input"
-                                                    name="images[][order]" min="0" required>
+                                                    name="images[][order]" min="0" max="255" required>
                                             </label>
                                         </section>
                                         <section class="col col-2"
@@ -147,7 +147,7 @@
                             <section class="col col-2">
                                 <label class="label">Order <span style="color: red;">*</span></label>
                                 <label class="input">
-                                    <input type="number" name="images[${imageIndex}][order]" class="form-control" min="0" required>
+                                    <input type="number" name="images[${imageIndex}][order]" class="form-control" min="0" max="255" required>
                                 </label>
                             </section>
 

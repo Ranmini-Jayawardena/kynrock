@@ -77,14 +77,14 @@
                                         <label class="label">{{ __('Name') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="name" name="name" required value="">
+                                            <input type="text" id="name" name="name" required maxlength="191" value="">
                                         </label>
                                     </section>
                                     <section class="col col-3">
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" required>
+                                            <input type ="number" id="order" name="order" value="" required max="255">
                                         </label>
                                     </section>
                                 </div>
@@ -94,6 +94,8 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="testimonial" name="testimonial" rows="3" required></textarea>
+                                            <span id="warning" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -157,6 +159,19 @@
                     ]
                 });
             });
+
+            $('#button1id').click(function(event) {
+                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                        .summernote('code');
+
+                    if (summernoteContent.trim() === '') {
+                        event.preventDefault(); // Prevent form submission
+                        $('#warning').show(); // Show the warning message
+                    } else {
+                        $('#warning').hide();
+                    }
+                });
+
         </script>
 
     </x-slot>

@@ -63,7 +63,7 @@
                                         <label class="label">{{ __('Title') }} <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="heading" name="heading"
+                                            <input type="text" id="heading" name="heading" maxlength="191"
                                                 value="{{ $data->heading }}"required>
                                         </label>
                                     </section>
@@ -71,7 +71,7 @@
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order"
+                                            <input type ="number" id="order" name="order" max="255"
                                                 value="{{ $data->order }}" required>
                                         </label>
                                     </section>

@@ -60,7 +60,7 @@
                                         <label class="label">Category Name <span style="color:red">*</span></label>
                                         <label class="input">
                                             <input type="text" name="category_name"
-                                                value="{{ $data->category_name }}" required>
+                                                value="{{ $data->category_name }}" required maxlength="191">
                                         </label>
                                     </section>
                                     <section class="col col-4">
@@ -86,7 +86,7 @@
                                                 <label class="input">
                                                     <input type="text" class="form-control"
                                                         name="subcategories[{{ $index }}][sub_category_name]"
-                                                        value="{{ $sub->sub_category_name }}" required>
+                                                        value="{{ $sub->sub_category_name }}" maxlength="191" >
                                                     <input type="hidden" name="subcategories[{{ $index }}][id]"
                                                         value="{{ $sub->id }}">
                                                 </label>
@@ -96,7 +96,7 @@
                                                 <label class="input">
                                                     <input type="number" class="form-control"
                                                         name="subcategories[{{ $index }}][order]"
-                                                        value="{{ $sub->order }}" min="0" required>
+                                                        value="{{ $sub->order }}" min="0" max="255" required>
                                                 </label>
                                             </section>
                                             @if ($index === 0)
@@ -147,13 +147,13 @@
                     <section class="col col-4">
                         <label class="label">Subcategory Name <span style="color:red">*</span></label>
                         <label class="input">
-                            <input type="text" class="form-control" name="subcategories[${subcategoryIndex}][sub_category_name]" required>
+                            <input type="text" class="form-control"  name="subcategories[${subcategoryIndex}][sub_category_name]" maxlength="191" required>
                         </label>
                     </section>
                     <section class="col col-2">
                         <label class="label">Order <span style="color:red">*</span></label>
                         <label class="input">
-                            <input type="number" class="form-control" name="subcategories[${subcategoryIndex}][order]" min="0" required>
+                            <input type="number" class="form-control" name="subcategories[${subcategoryIndex}][order]" min="0" max="255" required>
                         </label>
                     </section>
                     <section class="col col-2"style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">

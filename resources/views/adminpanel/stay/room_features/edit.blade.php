@@ -64,15 +64,15 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="text" id="feature_name" name="feature_name"
-                                                value="{{ $data->feature_name }}"required>
-                                        </label>
+                                                value="{{ $data->feature_name }}"required  maxlength="191">
+                                        </label>    
                                     </section>
                                     <section class="col col-2">
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
                                             <input type ="number" id="order" name="order"
-                                                value="{{ $data->order }}" required>
+                                                value="{{ $data->order }}" required max="255">
                                         </label>
                                     </section>
                                     <section class="col col-4">

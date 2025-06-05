@@ -66,7 +66,7 @@
                                     <section class="col col-4">
                                         <label class="label">{{ __('Heading 1') }}<span style=" color: red;">*</span> </label>
                                         <label class="input">
-                                            <input type="text" id="heading_en" name="heading_en" required value="{{ $data->heading_en }}">
+                                            <input type="text" id="heading_en" name="heading_en" required maxlength="191" value="{{ $data->heading_en }}">
                                         </label>
                                     </section>
                                 </div>
@@ -75,6 +75,8 @@
                                         <label class="label">{{ __('Description 1') }}<span style=" color: red;">*</span> </label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="description_en" name="description_en" rows="3" required>{{ $data->description_en }}</textarea>
+                                            <span id="warning1" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -82,15 +84,16 @@
                                     <section class="col col-4">
                                         <label class="label">{{ __('Heading 2') }}<span style=" color: red;">*</span> </label>
                                         <label class="input">
-                                            <input type="text" id="heading2" name="heading2" required value="{{ $data->heading2 }}">
+                                            <input type="text" id="heading2" name="heading2" required maxlength="191" value="{{ $data->heading2 }}">
                                         </label>
                                     </section>
                                 </div>
                                 <div class="row">
                                     <section class="col col-11"  style="width: 100%;">
-                                        <label class="label">{{ __('Description 2') }}<span style=" color: red;">*</span> </label>
+                                        <label class="label">{{ __('Description 2') }} </label>
                                         <label class="input">
-                                            <textarea class="form-control summernote" id="description2" name="description2" rows="3" required>{{ $data->description2 }}</textarea>
+                                            <textarea class="form-control summernote" id="description2" name="description2" rows="3" >{{ $data->description2 }}</textarea>
+                                            
                                         </label>
                                     </section>
                                 </div>
@@ -99,6 +102,8 @@
                                         <label class="label">{{ __('Description 3') }}<span style=" color: red;">*</span> </label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="description3" name="description3" rows="3" required>{{ $data->description3 }}</textarea>
+                                            <span id="warning3" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -183,6 +188,36 @@
             document.getElementById('image').addEventListener('change', function() {
                 previewImage(this, 'preview-image');
             });
+
+            $('#button1id').click(function(event) {
+                var descriptionContent = $('#description_en').summernote('isEmpty') ? '' : $('#description_en').summernote('code');
+                var subdescriptionContent2 = $('#description3').summernote('isEmpty') ? '' : $('#description3').summernote('code');
+                var isValid = true;
+
+                
+                if (descriptionContent.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning1').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning1').hide();
+                }
+
+               
+               
+
+                if (subdescriptionContent2.trim() === '') {
+                    event.preventDefault(); 
+                    $('#warning3').show(); 
+                    isValid = false;
+                } else {
+                    $('#warning3').hide();
+                }
+
+
+                return isValid;
+            });
+            
         </script>
     </x-slot>
 </x-app-layout>
