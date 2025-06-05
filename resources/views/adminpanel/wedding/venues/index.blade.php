@@ -91,7 +91,7 @@
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" required>
+                                            <input type ="number" id="order" name="order" value="" required max="255">
                                         </label>
                                     </section>
                                     <section class="col col-4">
@@ -111,6 +111,8 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="description" name="description" rows="3" required></textarea>
+                                            <span id="warning" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -187,6 +189,19 @@
                     reader.readAsDataURL(this.files[0]);
                 });
             });
+
+            $('#button1id').click(function(event) {
+                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                        .summernote('code');
+
+                    if (summernoteContent.trim() === '') {
+                        event.preventDefault(); // Prevent form submission
+                        $('#warning').show(); // Show the warning message
+                    } else {
+                        $('#warning').hide();
+                    }
+                });
+
         </script>
     </x-slot>
 </x-app-layout>
