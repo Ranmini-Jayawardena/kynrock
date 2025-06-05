@@ -77,7 +77,7 @@
                                         <label class="label">{{ __('Name') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="amenties_name" name="amenties_name" required
+                                            <input type="text" id="amenties_name" name="amenties_name" required maxlength="191"
                                                 value="">
                                         </label>
                                     </section>
@@ -85,7 +85,7 @@
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" required>
+                                            <input type ="number" id="order" name="order" value="" required max="255">
                                         </label>
                                     </section>
                                     <section class="col col-4">

@@ -79,7 +79,7 @@
                                         <section class="col col-2">
                                             <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
                                             <label class="input">
-                                                <input type="number" class="form-control form-input" name="images[{{ $loop->index }}][order]" min="0" value="{{ $image->order }}" required>
+                                                <input type="number" class="form-control form-input" name="images[{{ $loop->index }}][order]" min="0" max="255" value="{{ $image->order }}" required>
                                             </label>
                                         </section>
                                         <section class="col col-2"> 
@@ -98,7 +98,7 @@
                                         <section class="col col-2">
                                             <label class="label">{{ __('Order') }} </label>
                                             <label class="input">
-                                                <input type="number" class="form-control form-input" name="images[][order]" min="0" value="" >
+                                                <input type="number" class="form-control form-input" name="images[][order]" min="0" max="255" value="" >
                                             </label>
                                         </section>
                                        
@@ -154,7 +154,7 @@
                             <section class="col col-2">
                                 <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
                                 <label class="input">
-                                    <input type="number" class="form-control form-input" name="images[][order]" min="0" value="" required>
+                                    <input type="number" class="form-control form-input" name="images[][order]" min="0" max="255" value="" required>
                                 </label>
                             </section>
                             <section class="col col-2">

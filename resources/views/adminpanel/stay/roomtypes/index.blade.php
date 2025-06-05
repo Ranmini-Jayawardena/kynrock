@@ -77,7 +77,7 @@
                                         <label class="label">{{ __('Room Name') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type="text" id="room_name" name="room_name" required>
+                                            <input type="text" id="room_name" name="room_name" required maxlength="191">
                                         </label>
                                     </section>
                                     <section class="col col-4">
@@ -88,6 +88,25 @@
                                                 <option value="N">{{ __('Inactive') }}</option>
                                             </select>
                                             <i></i>
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-4">
+                                        <label class="label">{{ __('Title') }} </label>
+                                        <label class="input">
+                                            <input type="text" id="title" name="title" maxlength="191">
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-11" style="width: 100%;">
+                                        <label class="label">{{ __('Description') }}<span
+                                                style=" color: red;">*</span></label>
+                                        <label class="input">
+                                            <textarea class="form-control summernote" id="description_en" name="description_en" rows="3" required></textarea>
+                                            <span id="warning" style="display:none; color:red;">This value is
+                                                required.</span>
                                         </label>
                                     </section>
                                 </div>
@@ -107,23 +126,8 @@
 
                                     </section>
                                 </div>
-                                <div class="row">
-                                    <section class="col col-4">
-                                        <label class="label">{{ __('Title') }} </label>
-                                        <label class="input">
-                                            <input type="text" id="title" name="title">
-                                        </label>
-                                    </section>
-                                </div>
-                                <div class="row">
-                                    <section class="col col-11" style="width: 100%;">
-                                        <label class="label">{{ __('Description') }}<span
-                                                style=" color: red;">*</span></label>
-                                        <label class="input">
-                                            <textarea class="form-control summernote" id="description_en" name="description_en" rows="3" required></textarea>
-                                        </label>
-                                    </section>
-                                </div>
+                                
+   
 
 
 
@@ -149,7 +153,7 @@
                                         <label class="label">{{ __('Stay Page Title') }} <span
                                                 style="color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="home_title" name="home_title" required>
+                                            <input type="text" id="home_title" name="home_title" required maxlength="191">
                                         </label>
                                     </section>
                                 </div>
@@ -165,7 +169,7 @@
                                         <label class="label">{{ __('Stay Page Content 2') }} <span
                                                 style="color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="home_content2" name="home_content2" required>
+                                            <input type="text" id="home_content2" name="home_content2" required maxlength="191">
                                         </label>
                                     </section>
                                     <section class="col col-12">
@@ -211,15 +215,16 @@
                                         <label class="label">{{ __('Description') }}<span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="description" name="description">
+                                            <input type="text" id="description" name="description" required>
                                         </label>
                                     </section>
                                 </div>
                                 <div class="row">
                                     <section class="col col-12" style="width: 100%;">
-                                        <label class="label">{{ __('Keywords') }}</label>
+                                        <label class="label">{{ __('Keywords') }}<span
+                                                style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="keywords" name="keywords">
+                                            <input type="text" id="keywords" name="keywords" required>
                                         </label>
                                     </section>
                                 </div>
@@ -403,6 +408,19 @@
                     checkFields();
                 });
             });
+
+            $('#button1id').click(function(event) {
+                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                        .summernote('code');
+
+                    if (summernoteContent.trim() === '') {
+                        event.preventDefault(); // Prevent form submission
+                        $('#warning').show(); // Show the warning message
+                    } else {
+                        $('#warning').hide();
+                    }
+                });
+
         </script>
     </x-slot>
 </x-app-layout>

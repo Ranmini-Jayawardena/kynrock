@@ -75,7 +75,7 @@
                                         <section class="col col-2">
                                             <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
                                             <label class="input">
-                                                <input type="number" class="form-control form-input" name="images[][order]" min="0" required>
+                                                <input type="number" class="form-control form-input" name="images[][order]" min="0" max="255" required>
                                             </label>
                                         </section>
                                         <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
@@ -115,7 +115,7 @@
                             <section class="col col-2">
                                 <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
                                 <label class="input">
-                                    <input type="number" class="form-control form-input" name="images[][order]" min="0" required>
+                                    <input type="number" class="form-control form-input" name="images[][order]" min="0" max="255" required>
                                 </label>
                             </section>
                             <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
