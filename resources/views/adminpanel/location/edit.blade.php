@@ -78,8 +78,8 @@
                                     <label class="label">{{ __('location Name') }}<span
                                             style="color: red;">*</span></label>
                                     <label class="input">
-                                        <input type="text" id="location_name" name="location_name"
-                                            value="{{ $data->location_name }}" required>
+                                        <input type="text" id="location_name" name="location_name" 
+                                            value="{{ $data->location_name }}" required maxlength="191">
                                     </label>
                                 </section>
                                 <section class="col col-4">
@@ -99,7 +99,7 @@
                                             style=" color: red;">*</span>
                                     </label>
                                     <label class="input">
-                                        <input type ="number" id="order" name="order" value="{{ $data->order }}"
+                                        <input type ="number" id="order" name="order" min="0" max="255" value="{{ $data->order }}"
                                             required>
                                     </label>
                                 </section>
@@ -111,6 +111,8 @@
                                             style=" color: red;">*</span></label>
                                     <label class="input">
                                         <textarea class="form-control summernote" id="description" name="description" rows="3" required>{{ $data->description }}</textarea>
+                                        <span id="warning" style="display:none; color:red;">This value is
+                                            required.</span>
                                     </label>
                                 </section>
                             </div>
@@ -155,7 +157,7 @@
                                                     style="color: red;">*</span></label>
                                             <label class="input">
                                                 <input type="number" class="form-control form-input"
-                                                    name="images[{{ $loop->index }}][order]" min="0"
+                                                    name="images[{{ $loop->index }}][order]" min="0" max="255"
                                                     value="{{ $image->order }}" required>
                                             </label>
                                             
@@ -180,7 +182,7 @@
                                         <label class="label">{{ __('Order') }}</label>
                                         <label class="input">
                                             <input type="number" class="form-control form-input"
-                                                name="images[][order]" min="0" value="">
+                                                name="images[][order]" min="0" value="" max="255">
                                         </label>
                                     </section>
                                     <section class="col col-2" style=" margin-top: 15px; padding: 10px 20px; font-size: 16px;">
@@ -227,7 +229,7 @@
                         <section class="col col-2">
                             <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
                             <label class="input">
-                                <input type="number" class="form-control form-input" name="images[][order]" min="0" value="" required>
+                                <input type="number" class="form-control form-input" name="images[][order]" min="0" max="255" value="" required>
                             </label>
                         </section>
                         <section class="col col-2" style=" margin-top: 15px; padding: 10px 20px; font-size: 16px;">
@@ -282,6 +284,20 @@
                     reader.readAsDataURL(this.files[0]);
                 });
             });
+
+            $('#button1id').click(function(event) {
+                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                        .summernote('code');
+
+                    if (summernoteContent.trim() === '') {
+                        event.preventDefault(); // Prevent form submission
+                        $('#warning').show(); // Show the warning message
+                    } else {
+                        $('#warning').hide();
+                    }
+                });
+
+
         </script>
     </x-slot>
 </x-app-layout>
