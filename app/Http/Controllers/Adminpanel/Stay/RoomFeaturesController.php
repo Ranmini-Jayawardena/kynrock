@@ -81,8 +81,8 @@ class RoomFeaturesController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.stay.room_features.actionsBlock')
-                ->rawColumns(['icon','edit', 'activation','blockfeatures'])
+                ->addColumn('blockroomfeatures', 'adminpanel.stay.room_features.actionsBlock')
+                ->rawColumns(['icon','edit', 'activation','blockroomfeatures'])
                 ->make(true);
         }
 

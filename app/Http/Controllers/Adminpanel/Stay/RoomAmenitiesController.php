@@ -81,8 +81,8 @@ class RoomAmenitiesController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.stay.room_amenities.actionsBlock')
-                ->rawColumns(['icon','edit', 'activation','blockfeatures'])
+                ->addColumn('blockamenities', 'adminpanel.stay.room_amenities.actionsBlock')
+                ->rawColumns(['icon','edit', 'activation','blockamenities'])
                 ->make(true);
         }
 

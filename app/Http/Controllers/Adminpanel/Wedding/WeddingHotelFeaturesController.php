@@ -83,8 +83,8 @@ class WeddingHotelFeaturesController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.wedding.hotel_features.actionsBlock')
-                ->rawColumns(['icon','edit', 'activation','blockfeatures'])
+                ->addColumn('blockweddinghotelfeatures', 'adminpanel.wedding.hotel_features.actionsBlock')
+                ->rawColumns(['icon','edit', 'activation','blockweddinghotelfeatures'])
                 ->make(true);
         }
 

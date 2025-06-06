@@ -220,7 +220,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-about-us-features/{id}', [AboutUsFeaturesController::class, 'edit'])->name('edit-about-us-features');
     Route::put('save-about-us-features', [AboutUsFeaturesController::class, 'update'])->name('save-about-us-features');
     Route::get('changestatus-about-us-features/{id}', [AboutUsFeaturesController::class, 'activation'])->name('changestatus-about-us-features');
-    Route::get('blockfeatures/{id}', [AboutUsFeaturesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockaboutusfeatures/{id}', [AboutUsFeaturesController::class, 'block'])->name('blockaboutusfeatures');
 
     //about-us-dining-content
      Route::get('about-us-dining-content-edit', [AboutUsDiningContentController::class, 'index'])->name('about-us-dining-content-edit');
@@ -245,7 +245,7 @@ Route::group(['middleware' => ['auth']], function () {
      Route::get('/edit-wedding-venue/{id}', [WeddingVenueController::class, 'edit'])->name('edit-wedding-venue');
      Route::put('save-wedding-venue', [WeddingVenueController::class, 'update'])->name('save-wedding-venue');
      Route::get('changestatus-wedding-venue/{id}', [WeddingVenueController::class, 'activation'])->name('changestatus-wedding-venue');
-     Route::get('blockfeatures/{id}', [WeddingVenueController::class, 'block'])->name('blockfeatures');
+     Route::get('blockweddingvenuefeatures/{id}', [WeddingVenueController::class, 'block'])->name('blockweddingvenuefeatures');
 
      
     //wedding-hotel-features
@@ -255,7 +255,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-wedding-hotel-features/{id}', [WeddingHotelFeaturesController::class, 'edit'])->name('edit-wedding-hotel-features');
     Route::put('save-wedding-hotel-features', [WeddingHotelFeaturesController::class, 'update'])->name('save-wedding-hotel-features');
     Route::get('changestatus-wedding-hotel-features/{id}', [WeddingHotelFeaturesController::class, 'activation'])->name('changestatus-wedding-hotel-features');
-    Route::get('blockfeatures/{id}', [WeddingHotelFeaturesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockweddinghotelfeatures/{id}', [WeddingHotelFeaturesController::class, 'block'])->name('blockweddinghotelfeatures');
 
     //wedding-packages
     Route::get('wedding-package', [WeddingPackagesController::class, 'index'])->name('wedding-package');
@@ -273,7 +273,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-wedding-dining-features/{id}', [WeddingDiningFeaturesController::class, 'edit'])->name('edit-wedding-dining-features');
     Route::put('save-wedding-dining-features', [WeddingDiningFeaturesController::class, 'update'])->name('save-wedding-dining-features');
     Route::get('changestatus-wedding-dining-features/{id}', [WeddingDiningFeaturesController::class, 'activation'])->name('changestatus-wedding-dining-features');
-    Route::get('blockfeatures/{id}', [WeddingDiningFeaturesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockweddingdiningfeatures/{id}', [WeddingDiningFeaturesController::class, 'block'])->name('blockweddingdiningfeatures');
 
      //wedding-complementary-services
     Route::get('wedding-complementary-services', [WeddingComplementaryServicesController::class, 'index'])->name('wedding-complementary-services');
@@ -282,7 +282,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-wedding-complementary-services/{id}', [WeddingComplementaryServicesController::class, 'edit'])->name('edit-wedding-complementary-services');
     Route::put('save-wedding-complementary-services', [WeddingComplementaryServicesController::class, 'update'])->name('save-wedding-complementary-services');
     Route::get('changestatus-wedding-complementary-services/{id}', [WeddingComplementaryServicesController::class, 'activation'])->name('changestatus-wedding-complementary-services');
-    Route::get('blockfeatures/{id}', [WeddingComplementaryServicesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockcomplementaryservices/{id}', [WeddingComplementaryServicesController::class, 'block'])->name('blockcomplementaryservices');
   
      //wedding-features
     Route::get('wedding-features', [WeddingFeaturesController::class, 'index'])->name('wedding-features');
@@ -291,7 +291,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-wedding-features/{id}', [WeddingFeaturesController::class, 'edit'])->name('edit-wedding-features');
     Route::put('save-wedding-features', [WeddingFeaturesController::class, 'update'])->name('save-wedding-features');
     Route::get('changestatus-wedding-features/{id}', [WeddingFeaturesController::class, 'activation'])->name('changestatus-wedding-features');
-    Route::get('blockfeatures/{id}', [WeddingFeaturesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockweddingfeatures/{id}', [WeddingFeaturesController::class, 'block'])->name('blockweddingfeatures');
 
      //experience
      Route::get('experiences', [ExperienceController::class, 'index'])->name('experiences');
@@ -322,7 +322,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-room-features/{id}', [StayRoomFeaturesController::class, 'edit'])->name('edit-room-features');
     Route::put('save-room-features', [StayRoomFeaturesController::class, 'update'])->name('save-room-features');
     Route::get('changestatus-room-features/{id}', [StayRoomFeaturesController::class, 'activation'])->name('changestatus-room-features');
-    Route::get('blockfeatures/{id}', [StayRoomFeaturesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockroomfeatures/{id}', [StayRoomFeaturesController::class, 'block'])->name('blockroomfeatures');
  
     //stay
     Route::get('stay-content-edit', [ContentController::class, 'index'])->name('stay-content-edit');
@@ -335,7 +335,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-room-amenities/{id}', [RoomAmenitiesController::class, 'edit'])->name('edit-room-amenities');
     Route::put('save-room-amenities', [RoomAmenitiesController::class, 'update'])->name('save-room-amenities');
     Route::get('changestatus-room-amenities/{id}', [RoomAmenitiesController::class, 'activation'])->name('changestatus-room-amenities');
-    Route::get('blockfeatures/{id}', [RoomAmenitiesController::class, 'block'])->name('blockfeatures');
+    Route::get('blockamenities/{id}', [RoomAmenitiesController::class, 'block'])->name('blockamenities');
 
     //stay-roomtypes
     Route::get('roomtypes', [RoomTypesController::class, 'index'])->name('roomtypes');

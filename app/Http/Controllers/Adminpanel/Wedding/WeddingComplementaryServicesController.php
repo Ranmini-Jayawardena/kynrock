@@ -69,8 +69,8 @@ class WeddingComplementaryServicesController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.wedding.complementary_services.actionsBlock')
-                ->rawColumns(['edit', 'activation','blockfeatures'])
+                ->addColumn('blockcomplementaryservices', 'adminpanel.wedding.complementary_services.actionsBlock')
+                ->rawColumns(['edit', 'activation','blockcomplementaryservices'])
                 ->make(true);
         }
 

@@ -83,8 +83,8 @@ class WeddingDiningFeaturesController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.wedding.dining_features.actionsBlock')
-                ->rawColumns(['icon','edit', 'activation','blockfeatures'])
+                ->addColumn('blockweddingdiningfeatures', 'adminpanel.wedding.dining_features.actionsBlock')
+                ->rawColumns(['icon','edit', 'activation','blockweddingdiningfeatures'])
                 ->make(true);
         }
 
