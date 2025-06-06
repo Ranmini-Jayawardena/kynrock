@@ -155,9 +155,25 @@
                         ['color', ['color']],
                         ['para', ['ul', 'ol', 'para']],
                         ['height', ['height']],
-                        ['view', ['codeview']]
-                    ]
+                        ['view', ['codeview']],
+                         ['misc', ['clearAll']]
+                    ],
+                    buttons: {
+                        clearAll: function(context) {
+                            const ui = $.summernote.ui;
+                            const button = ui.button({
+                                contents: '<i class="note-icon-eraser"></i> Clear All',
+                                tooltip: 'Remove all content',
+                                click: function() {
+                                    // Clears all content and formatting
+                                    context.invoke('code', '');
+                                }
+                            });
+                            return button.render();
+                        }
+                    }
                 });
+
             });
 
             $('#button1id').click(function(event) {

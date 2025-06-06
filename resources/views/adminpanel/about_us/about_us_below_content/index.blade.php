@@ -65,7 +65,7 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="location_description" name="location_description" rows="3" required>{{ $data->location_description }}</textarea>
-                                             <span id="warning" style="display:none; color:red;">This value is
+                                            <span id="warning" style="display:none; color:red;">This value is
                                                 required.</span>
                                         </label>
                                     </section>
@@ -149,7 +149,7 @@
                 $('.alert').fadeOut('fast');
             }, 5000);
 
-           $(document).ready(function() {
+            $(document).ready(function() {
                 $('.summernote').summernote({
                     height: 200,
                     toolbar: [
@@ -159,28 +159,44 @@
                         ['color', ['color']],
                         ['para', ['ul', 'ol', 'para']],
                         ['height', ['height']],
-                        ['view', ['codeview']]
+                        ['view', ['codeview']],
+                        ['misc', ['clearAll']] // Keep only one "codeview" and "clearAll"
                     ],
                     callbacks: {
                         onInit: function() {
                             // Add text-light to editable area
                             $('.note-editable').addClass('text-light');
                         }
+                    },
+                    buttons: {
+                        clearAll: function(context) {
+                            const ui = $.summernote.ui;
+                            const button = ui.button({
+                                contents: '<i class="note-icon-eraser"></i> Clear All',
+                                tooltip: 'Remove all content',
+                                click: function() {
+                                    context.invoke('code', ''); // Clears everything
+                                }
+                            });
+                            return button.render();
+                        }
                     }
                 });
+            });
 
-                 $('#button1id').click(function(event) {
-                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
-                        .summernote('code');
 
-                    if (summernoteContent.trim() === '') {
-                        event.preventDefault(); // Prevent form submission
-                        $('#warning').show(); // Show the warning message
-                    } else {
-                        $('#warning').hide();
-                    }
-                });
-           
+            $('#button1id').click(function(event) {
+                var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                    .summernote('code');
+
+                if (summernoteContent.trim() === '') {
+                    event.preventDefault(); // Prevent form submission
+                    $('#warning').show(); // Show the warning message
+                } else {
+                    $('#warning').hide();
+                }
+            });
+
 
 
             // Image Preview Functionality
