@@ -177,8 +177,8 @@
                             searchable: false
                         },
                         {
-                            data: 'blockfeatures',
-                            name: 'blockfeatures',
+                            data: 'blockaboutusfeatures',
+                            name: 'blockaboutusfeatures',
                             orderable: false,
                             searchable: false
                         },
@@ -198,7 +198,7 @@
                     buttons: ["Cancel", "Yes"],
                 }).then(function(value) {
                     if (value == true) {
-                        window.location.replace("blockfeatures/" + id);
+                        window.location.replace("blockaboutusfeatures/" + id);
                     }
                 });
             });

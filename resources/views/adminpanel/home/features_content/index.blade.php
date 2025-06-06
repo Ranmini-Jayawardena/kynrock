@@ -128,28 +128,47 @@
                         ['color', ['color']],
                         ['para', ['ul', 'ol', 'para']],
                         ['height', ['height']],
-                        ['view', ['codeview']]
+                        ['view', ['codeview']],
+                        ['misc', ['clearAll']] // Keep only one "codeview" and "clearAll"
                     ],
                     callbacks: {
                         onInit: function() {
                             // Add text-light to editable area
                             $('.note-editable').addClass('text-light');
                         }
+                    },
+                    buttons: {
+                        clearAll: function(context) {
+                            const ui = $.summernote.ui;
+                            const button = ui.button({
+                                contents: '<i class="note-icon-eraser"></i> Clear All',
+                                tooltip: 'Remove all content',
+                                click: function() {
+                                    context.invoke('code', ''); // Clears everything
+                                }
+                            });
+                            return button.render();
+                        }
                     }
                 });
             });
 
-            $('#button1id').click(function(event) {
-                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
-                        .summernote('code');
 
-                    if (summernoteContent.trim() === '') {
-                        event.preventDefault(); // Prevent form submission
-                        $('#warning').show(); // Show the warning message
-                    } else {
-                        $('#warning').hide();
-                    }
-                });
+
+
+
+
+            $('#button1id').click(function(event) {
+                var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                    .summernote('code');
+
+                if (summernoteContent.trim() === '') {
+                    event.preventDefault(); // Prevent form submission
+                    $('#warning').show(); // Show the warning message
+                } else {
+                    $('#warning').hide();
+                }
+            });
 
 
             // Image Preview Functionality

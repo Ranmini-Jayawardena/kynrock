@@ -176,8 +176,8 @@
                             searchable: false
                         },
                         {
-                            data: 'blockfeatures',
-                            name: 'blockfeatures',
+                            data: 'blockroomfeatures',
+                            name: 'blockroomfeatures',
                             orderable: false,
                             searchable: false
                         },
@@ -197,7 +197,7 @@
                     buttons: ["Cancel", "Yes"],
                 }).then(function(value) {
                     if (value == true) {
-                        window.location.replace("blockfeatures/" + id);
+                        window.location.replace("blockroomfeatures/" + id);
                     }
                 });
             });

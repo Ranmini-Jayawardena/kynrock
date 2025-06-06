@@ -169,10 +169,25 @@
                         // ['table', ['table']],
                         // ['insert', ['link', 'picture', 'hr']],
                         // ['view', ['fullscreen', 'codeview', 'help']]
-                        ['view', ['codeview']]
-
-                    ]
+                        ['view', ['codeview']],
+                         ['misc', ['clearAll']]
+                    ],
+                    buttons: {
+                        clearAll: function(context) {
+                            const ui = $.summernote.ui;
+                            const button = ui.button({
+                                contents: '<i class="note-icon-eraser"></i> Clear All',
+                                tooltip: 'Remove all content',
+                                click: function() {
+                                    // Clears all content and formatting
+                                    context.invoke('code', '');
+                                }
+                            });
+                            return button.render();
+                        }
+                    }
                 });
+
             });
              function previewImage(input, previewId) {
                 const file = input.files[0];

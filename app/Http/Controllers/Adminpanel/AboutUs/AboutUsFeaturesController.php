@@ -84,8 +84,8 @@ class AboutUsFeaturesController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.about_us.about_us_features.actionsBlock')
-                ->rawColumns(['image','edit', 'activation','blockfeatures'])
+                ->addColumn('blockaboutusfeatures', 'adminpanel.about_us.about_us_features.actionsBlock')
+                ->rawColumns(['image','edit', 'activation','blockaboutusfeatures'])
                 ->make(true);
         }
 

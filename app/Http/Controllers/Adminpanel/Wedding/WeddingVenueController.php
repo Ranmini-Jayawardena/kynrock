@@ -96,8 +96,8 @@ class WeddingVenueController extends Controller
 
                     return $btn;
                 })
-                ->addColumn('blockfeatures', 'adminpanel.wedding.venues.actionsBlock')
-                ->rawColumns(['icon','edit', 'activation','blockfeatures'])
+                ->addColumn('blockweddingvenuefeatures', 'adminpanel.wedding.venues.actionsBlock')
+                ->rawColumns(['icon','edit', 'activation','blockweddingvenuefeatures'])
                 ->make(true);
         }
 

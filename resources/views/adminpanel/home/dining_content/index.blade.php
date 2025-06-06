@@ -2,6 +2,8 @@
 <x-app-layout>
     <x-slot name="header">
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+
         <style>
             .note-editable {
                 min-height: 300px !important;
@@ -130,7 +132,7 @@
                                                 alt="preview image" style="max-height: 250px;">
                                             <button type="button" class="btn btn-danger btn-sm remove-image"
                                                 data-input="image1"
-                                               style="display: block; margin-top: 10px; width: 70px;"
+                                                style="display: block; margin-top: 10px; width: 70px;"
                                                 data-preview="preview-image2"
                                                 data-hidden="remove-image2">Remove</button>
                                             <input type="hidden" name="remove_image2" id="remove-image2"
@@ -203,7 +205,7 @@
                                                 alt="preview image" style="max-height: 250px;">
                                             <button type="button" class="btn btn-danger btn-sm remove-image"
                                                 data-input="image5"
-                                               style="display: block; margin-top: 10px; width: 70px;"
+                                                style="display: block; margin-top: 10px; width: 70px;"
                                                 data-preview="preview-image5"
                                                 data-hidden="remove-image5">Remove</button>
                                             <input type="hidden" name="remove_image5" id="remove-image5"
@@ -289,16 +291,16 @@
             });
 
             $('#button1id').click(function(event) {
-                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
-                        .summernote('code');
+                var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
+                    .summernote('code');
 
-                    if (summernoteContent.trim() === '') {
-                        event.preventDefault(); // Prevent form submission
-                        $('#warning').show(); // Show the warning message
-                    } else {
-                        $('#warning').hide();
-                    }
-                });
+                if (summernoteContent.trim() === '') {
+                    event.preventDefault(); // Prevent form submission
+                    $('#warning').show(); // Show the warning message
+                } else {
+                    $('#warning').hide();
+                }
+            });
 
 
 
@@ -322,8 +324,24 @@
                             'para'
                         ]],
                         ['height', ['height']],
-                        ['view', ['codeview']]
-                    ]
+
+                        ['misc', ['codeview', 'clearAll']]
+                    ],
+
+                    buttons: {
+                        clearAll: function(context) {
+                            const ui = $.summernote.ui;
+                            const button = ui.button({
+                                contents: '<i class="note-icon-eraser"></i> Clear All',
+                                tooltip: 'Remove all content',
+                                click: function() {
+                                    // Clears all content and formatting
+                                    context.invoke('code', '');
+                                }
+                            });
+                            return button.render();
+                        }
+                    }
                 });
             });
         </script>
