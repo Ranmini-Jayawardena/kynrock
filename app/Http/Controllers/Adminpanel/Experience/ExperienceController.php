@@ -140,7 +140,7 @@ class ExperienceController extends Controller
         $data->status = $request->status;
         $data->save();
     
-        // \LogActivity::addToLog('Experience record ' . $data->experience_name . ' updated(' . $data->id . ').');
+        \LogActivity::addToLog('Experience record ' . $data->experience_name . ' updated(' . $data->id . ').');
     
         return redirect()->route('experience-list')
             ->with('success', 'Experience updated successfully.');
@@ -158,7 +158,7 @@ class ExperienceController extends Controller
 
         $data->save();
 
-        // \LogActivity::addToLog('Experience record ' . $data->experience_name . ' status changed (' . $data->id . ').');
+        \LogActivity::addToLog('Experience record ' . $data->experience_name . ' status changed (' . $data->id . ').');
 
         return redirect()->route('experience-list')
             ->with('success', 'Experience status changed successfully.');
@@ -185,7 +185,7 @@ class ExperienceController extends Controller
         $data->is_delete = 1;
         $data->save();
 
-        // \LogActivity::addToLog('Experience record ' . $data->experience_name . ' and its images deleted(' . $data->id . ').');
+        \LogActivity::addToLog('Experience record ' . $data->experience_name . ' and its images deleted(' . $data->id . ').');
 
         return redirect()->route('experience-list')
             ->with('success', 'Experience and associated images deleted successfully.');

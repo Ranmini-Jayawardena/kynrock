@@ -557,9 +557,10 @@
                              <div class="col-6">
                                  <div class="form-floating contact_form mb-3">
                                      <input type="text" class="form-control" id="tel" name="tel"
-                                         placeholder="Mobile Number" required pattern="\d{10}"
-                                         oninvalid="this.setCustomValidity('Mobile number must be exactly 10 digits.')"
-                                         oninput="this.setCustomValidity('')">
+                                         placeholder="Mobile Number" required pattern="^\+?[0-9]{7,15}$"
+                                         onkeypress="return isNumberKey(event)"
+                                         oninput="this.value = this.value.replace(/[^0-9+]/g, '').replace(/(?!^)\+/g, '').slice(0, 15); this.setCustomValidity('')"
+                                         oninvalid="this.setCustomValidity('Enter a valid number')">
                                      <label for="tel">Mobile Number</label>
                                  </div>
                              </div>
@@ -626,6 +627,20 @@
 </div>
 @include('frontend.includes.footer')
 <!-- contact form end -->
+
+<script>
+function isNumberKey(evt) {
+    const charCode = evt.which ? evt.which : evt.keyCode;
+    const charStr = String.fromCharCode(charCode);
+
+    // Allow only one '+' at the beginning and digits
+    if (charStr === '+' && evt.target.selectionStart === 0 && !evt.target.value.includes('+')) {
+        return true;
+    }
+
+    return /[0-9]/.test(charStr);
+}
+</script>
 
 
 

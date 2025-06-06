@@ -164,7 +164,7 @@ class LocationController extends Controller
         $data->status = $request->status;
         $data->save();
     
-        // \LogActivity::addToLog('location record ' . $data->location_name . ' updated(' . $data->id . ').');
+        \LogActivity::addToLog('location record ' . $data->location_name . ' updated(' . $data->id . ').');
     
         return redirect()->route('location-list')
             ->with('success', 'location updated successfully.');
@@ -182,7 +182,7 @@ class LocationController extends Controller
 
         $data->save();
 
-        // \LogActivity::addToLog('location record ' . $data->location_name . ' status changed (' . $data->id . ').');
+        \LogActivity::addToLog('location record ' . $data->location_name . ' status changed (' . $data->id . ').');
 
         return redirect()->route('location-list')
             ->with('success', 'location status changed successfully.');
@@ -209,7 +209,7 @@ class LocationController extends Controller
         $data->is_delete = 1;
         $data->save();
 
-        // \LogActivity::addToLog('location record ' . $data->location_name . ' and its images deleted(' . $data->id . ').');
+        \LogActivity::addToLog('location record ' . $data->location_name . ' and its images deleted(' . $data->id . ').');
 
         return redirect()->route('location-list')
             ->with('success', 'location and associated images deleted successfully.');
