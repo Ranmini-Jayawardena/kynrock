@@ -72,7 +72,7 @@
                         <div class="room-slider__img">
                             <h2>{{ $experience->experience_name }}</h2>
 
-                            <div class="read-more long_read_more" style="--line-clamp: 5">
+                            <div class="read-more long_read_more" style="--line-clamp: 5" data-id="{{ $experience->id }}">
                                 <input id="read-more-checkbox{{ $experience->id }}" type="checkbox"
                                     class="read-more__checkbox" aria-hidden="true">
                                 <p>What You Can Do Here</p>
@@ -89,7 +89,7 @@
 
                         </div>
                     </div>
-
+                    @if(count($experience->images) > 1)
                     <button class="carousel-control-prev" type="button"
                         data-bs-target="#carouselExampleControls{{ $experience->id }}" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -100,6 +100,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                    @endif
                 </div>
             </div>
         @endforeach
@@ -145,6 +146,21 @@
 
 <div class="clearfix"></div>
 @include('frontend.includes.footer')
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".read-more").forEach(function (readMoreBlock) {
+            const text = readMoreBlock.querySelector(".read-more__text");
+            const label = readMoreBlock.querySelector(".read-more__label");
+
+            if (text.scrollHeight <= text.clientHeight) {
+                label.style.display = "none"; // Hide 'Read more' if not overflowing
+            }
+        });
+    });
+</script>
+
+
 <!-- ================================================== -->
 <!-- ================================================== -->
 <!-- ================================================== -->

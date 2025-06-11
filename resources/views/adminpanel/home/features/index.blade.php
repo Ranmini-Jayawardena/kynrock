@@ -61,17 +61,17 @@
                                         <label class="label">{{ __('Title') }} <span
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="heading" name="heading" required>
+                                            <input type="text" id="heading" name="heading" required maxlength="191">
                                         </label>
                                     </section>
                                     <section class="col col-4">
                                         <label class="label">{{ __('Order') }}<span style=" color: red;">*</span>
                                         </label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" max="255" required>
+                                            <input type ="number" id="order" name="order" value=""
+                                                max="255" required>
                                         </label>
                                     </section>
-
                                     <section class="col col-4">
                                         <label class="label">{{ __('Status') }}</label>
                                         <label class="select">
@@ -98,9 +98,6 @@
                                             style="max-height: 250px;">
                                     </section>
                                 </div>
-
-
-
                             </fieldset>
                             <footer>
                                 <button id="button1id" name="button1id" type="submit" class="btn btn-primary">

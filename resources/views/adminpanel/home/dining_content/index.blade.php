@@ -68,7 +68,7 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image6"
-                                                name="image6" style="overflow: hidden;">
+                                                name="image6" style="overflow: hidden;" >
                                         </label>
                                     </section>
                                     <section class="col col-2">
@@ -98,7 +98,7 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image1"
-                                                name="image1" style="overflow: hidden;">
+                                                name="image1" style="overflow: hidden;" required>
                                         </label>
                                     </section>
                                     <section class="col col-2">
@@ -119,8 +119,7 @@
 
                                     </section>
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 2') }} (800 x 800) <span
-                                                style=" color: red;">*</span></label>
+                                        <label class="label">{{ __('Slider Image 2') }} (800 x 800) </label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image2"
                                                 name="image2" style="overflow: hidden;">
@@ -145,8 +144,7 @@
                                 </div>
                                 <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Slider Image 3') }} (800 x 800) <span
-                                                style=" color: red;">*</span></label>
+                                        <label class="label">{{ __('Slider Image 3') }} (800 x 800) </label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image3"
                                                 name="image3" style="overflow: hidden;">

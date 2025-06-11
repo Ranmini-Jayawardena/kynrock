@@ -49,55 +49,65 @@
 
 <!-- rooms start -->
 
+
+
 <div class="container mt-n3">
     <div class="row">
         @foreach ($roomTypes as $room)
-            <div class="col-xxl-8 col-xl-9 col-lg-10 col-md-12 col-sm-12 col-12 mb-5">
-                <div id="carouselExampleControls{{ $room->id }}" class="carousel slide detail_slide"
-                    data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach ($room->images as $key => $image)
-                            @if ($key == 0)
-                                <div class="carousel-item active"
-                                    style="background-image: url({{ asset('storage/app/' . $image->image_name) }});">
-                                </div>
-                            @else
-                                <div class="carousel-item"
-                                    style="background-image: url({{ asset('storage/app/' . $image->image_name) }});">
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+            @if (!empty($room->images) && count($room->images) > 0)
+                <div class="col-xxl-8 col-xl-9 col-lg-10 col-md-12 col-sm-12 col-12 mb-5">
+                    <div id="carouselExampleControls{{ $room->id }}" class="carousel slide detail_slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($room->images as $key => $image)
+                                @if ($key == 0)
+                                    <div class="carousel-item active"
+                                        style="background-image: url({{ asset('storage/app/' . $image->image_name) }});">
+                                    </div>
+                                @else
+                                    <div class="carousel-item"
+                                        style="background-image: url({{ asset('storage/app/' . $image->image_name) }});">
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
 
-                    <div class="carousel-caption">
-                        <div class="room-slider__img">
-                            <h4><b>{{ strtoupper($room->home_title) }}</b></h4>
+                        @if(count($room->images) > 1)
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleControls{{ $room->id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleControls{{ $room->id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        @endif
 
-                            <p>{{ $room->home_content1 }}</p>
+                        <div class="carousel-caption">
+                            <div class="room-slider__img">
+                                <h4><b>{{ strtoupper($room->home_title) }}</b></h4>
+                                <p>{{ $room->home_content1 }}</p>
 
-                            <div class="row">
-                                @foreach ($room->roomAmenities->take(6) as $amenityData)
-                                    @if ($amenityData->feature)
-                                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-                                            <div class="icon_div d-flex mb-2 gap-2">
-                                                <img src="{{ asset('storage/app/' . $amenityData->feature->icon) }}"
-                                                    alt="">
-                                                <p class="mb-0">{{ $amenityData->feature->amenties_name }}
-                                                </p>
+                                <div class="row">
+                                    @foreach ($room->roomAmenities->take(6) as $amenityData)
+                                        @if ($amenityData->feature)
+                                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                                <div class="icon_div d-flex mb-2 gap-2">
+                                                    <img src="{{ asset('storage/app/' . $amenityData->feature->icon) }}" alt="">
+                                                    <p class="mb-0">{{ $amenityData->feature->amenties_name }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                        @endif
+                                    @endforeach
+                                </div>
 
-                            </div>
+                                <h5 class="fw-bold fst-italic mt-4">{{ $room->home_content2 }}</h5>
 
-                            <h5 class="fw-bold fst-italic mt-4">{{ $room->home_content2 }}</h5>
-
-                            <div class="d-flex justify-content-end pe-5">
-                                <a href="{{ url('room-details/' . $room->meta_title) }}">
-                                    <button class="arrow_btn">
-
-                                        <span class="circle">
+                                <div class="d-flex justify-content-end pe-5">
+                                    <a href="{{ url('room-details/' . $room->meta_title) }}">
+                                        <button class="arrow_btn">
+                                           <span class="circle">
                                             <span class="icon arrow">
                                                 <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -110,30 +120,17 @@
                                                 </svg>
                                             </span>
                                         </span>
-
-                                        <span class="arrow_btn_text">
-                                            <p>Room details</p>
-                                        </span>
-
-                                    </button>
-                                </a>
+                                            <span class="arrow_btn_text">
+                                                <p>Room details</p>
+                                            </span>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-
                         </div>
                     </div>
-
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleControls{{ $room->id }}" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleControls{{ $room->id }}" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
-            </div>
+            @endif
         @endforeach
     </div>
 </div>

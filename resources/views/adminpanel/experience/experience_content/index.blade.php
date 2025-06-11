@@ -78,7 +78,8 @@
                                                 style=" color: red;">*</span></label>
                                         <label class="input">
                                             <input type="file" class="form-control form-input" id="image"
-                                                name="image" style="overflow: hidden;">
+                                                name="image" style="overflow: hidden;"
+                                                 data-parsley-filemaxmegabytes="20">
                                         </label>
                                     </section>
                                     <section class="col col-2">

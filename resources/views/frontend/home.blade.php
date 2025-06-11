@@ -190,7 +190,7 @@
         <div class="row">
             <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                 <p class="sub_heading" data-aos="fade-up">
-                    Welcome to Goodwood Airport Hotel
+                    Room Options    
                 </p>
                 <h2 class="text-light" data-aos="fade-down">
                     {{ $roomContent->heading }}
@@ -393,7 +393,7 @@
 
         <div class="col-xxl-5 col-xl-5 col-lg-8 col-md-12 col-sm-12 col-12">
             <p class="sub_heading" data-aos="fade-up">
-                Dining at Goodwood Airport Hotel
+                Dining at Kynrock Airport Hotel
             </p>
             <h2 data-aos="fade-down">
                 {{ $diningContent->heading }}

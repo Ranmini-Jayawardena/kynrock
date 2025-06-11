@@ -35,10 +35,18 @@ class StayController extends Controller
 
         // Sort roomAmenities by feature.order for each RoomType
         foreach ($roomTypes as $roomType) {
-            $roomType->roomAmenities = $roomType->roomAmenities->sortBy(function ($amenity) {
+           
+       
+
+        $roomType->roomAmenities = $roomType->roomAmenities
+            ->filter(function ($amenity) {
+                return $amenity->feature && $amenity->feature->status === 'Y' && $amenity->feature->is_delete == 0;
+            })
+            ->sortBy(function ($amenity) {
                 return $amenity->feature->order ?? 0;
             })->values();
-        }
+
+             }
 
         $contactDetails = ContactUsDetail::first();
 
