@@ -30,6 +30,13 @@ class ExperienceController extends Controller
         $request->validate([
             'experience_name' => 'required',
             'description' => 'required',
+         'images.*.image_name' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+
+
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
     
         $experience = new Experience();
@@ -92,8 +99,14 @@ class ExperienceController extends Controller
         $request->validate([
             'experience_name' => 'required',
             'description' => 'required',
+        'images.*.image_name' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+
+
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
-    
         // Find the experience first
         $data = Experience::find($request->id);
         if (!$data) {

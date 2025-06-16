@@ -25,8 +25,8 @@ class RoomTypesController extends Controller
 
     public function index()
     {
-        $features = RoomFeatures::all();
-        $amenities = RoomAmenities::all();
+        $features = RoomFeatures::where('is_delete', 0)->where('status','Y')->get();
+        $amenities = RoomAmenities::where('is_delete', 0)->where('status','Y')->get();
 
 
         return view('adminpanel.stay.roomtypes.index', compact('features',  'amenities'));
@@ -196,8 +196,8 @@ class RoomTypesController extends Controller
     {
         $roomID = decrypt($id);
         $data = RoomTypes::find($roomID);
-        $features = RoomFeatures::all();
-        $amenities = RoomAmenities::all();
+        $features = RoomFeatures::where('is_delete', 0)->where('status','Y')->get();
+        $amenities = RoomAmenities::where('is_delete', 0)->where('status','Y')->get();
         $roomAmenities = RoomAmentiesData::where('room_id', $roomID)->get();
         $roomFeatures = RoomFeaturesData::where('room_id', $roomID)->get();
         // $metaTag = MetaTag::where('room_name', $data->meta_title)->first();

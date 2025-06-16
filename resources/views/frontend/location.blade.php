@@ -58,7 +58,7 @@
 
                           </div>
                       </div>
-
+                    @if(count($location->images) > 1)
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{ $location->id }}"
                           data-bs-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -69,6 +69,7 @@
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
                       </button>
+                    @endif
                   </div>
               </div>
           @endforeach
@@ -83,3 +84,15 @@
   <!-- ================================================== -->
   <!-- ================================================== -->
   @include('frontend.includes.footer')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".read-more").forEach(function (readMoreBlock) {
+            const text = readMoreBlock.querySelector(".read-more__text");
+            const label = readMoreBlock.querySelector(".read-more__label");
+
+            if (text.scrollHeight <= text.clientHeight) {
+                label.style.display = "none"; // Hide 'Read more' if not overflowing
+            }
+        });
+    });
+</script>

@@ -68,7 +68,7 @@ use App\Http\Controllers\Adminpanel\Home\RoomContentController;
 use App\Http\Controllers\Adminpanel\Home\TestimonialContentController;
 use App\Http\Controllers\Adminpanel\Home\VenueContentContoller;
 use App\Http\Controllers\Adminpanel\Home\WelcomeContentController;
-use App\Http\Controllers\Adminpanel\location\LocationController;
+use App\Http\Controllers\Adminpanel\Location\LocationController;
 use App\Http\Controllers\Adminpanel\TermsAndConditions\TermsAndConditionsController;
 use App\Http\Controllers\Adminpanel\PrivacyPolicy\PrivacyPolicyController;
 use App\Http\Controllers\Adminpanel\MetaTagController;

@@ -26,7 +26,7 @@ class HomeFeaturesController extends Controller
     {
         $request->validate([
             'heading' => 'required',
-            'image_name' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image_name' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20480',
             'order' => 'required'
         ]);
 
@@ -102,7 +102,7 @@ class HomeFeaturesController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'image_name' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image_name' => 'image|mimes:jpg,png,jpeg,gif,svg|max:20480',
             // 'status' => 'required|in:Y,N'
         ]);
 

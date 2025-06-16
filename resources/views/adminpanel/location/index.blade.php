@@ -2,7 +2,6 @@
 <x-app-layout>
     <x-slot name="header">
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-
         <style>
             .note-editable {
                 min-height: 300px !important;
@@ -21,19 +20,14 @@
     </x-slot>
 
     <div id="main" role="main">
-        <!-- RIBBON -->
-        <div id="ribbon">
-        </div>
-        <!-- END RIBBON -->
+        <div id="ribbon"></div>
         <div id="content">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row cms_top_btn_row" style="margin-left:auto;margin-right:auto;">
                         <a href="{{ route('locations') }}">
-                            <button
-                                class="btn cms_top_btn top_btn_height cms_top_btn_active">{{ __('Add New') }}</button>
+                            <button class="btn cms_top_btn top_btn_height cms_top_btn_active">{{ __('Add New') }}</button>
                         </a>
-
                         <a href="{{ route('location-list') }}">
                             <button class="btn cms_top_btn top_btn_height ">{{ __('View All') }}</button>
                         </a>
@@ -58,33 +52,25 @@
                 </div>
             @endif
 
-            <!-- Widget ID (each widget will need unique ID)-->
-            <div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false"
-                data-widget-custombutton="false" role="widget">
+            <div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false" role="widget">
                 <header>
                     <h2>{{ __('Location List') }}</h2>
                 </header>
-                <!-- widget div-->
+
                 <div>
-                    <!-- widget edit box -->
-                    <div class="jarviswidget-editbox">
-                    </div>
-                    <!-- end widget edit box -->
-                    <!-- widget content -->
+                    <div class="jarviswidget-editbox"></div>
                     <div class="widget-body no-padding">
-                        <form action="{{ route('new-location') }}" enctype="multipart/form-data" method="post"
-                            id="location-form" class="smart-form">
+                        <form action="{{ route('new-location') }}" enctype="multipart/form-data" method="post" id="location-form" class="smart-form">
                             @csrf
                             <fieldset>
                                 <div class="row">
                                     <section class="col col-4">
-                                        <label class="label">{{ __('Location Name') }}<span
-                                                style="color: red;">*</span></label>
+                                        <label class="label">{{ __('Location Name') }}<span style="color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="text" id="location_name" name="location_name" required maxlength="191"
-                                                value="">
+                                            <input type="text" id="location_name" name="location_name" required maxlength="191" value="">
                                         </label>
                                     </section>
+
                                     <section class="col col-4">
                                         <label class="label">{{ __('Status') }}</label>
                                         <label class="select">
@@ -95,63 +81,55 @@
                                             <i></i>
                                         </label>
                                     </section>
+
                                     <section class="col col-2">
-                                        <label class="label">{{ __('Order of the Location') }}<span style=" color: red;">*</span>
-                                        </label>
+                                        <label class="label">{{ __('Order of the Location') }}<span style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type ="number" id="order" name="order" value="" min="0" max="255" required>
+                                            <input type="number" id="order" name="order" value="" min="0" max="255" required>
                                         </label>
                                     </section>
                                 </div>
 
                                 <div class="row">
                                     <section class="col col-11" style="width: 100%;">
-                                        <label class="label">{{ __('Description') }}<span
-                                                style="color: red;">*</span></label>
+                                        <label class="label">{{ __('Description') }}<span style="color: red;">*</span></label>
                                         <label class="input">
                                             <textarea class="form-control summernote" id="description" name="description" rows="3" required></textarea>
-                                            <span id="warning" style="display:none; color:red;">This value is
-                                                required.</span>
+                                            <span id="warning" style="display:none; color:red;">This value is required.</span>
                                         </label>
                                     </section>
                                 </div>
-                               <div class="row">
+
+                                <div class="row">
                                     <section class="col col-3">
-                                        <label class="label">{{ __('Home Image') }} (1920 x 1080) <span
-                                                style=" color: red;">*</span></label>
+                                        <label class="label">{{ __('Home Image') }} (1920 x 1080) <span style=" color: red;">*</span></label>
                                         <label class="input">
-                                            <input type="file" class="form-control form-input" id="home_image"
-                                                name="home_image" style="overflow: hidden;" required>
+                                            <input type="file" class="form-control form-input" id="home_image" name="home_image" required>
+                                            <small id="file-error" style="color: red; display: none;"></small>
                                         </label>
                                     </section>
                                     <section class="col col-2">
-                                        <img id="preview-image-before-upload"
-                                            src="{{ asset('public/back/img/whitebg.jpg') }}" alt="preview image"
-                                            style="max-height: 250px;">
+                                        <img id="preview-image-before-upload" src="{{ asset('public/back/img/whitebg.jpg') }}" alt="preview image" style="max-height: 250px;">
                                     </section>
                                 </div>
 
                                 <div id="image-upload-section">
                                     <div class="row image-upload-wrapper">
                                         <section class="col col-2">
-                                            <label class="label">{{ __('Image') }} (1920 x 1080) <span
-                                                    style="color: red;">*</span></label>
+                                            <label class="label">{{ __('Image') }} (1920 x 1080) <span style="color: red;">*</span></label>
                                             <label class="input">
-                                                <input type="file" class="form-control form-input image-input"
-                                                    name="images[0][image_name]" style="overflow: hidden;" required>
+                                                <input type="file" class="form-control form-input image-input" name="images[0][image_name]" required>
+                                                <small class="image-error" style="color: red; display: none;"></small>
                                             </label>
                                         </section>
                                         <section class="col col-2">
-                                            <label class="label">{{ __('Order') }} <span
-                                                    style="color: red;">*</span></label>
+                                            <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
                                             <label class="input">
-                                                <input type="number" class="form-control form-input"
-                                                    name="images[0][order]" min="0" max="255" value="" required>
+                                                <input type="number" class="form-control form-input" name="images[0][order]" min="0" max="255" value="" required>
                                             </label>
                                         </section>
-                                        <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
-                                            <button type="button"
-                                                class="btn-sm btn-success add-image" style="width:70px">{{ __('Add More') }}</button>
+                                        <section class="col col-2" style="margin-top: 15px; padding: 10px 20px;">
+                                            <button type="button" class="btn-sm btn-success add-image" style="width:70px">{{ __('Add More') }}</button>
                                         </section>
                                     </div>
                                 </div>
@@ -167,11 +145,8 @@
                             </footer>
                         </form>
                     </div>
-                    <!-- end widget content -->
                 </div>
-                <!-- end widget div -->
             </div>
-            <!-- end widget -->
         </div>
     </div>
 
@@ -186,24 +161,43 @@
                 $('.alert').fadeOut('fast');
             }, 5000);
 
+            function validateImageInput(input) {
+                const file = input.files[0];
+                const errorElement = input.closest('label').querySelector('.image-error');
+
+                if (file && file.size > 10 * 1024 * 1024) {
+                    errorElement.textContent = "Image file size must be 10MB or less.";
+                    errorElement.style.display = 'block';
+                    input.value = '';
+                } else {
+                    errorElement.textContent = '';
+                    errorElement.style.display = 'none';
+                }
+            }
+
+            $(document).on('change', '.image-input', function() {
+                validateImageInput(this);
+            });
+
             $(document).on('click', '.add-image', function() {
                 var imageIndex = $('#image-upload-section .image-upload-wrapper').length;
                 var newImageUploadWrapper = `
                     <div class="row image-upload-wrapper">
                         <section class="col col-2">
-                            <label class="label">{{ __('Image') }} (1920 x 1080) <span style="color: red;">*</span></label>
+                            <label class="label">Image (1920 x 1080) <span style="color: red;">*</span></label>
                             <label class="input">
-                                <input type="file" class="form-control form-input image-input" name="images[${imageIndex}][image_name]" style="overflow: hidden;" required>
+                                <input type="file" class="form-control form-input image-input" name="images[${imageIndex}][image_name]" required>
+                                <small class="image-error" style="color: red; display: none;"></small>
                             </label>
                         </section>
                         <section class="col col-2">
-                            <label class="label">{{ __('Order') }} <span style="color: red;">*</span></label>
+                            <label class="label">Order <span style="color: red;">*</span></label>
                             <label class="input">
-                                <input type="number" class="form-control form-input" name="images[${imageIndex}][order]" min="0" max="255" value="" required>
+                                <input type="number" class="form-control form-input" name="images[${imageIndex}][order]" min="0" max="255" required>
                             </label>
                         </section>
-                        <section class="col col-2" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;">
-                            <button type="button" class="btn-sm btn-danger remove-image" style="width:70px">{{ __('Remove') }}</button>
+                        <section class="col col-2" style="margin-top: 15px; padding: 10px 20px;">
+                            <button type="button" class="btn-sm btn-danger remove-image" style="width:70px">Remove</button>
                         </section>
                     </div>`;
                 $('#image-upload-section').append(newImageUploadWrapper);
@@ -225,7 +219,7 @@
                         ['para', ['ul', 'ol', 'para']],
                         ['height', ['height']],
                         ['view', ['codeview']],
-                         ['misc', ['clearAll']]
+                        ['misc', ['clearAll']]
                     ],
                     buttons: {
                         clearAll: function(context) {
@@ -234,7 +228,6 @@
                                 contents: '<i class="note-icon-eraser"></i> Clear All',
                                 tooltip: 'Remove all content',
                                 click: function() {
-                                    // Clears all content and formatting
                                     context.invoke('code', '');
                                 }
                             });
@@ -242,32 +235,38 @@
                         }
                     }
                 });
+            });
 
+            $('#home_image').change(function(e) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#preview-image-before-upload').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
             });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function(e) {
-                $('#home_image').change(function() {
-                    let reader = new FileReader();
-                    reader.onload = (e) => {
-                        $('#preview-image-before-upload').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                });
+
+            document.getElementById('home_image').addEventListener('change', function() {
+                const file = this.files[0];
+                const errorElement = document.getElementById('file-error');
+
+                if (file && file.size > 10 * 1024 * 1024) {
+                    errorElement.textContent = "File size is too large.";
+                    errorElement.style.display = 'block';
+                    this.value = '';
+                } else {
+                    errorElement.textContent = '';
+                    errorElement.style.display = 'none';
+                }
             });
+
             $('#button1id').click(function(event) {
-                    var summernoteContent = $('.summernote').summernote('isEmpty') ? '' : $('.summernote')
-                        .summernote('code');
-
-                    if (summernoteContent.trim() === '') {
-                        event.preventDefault(); // Prevent form submission
-                        $('#warning').show(); // Show the warning message
-                    } else {
-                        $('#warning').hide();
-                    }
-                });
-
-
+                if ($('.summernote').summernote('isEmpty')) {
+                    $('#warning').show();
+                    event.preventDefault();
+                } else {
+                    $('#warning').hide();
+                }
+            });
         </script>
     </x-slot>
 </x-app-layout>

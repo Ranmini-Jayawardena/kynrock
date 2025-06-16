@@ -171,12 +171,12 @@
                                     </label>
                                 </section>
 
-                                <section class="col col-6">
+                                {{-- <section class="col col-6">
                                     <label class="label">Upload</label>
                                     <label class="input">
                                         <input type="file" class="form-control form-input" id="user_manual" name="user_manual" style="overflow: hidden;">
                                     </label>
-                                </section>
+                                </section> --}}
                             </fieldset>
                             <fieldset>
                                 <div class="widget-body">

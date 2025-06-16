@@ -104,6 +104,8 @@ class WeddingFeaturesController extends Controller
         $request->validate([
             'feature_name' => 'required',
             'description'=> 'required',
+            'icon'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+
         ]);
 
         if (!$request->file('icon') == "") {

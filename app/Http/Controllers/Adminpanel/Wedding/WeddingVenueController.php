@@ -23,11 +23,20 @@ class WeddingVenueController extends Controller
 
     public function index()
     {
-         $venues = WeddingVenues::with('subCategory')
-                    ->where('category_id', $this->weddingCategoryId)
-                    ->get();
-        $subCategories = GallerySubCategory::where('category_id', $this->weddingCategoryId)->get();
-        return view('adminpanel.wedding.venues.index', compact('venues', 'subCategories'));
+    $allSubCategories = GallerySubCategory::where('category_id', $this->weddingCategoryId)->get();
+
+    $usedSubCategoryIds = WeddingVenues::where('category_id', $this->weddingCategoryId)
+                            ->where('is_delete', 0)
+                            ->pluck('sub_category_id')
+                            ->toArray();
+
+    $availableSubCategories = $allSubCategories->whereNotIn('id', $usedSubCategoryIds);
+
+    $venues = WeddingVenues::with('subCategory')
+                ->where('category_id', $this->weddingCategoryId)
+                ->get();
+        return view('adminpanel.wedding.venues.index', ['venues'=> $venues,
+        'subCategories' => $availableSubCategories] );
     }
     
 

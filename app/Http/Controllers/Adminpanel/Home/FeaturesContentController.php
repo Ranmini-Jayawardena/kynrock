@@ -35,7 +35,7 @@ class FeaturesContentController extends Controller
         $request->validate([
             'heading' => 'required',
             'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480'
 
         ]);
 
