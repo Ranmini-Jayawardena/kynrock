@@ -41,6 +41,8 @@ class ContentController extends Controller
             'heading2' => 'required',
             'description2' => 'required',
             'description3' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:20480',
+
         ]);
         if(!request()->file('image') == ""){
             $img = $request->file('image')->getClientOriginalName();

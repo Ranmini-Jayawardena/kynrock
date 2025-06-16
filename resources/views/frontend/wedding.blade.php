@@ -151,32 +151,32 @@
                                         <div>
                                             <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}</h3>
                                             {!! $weddingVenue->description !!}
-                                            
+
                                             <button class="arrow_btn">
-                                            <a href="{{ route('gallery') }}">
-                                                <span class="circle">
-                                                    <span class="icon arrow">
-                                                        <svg version="1.1" id="fi_664866"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                            viewBox="0 0 512.009 512.009"
-                                                            style="enable-background:new 0 0 512.009 512.009;"
-                                                            xml:space="preserve">
-                                                            <g>
-                                                                <path
-                                                                    d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
+                                                <a href="{{ route('gallery') }}">
+                                                    <span class="circle">
+                                                        <span class="icon arrow">
+                                                            <svg version="1.1" id="fi_664866"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                                y="0px" viewBox="0 0 512.009 512.009"
+                                                                style="enable-background:new 0 0 512.009 512.009;"
+                                                                xml:space="preserve">
+                                                                <g>
+                                                                    <path
+                                                                        d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
                                   c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
                                   s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
                                   c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                                </path>
-                                                            </g>
-                                                        </svg>
+                                                                    </path>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
                                                     </span>
-                                                </span>
 
-                                                <span class="arrow_btn_text">
-                                                    <p>View images</p>
-                                                </span>
+                                                    <span class="arrow_btn_text">
+                                                        <p>View images</p>
+                                                    </span>
 
                                             </button>
                                             </a>
@@ -204,35 +204,35 @@
                                         <div>
                                             <h3 class="mb-1">{{ $weddingVenue->subCategory->sub_category_name }}</h3>
                                             {!! $weddingVenue->description !!}
-                                             <a href="{{ route('gallery') }}">
-                                            <button class="arrow_btn">
-                                       
-                                                <span class="circle">
-                                                    <span class="icon arrow">
-                                                        <svg version="1.1" id="fi_664866"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                            viewBox="0 0 512.009 512.009"
-                                                            style="enable-background:new 0 0 512.009 512.009;"
-                                                            xml:space="preserve">
-                                                            <g>
-                                                                <path
-                                                                    d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
+                                            <a href="{{ route('gallery') }}">
+                                                <button class="arrow_btn">
+
+                                                    <span class="circle">
+                                                        <span class="icon arrow">
+                                                            <svg version="1.1" id="fi_664866"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                                y="0px" viewBox="0 0 512.009 512.009"
+                                                                style="enable-background:new 0 0 512.009 512.009;"
+                                                                xml:space="preserve">
+                                                                <g>
+                                                                    <path
+                                                                        d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
                                   c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
                                   s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
                                   c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                                </path>
-                                                            </g>
-                                                        </svg>
+                                                                    </path>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
                                                     </span>
-                                                </span>
 
-                                                <span class="arrow_btn_text">
-                                                    <p>View images</p>
-                                                </span>
+                                                    <span class="arrow_btn_text">
+                                                        <p>View images</p>
+                                                    </span>
 
-                                            </button>
-                                        </a>
+                                                </button>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -320,7 +320,7 @@
         </div>
     </div>
     <div class="col-3 line_half_flower">
-    <img src="public/frontend/images/line_flower.png" alt="" class="w-100" data-speed="0.9">
+        <img src="public/frontend/images/line_flower.png" alt="" class="w-100" data-speed="0.9">
     </div>
 </div>
 
@@ -454,7 +454,7 @@
 
 
     <div iv class="col-3 line_half_flower">
-    <img src="public/frontend/images/line_flower.png" alt="" class="w-100" data-speed="0.9">
+        <img src="public/frontend/images/line_flower.png" alt="" class="w-100" data-speed="0.9">
     </div>
 </div>
 
@@ -532,94 +532,94 @@
                         special day.
                     </p>
 
-                   @if ($message = Session::get('error'))
-                         <div class="alert alert-danger">
-                             <p>{{ $message }}</p>
-                         </div>
-                     @endif
-                     @if ($message = Session::get('success'))
-                         <div class="alert alert-success">
-                             <p>{{ $message }}</p>
-                         </div>
-                     @endif
-                     <form id="inquiry_form" name="inquiry_form" action="{{ route('new-enquiry') }}"
-                         enctype="multipart/form-data" method="post" class="smart-form inquiry_form">
-                         @csrf
-                         <div class="row">
-                             <div class="col-6">
-                                 <div class="form-floating contact_form mb-3">
-                                     <input type="text" class="form-control" id="full_name" name="full_name" required
-                                         placeholder="Name">
-                                     <label for="full_name">Name</label>
-                                 </div>
-                             </div>
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+                    <form id="inquiry_form" name="inquiry_form" action="{{ route('new-enquiry') }}"
+                        enctype="multipart/form-data" method="post" class="smart-form inquiry_form">
+                        @csrf
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-floating contact_form mb-3">
+                                    <input type="text" class="form-control" id="full_name" name="full_name"
+                                        required placeholder="Name">
+                                    <label for="full_name">Name</label>
+                                </div>
+                            </div>
 
-                             <div class="col-6">
-                                 <div class="form-floating contact_form mb-3">
-                                     <input type="text" class="form-control" id="tel" name="tel"
-                                         placeholder="Mobile Number" required pattern="^\+?[0-9]{7,15}$"
-                                         onkeypress="return isNumberKey(event)"
-                                         oninput="this.value = this.value.replace(/[^0-9+]/g, '').replace(/(?!^)\+/g, '').slice(0, 15); this.setCustomValidity('')"
-                                         oninvalid="this.setCustomValidity('Enter a valid number')">
-                                     <label for="tel">Mobile Number</label>
-                                 </div>
-                             </div>
+                            <div class="col-6">
+                                <div class="form-floating contact_form mb-3">
+                                    <input type="text" class="form-control" id="tel" name="tel"
+                                        placeholder="Mobile Number" required pattern="^\+?[0-9]{7,15}$"
+                                        onkeypress="return isNumberKey(event)"
+                                        oninput="this.value = this.value.replace(/[^0-9+]/g, '').replace(/(?!^)\+/g, '').slice(0, 15); this.setCustomValidity('')"
+                                        oninvalid="this.setCustomValidity('Enter a valid number')">
+                                    <label for="tel">Mobile Number</label>
+                                </div>
+                            </div>
 
-                             <div class="col-6">
-                                 <div class="form-floating contact_form mb-3">
-                                     <input type="email" class="form-control" id="email" name="email"
-                                         placeholder="Email Address" required>
-                                     <label for="email">Email Address</label>
-                                 </div>
-                             </div>
+                            <div class="col-6">
+                                <div class="form-floating contact_form mb-3">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Email Address" required>
+                                    <label for="email">Email Address</label>
+                                </div>
+                            </div>
 
-                             <div class="col-6">
-                                 <div class="form-floating contact_form mb-3">
-                                     <input type="text" class="form-control" id="subject" name="subject"
-                                         required placeholder="Subject">
-                                     <label for="subject">Subject</label>
-                                 </div>
-                             </div>
+                            <div class="col-6">
+                                <div class="form-floating contact_form mb-3">
+                                    <input type="text" class="form-control" id="subject" name="subject"
+                                        required placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
 
-                             <div class="col-12">
-                                 <div class="form-floating contact_form mb-3">
-                                     <textarea class="form-control" placeholder="Message" name="message" id="message" rows="5" required
-                                         spellcheck="false"></textarea>
-                                     <label for="message">Message</label>
-                                 </div>
-                             </div>
+                            <div class="col-12">
+                                <div class="form-floating contact_form mb-3">
+                                    <textarea class="form-control" placeholder="Message" name="message" id="message" rows="5" required
+                                        spellcheck="false"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
 
-                             <div class="col-12 mt-3">
-                                 <button class="arrow_btn yellow_btn button" type="submit">
+                            <div class="col-12 mt-3">
+                                <button class="arrow_btn yellow_btn button" type="submit">
 
-                                     <span class="circle">
-                                         <span class="icon arrow">
-                                             <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
-                                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                 viewBox="0 0 512.009 512.009"
-                                                 style="enable-background:new 0 0 512.009 512.009;"
-                                                 xml:space="preserve">
-                                                 <g>
-                                                     <path
-                                                         d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
+                                    <span class="circle">
+                                        <span class="icon arrow">
+                                            <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                viewBox="0 0 512.009 512.009"
+                                                style="enable-background:new 0 0 512.009 512.009;"
+                                                xml:space="preserve">
+                                                <g>
+                                                    <path
+                                                        d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269
                                     c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063
                                     s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269
                                     c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                     </path>
-                                                 </g>
-                                             </svg>
-                                         </span>
-                                     </span>
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </span>
 
-                                     <span class="arrow_btn_text">
-                                         <p>explore more</p>
-                                     </span>
+                                    <span class="arrow_btn_text">
+                                        <p>submit</p>
+                                    </span>
 
-                                 </button>
-                             </div>
+                                </button>
+                            </div>
 
-                         </div>
-                     </form>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -629,17 +629,17 @@
 <!-- contact form end -->
 
 <script>
-function isNumberKey(evt) {
-    const charCode = evt.which ? evt.which : evt.keyCode;
-    const charStr = String.fromCharCode(charCode);
+    function isNumberKey(evt) {
+        const charCode = evt.which ? evt.which : evt.keyCode;
+        const charStr = String.fromCharCode(charCode);
 
-    // Allow only one '+' at the beginning and digits
-    if (charStr === '+' && evt.target.selectionStart === 0 && !evt.target.value.includes('+')) {
-        return true;
+        // Allow only one '+' at the beginning and digits
+        if (charStr === '+' && evt.target.selectionStart === 0 && !evt.target.value.includes('+')) {
+            return true;
+        }
+
+        return /[0-9]/.test(charStr);
     }
-
-    return /[0-9]/.test(charStr);
-}
 </script>
 
 

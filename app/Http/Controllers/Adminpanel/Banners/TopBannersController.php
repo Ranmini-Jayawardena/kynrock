@@ -70,7 +70,7 @@ class TopBannersController extends Controller
         if (!$request->file('banner_image') == "") {
 
             $request->validate([
-                'banner_image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'banner_image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:20480',
             ]);
 
             $image = $request->file('banner_image')->getClientOriginalName();

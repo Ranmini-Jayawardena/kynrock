@@ -34,7 +34,8 @@ class ExperienceContentController extends Controller
     {
         $request->validate([
             'heading' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480'
         ]);
 
         if(!request()->file('image') == ""){

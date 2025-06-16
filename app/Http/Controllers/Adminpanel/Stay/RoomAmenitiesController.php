@@ -101,6 +101,8 @@ class RoomAmenitiesController extends Controller
     {
         $request->validate([
             'amenties_name' => 'required',
+            'icon'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+
         ]);
 
         if (!$request->file('icon') == "") {

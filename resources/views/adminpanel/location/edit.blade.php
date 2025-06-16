@@ -123,6 +123,8 @@
                                     <label class="input">
                                         <input type="file" class="form-control form-input" id="home_image"
                                             name="home_image" style="overflow: hidden;">
+                                          <small id="file-error" style="color: red; display: none;"></small>
+
                                     </label>
                                 </section>
                                 <section class="col col-2">
@@ -291,14 +293,26 @@
             }, 5000);
         </script>
         <script type="text/javascript">
-            $(document).ready(function(e) {
-                $('#home_image').change(function() {
-                    let reader = new FileReader();
-                    reader.onload = (e) => {
-                        $('#preview-image-before-upload').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                });
+           $('#home_image').change(function(e) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#preview-image-before-upload').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            });
+
+            document.getElementById('home_image').addEventListener('change', function() {
+                const file = this.files[0];
+                const errorElement = document.getElementById('file-error');
+
+                if (file && file.size > 10 * 1024 * 1024) {
+                    errorElement.textContent = "File size is too large.";
+                    errorElement.style.display = 'block';
+                    this.value = '';
+                } else {
+                    errorElement.textContent = '';
+                    errorElement.style.display = 'none';
+                }
             });
 
             $('#button1id').click(function(event) {

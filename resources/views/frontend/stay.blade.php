@@ -56,7 +56,8 @@
         @foreach ($roomTypes as $room)
             @if (!empty($room->images) && count($room->images) > 0)
                 <div class="col-xxl-8 col-xl-9 col-lg-10 col-md-12 col-sm-12 col-12 mb-5">
-                    <div id="carouselExampleControls{{ $room->id }}" class="carousel slide detail_slide" data-bs-ride="carousel">
+                    <div id="carouselExampleControls{{ $room->id }}" class="carousel slide detail_slide"
+                        data-bs-ride="carousel">
                         <div class="carousel-inner">
                             @foreach ($room->images as $key => $image)
                                 @if ($key == 0)
@@ -71,7 +72,7 @@
                             @endforeach
                         </div>
 
-                        @if(count($room->images) > 1)
+                        @if (count($room->images) > 1)
                             <button class="carousel-control-prev" type="button"
                                 data-bs-target="#carouselExampleControls{{ $room->id }}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -94,7 +95,8 @@
                                         @if ($amenityData->feature)
                                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                                 <div class="icon_div d-flex mb-2 gap-2">
-                                                    <img src="{{ asset('storage/app/' . $amenityData->feature->icon) }}" alt="">
+                                                    <img src="{{ asset('storage/app/' . $amenityData->feature->icon) }}"
+                                                        alt="">
                                                     <p class="mb-0">{{ $amenityData->feature->amenties_name }}</p>
                                                 </div>
                                             </div>
@@ -107,19 +109,20 @@
                                 <div class="d-flex justify-content-end pe-5">
                                     <a href="{{ url('room-details/' . $room->meta_title) }}">
                                         <button class="arrow_btn">
-                                           <span class="circle">
-                                            <span class="icon arrow">
-                                                <svg version="1.1" id="fi_664866" xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                    viewBox="0 0 512.009 512.009"
-                                                    style="enable-background:new 0 0 512.009 512.009;"
-                                                    xml:space="preserve">
-                                                    <path
-                                                        d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269 c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063 s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269 c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
-                                                    </path>
-                                                </svg>
+                                            <span class="circle">
+                                                <span class="icon arrow">
+                                                    <svg version="1.1" id="fi_664866"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                        viewBox="0 0 512.009 512.009"
+                                                        style="enable-background:new 0 0 512.009 512.009;"
+                                                        xml:space="preserve">
+                                                        <path
+                                                            d="M508.625,247.801L508.625,247.801L392.262,131.437c-4.18-4.881-11.526-5.45-16.407-1.269 c-4.881,4.18-5.45,11.526-1.269,16.407c0.39,0.455,0.814,0.88,1.269,1.269l96.465,96.582H11.636C5.21,244.426,0,249.636,0,256.063 s5.21,11.636,11.636,11.636H472.32l-96.465,96.465c-4.881,4.18-5.45,11.526-1.269,16.407s11.526,5.45,16.407,1.269 c0.455-0.39,0.88-0.814,1.269-1.269l116.364-116.364C513.137,259.67,513.137,252.34,508.625,247.801z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
                                             </span>
-                                        </span>
                                             <span class="arrow_btn_text">
                                                 <p>Room details</p>
                                             </span>
@@ -149,7 +152,8 @@
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12" data-speed="1.2">
             <div class="swiper custom mt-n3 pb-5">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide img_bg" style="background-image: url({{asset('storage/app/' .$contents->image)}});"></div>
+                    <div class="swiper-slide img_bg"
+                        style="background-image: url({{ asset('storage/app/' . $contents->image) }});"></div>
                 </div>
 
             </div>
@@ -160,8 +164,8 @@
                 {{ $contents->heading2 }}
             </h2>
             <div class="des_div">
-                @if(!empty($contents->description2))
-                {!! $contents->description2 !!}
+                @if (!empty($contents->description2))
+                    {!! $contents->description2 !!}
                 @endif
 
                 <div class="row mt-4">

@@ -29,8 +29,13 @@ class RoomTypesImagesController extends Controller
     {
         $request->validate([
             'roomtypes_id' => 'required|exists:room_types,id',
-            'images.*.image_name' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'images.*.image_name' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20480',
             'images.*.order' => 'required|integer',
+        
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
 
         foreach ($request->images as $imageData) {
@@ -87,8 +92,12 @@ class RoomTypesImagesController extends Controller
     {
         $request->validate([
             'roomtypes_id' => 'required|exists:room_types,id',
-            'images.*.image_name' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'images.*.image_name' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:20480',
             'images.*.order' => 'required|integer',
+          ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
 
         $image = RoomTypesImages::find($id);

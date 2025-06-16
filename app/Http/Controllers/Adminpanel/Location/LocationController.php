@@ -30,14 +30,21 @@ class LocationController extends Controller
         $request->validate([
             'location_name' => 'required',
             'description' => 'required',
-            'home_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'home_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:20480',
+            'images.*.image_name' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+
+       
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
-    
+
         if (!$request->file('home_image') == "") {
 
             $img = $request->file('home_image')->getClientOriginalName();
 
-            $imagePath = $request->file('home_image')->store('public/locationimages');
+            $homeimagePath = $request->file('home_image')->store('public/locationimages');
         } else {
             $path = "";
         }
@@ -45,13 +52,13 @@ class LocationController extends Controller
         $location = new Location();
         $location->location_name = $request->location_name;
         $location->description = $request->description;
-        $location->home_image = $imagePath;
+        $location->home_image = $homeimagePath;
         $location->order = $request->order;
         $location->status = $request->status;
         $location->save();
 
 
-    
+
         // Handle images
         if ($request->has('images')) {
             foreach ($request->images as $image) {
@@ -68,7 +75,7 @@ class LocationController extends Controller
         return redirect()->route('location-list')
             ->with('success', 'location List created successfully.');
     }
-    
+
     public function list(Request $request)
     {
         if ($request->ajax()) {
@@ -79,9 +86,9 @@ class LocationController extends Controller
                     $edit_url = url('/edit-location/' . encrypt($row->id));
                     return '<a href="' . $edit_url . '"><i class="fa fa-edit"></i></a>';
                 })
-                ->addColumn('activation', function($row){
+                ->addColumn('activation', function ($row) {
                     $status = $row->status == "Y" ? 'fa fa-check' : 'fa fa-remove';
-                    return '<a href="'.route('changestatus-location', ['id' => $row->id]).'"><i class="'.$status.'"></i></a>';
+                    return '<a href="' . route('changestatus-location', ['id' => $row->id]) . '"><i class="' . $status . '"></i></a>';
                 })
                 ->addColumn('blocklocation', 'adminpanel.location.actionsBlock')
                 ->rawColumns(['edit', 'activation', 'blocklocation'])
@@ -90,7 +97,7 @@ class LocationController extends Controller
 
         return view('adminpanel.location.list');
     }
- 
+
     public function edit($id)
     {
         $locationID = decrypt($id);
@@ -105,13 +112,21 @@ class LocationController extends Controller
         $request->validate([
             'location_name' => 'required',
             'description' => 'required',
+            'home_image' => 'image|mimes:jpeg,png,jpg,gif|max:20480',
+            'images.*.image_name' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+
+
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
 
         if (!$request->file('home_image') == "") {
 
             $img = $request->file('home_image')->getClientOriginalName();
 
-            $imagePath = $request->file('home_image')->store('public/locationimages');
+            $homeimagePath = $request->file('home_image')->store('public/locationimages');
         } else {
             $path = "";
         }
@@ -120,7 +135,7 @@ class LocationController extends Controller
         if (!$data) {
             return redirect()->route('location-list')->with('error', 'location not found.');
         }
-    
+
         // Handle image deletions
         if ($request->has('delete_images')) {
             foreach ($request->delete_images as $imageId) {
@@ -131,7 +146,7 @@ class LocationController extends Controller
                 }
             }
         }
-    
+
         // Handle image updates/additions
         if ($request->has('images')) {
             foreach ($request->images as $image) {
@@ -145,7 +160,7 @@ class LocationController extends Controller
                             'order' => $image['order'] ?? 0
                         ]
                     );
-                }elseif (isset($image['id'])) {
+                } elseif (isset($image['id'])) {
                     // If only order is updated
                     LocationImages::where('id', $image['id'])->update([
                         'order' => $image['order'] ?? 0
@@ -153,23 +168,24 @@ class LocationController extends Controller
                 }
             }
         }
-    
+
         // Update location data
         $data->location_name = $request->location_name;
         $data->description = $request->description;
-        if(isset($imagePath)) {
-            $data->home_image = $imagePath;
+        if (isset($homeimagePath
+        )) {
+            $data->home_image = $homeimagePath;
         }
         $data->order = $request->order;
         $data->status = $request->status;
         $data->save();
-    
+
         \LogActivity::addToLog('location record ' . $data->location_name . ' updated(' . $data->id . ').');
-    
+
         return redirect()->route('location-list')
             ->with('success', 'location updated successfully.');
     }
-    
+
     public function activation($id)
     {
         $data = Location::find($id);
@@ -188,12 +204,12 @@ class LocationController extends Controller
             ->with('success', 'location status changed successfully.');
     }
 
-    
+
 
     public function block(Request $request)
     {
         $data = Location::find($request->id);
-    
+
         if (!$data) {
             return redirect()->route('location-list')->with('error', 'location not found.');
         }
@@ -205,7 +221,7 @@ class LocationController extends Controller
             $image->delete(); // Delete the record from the database
         }
 
-    // Mark the location as deleted
+        // Mark the location as deleted
         $data->is_delete = 1;
         $data->save();
 
@@ -213,7 +229,5 @@ class LocationController extends Controller
 
         return redirect()->route('location-list')
             ->with('success', 'location and associated images deleted successfully.');
-        }
-
-    
+    }
 }

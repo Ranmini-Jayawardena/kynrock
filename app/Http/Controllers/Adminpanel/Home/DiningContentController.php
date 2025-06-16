@@ -40,6 +40,12 @@ class DiningContentController extends Controller
         $request->validate([
             'heading' => 'required',
             'description' => 'required',
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'image5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'image6' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
         ]);
 
         $data = DiningContent::findOrFail($request->id);

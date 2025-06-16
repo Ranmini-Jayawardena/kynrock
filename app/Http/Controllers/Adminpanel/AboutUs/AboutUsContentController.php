@@ -54,7 +54,7 @@ class AboutUsContentController extends Controller
             'content1' => 'required',
             'title2' => 'required',
             'content2' => 'required',
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480'
         ]);
 
         if (!$request->file('image1') == "") {

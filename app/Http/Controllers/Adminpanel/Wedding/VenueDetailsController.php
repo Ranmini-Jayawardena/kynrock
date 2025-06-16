@@ -30,6 +30,12 @@ class VenueDetailsController extends Controller
         $request->validate([
             'venue_name' => 'required',
             'description' => 'required',
+            'images.*.image_name' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:20480',
+
+          ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
     
         $venue = new VenueDetails();
@@ -91,6 +97,12 @@ class VenueDetailsController extends Controller
         $request->validate([
             'venue_name' => 'required',
             'description' => 'required',
+         'images.*.image_name' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:20480',
+
+          ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
     
         // Find the experience first

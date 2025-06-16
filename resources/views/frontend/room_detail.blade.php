@@ -288,7 +288,7 @@
                                     </span>
 
                                     <span class="arrow_btn_text">
-                                        <p>explore more</p>
+                                        <p>submit</p>
                                     </span>
 
                                 </button>

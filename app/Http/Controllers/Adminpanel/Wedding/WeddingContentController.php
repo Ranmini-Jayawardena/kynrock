@@ -60,6 +60,11 @@ class WeddingContentController extends Controller
             'services_description' => 'required',
             'plan_wedding_title' => 'required',
             'plan_wedding_description' => 'required',
+            
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'wedding_package_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            'services_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+
 
 
         ]);

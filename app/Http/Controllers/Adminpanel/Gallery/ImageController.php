@@ -48,7 +48,13 @@ class ImageController extends Controller
         $request->validate([
             'category_id' => 'required|exists:categories,id',
             'subcategory_id' => 'nullable|exists:sub_categories,id',
-            'images.*.image_name' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+         'images.*.image_name' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+
+
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
         ]);
 
 
@@ -123,7 +129,15 @@ class ImageController extends Controller
     {
         $firstImage = GalleryImages::findOrFail(decrypt($encryptedId));
 
-        $request->validate([]);
+        $request->validate([
+       'images.*.image_name' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+
+
+        ], [
+            // custom messages here if any
+        ], [
+            'images.*.image_name' => 'Image',
+        ]);
 
         // Delete removed images
         $existingIds = GalleryImages::where('category_id', $firstImage->category_id)
@@ -181,9 +195,13 @@ class ImageController extends Controller
         $categoryId = $request->category_id;
         $subcategoryId = $request->subcategory_id;
 
-        $images = GalleryImages::where('category_id', $categoryId)
-            ->where('subcategory_id', $subcategoryId)
-            ->get();
+        $query = GalleryImages::where('category_id', $categoryId);
+
+        if(!empty($subcategoryId)) {
+            $query->where('subcategory_id', $subcategoryId);
+        }
+
+        $images = $query->get();
 
         foreach ($images as $image) {
             // Delete image file from storage

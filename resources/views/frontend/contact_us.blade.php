@@ -82,7 +82,9 @@
                                  <p class="mb-1">LOCATION</p>
                                  @if (!empty($contactDetails->address))
                                      <h5 class="mb-0">
-                                         {{ $contactDetails->address }}
+                                         <a href="{{ $contactDetails->map }}" target="_blank">
+                                             {{ $contactDetails->address }}
+                                         </a>
                                      </h5>
                                  @endif
                              </div>
@@ -164,7 +166,7 @@
                          </div>
                      @endif
                      @if ($message = Session::get('success'))
-                         <div class="alert alert-success">
+                         <div class="alert alert-success"> 
                              <p>{{ $message }}</p>
                          </div>
                      @endif
@@ -193,7 +195,9 @@
                              <div class="col-6">
                                  <div class="form-floating contact_form mb-3">
                                      <input type="email" class="form-control" id="email" name="email"
-                                         placeholder="Email Address" required>
+                                         placeholder="Email Address" required
+                                         oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                         oninput="this.setCustomValidity('')">
                                      <label for="email">Email Address</label>
                                  </div>
                              </div>
@@ -237,7 +241,7 @@
                                      </span>
 
                                      <span class="arrow_btn_text">
-                                         <p>explore more</p>
+                                         <p>submit</p>
                                      </span>
 
                                  </button>
@@ -252,17 +256,17 @@
      </div>
  </div>
  @include('frontend.includes.footer')
-<script>
-function isNumberKey(evt) {
-    const charCode = evt.which ? evt.which : evt.keyCode;
-    const charStr = String.fromCharCode(charCode);
+ <script>
+     function isNumberKey(evt) {
+         const charCode = evt.which ? evt.which : evt.keyCode;
+         const charStr = String.fromCharCode(charCode);
 
-    // Allow only one '+' at the beginning and digits
-    if (charStr === '+' && evt.target.selectionStart === 0 && !evt.target.value.includes('+')) {
-        return true;
-    }
+         // Allow only one '+' at the beginning and digits
+         if (charStr === '+' && evt.target.selectionStart === 0 && !evt.target.value.includes('+')) {
+             return true;
+         }
 
-    return /[0-9]/.test(charStr);
-}
-</script>
+         return /[0-9]/.test(charStr);
+     }
+ </script>
  <!-- contact form end -->
